@@ -23,9 +23,9 @@ We live in an increasingly digital world where data is supposed to be exchanged 
 The purpose of the semantic specifications profile is to provide a mechanism for reusing parts of specifications when creating new specifications.
 
 There are many potential added values:
-Quicker development of new specifications as you do not have to start from scratch.
-Improved quality since reused parts have been battle tested.
+* Quicker development of new specifications as you do not have to start from scratch.
+* Improved quality since reused parts have been battle tested.
 Shorter learning time if new specifications have fewer parts that are truly unique.
-Data from different specifications can be partially interoperable.
+* Data from different specifications can be partially interoperable.
 
 To reach this goal we need to allow individual parts of a specification to be defined and reused in new contexts, this means being careful about defining the semantics of these parts independent of the context they first are introduced in.

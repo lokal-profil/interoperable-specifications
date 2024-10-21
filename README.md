@@ -4,11 +4,28 @@ This specification is a profile, that means that mainly propose a special use / 
 
 ## Short introduction
 
+At the core of most specification is an information model that describes how data is expressed. An information model is sometimes described informally in a document and sometimes more formally using a modelling language such as UML, ER-diagrams, OWL or RDFS. The information model often consists of:
+
+* **classes** that describes the kind of entities that exists in the data
+* **properties** corresponding to attributes on or relations between classes 
+* **concepts** that provides fixed values with predefined meeting to be used as values in the data
+* **diagrams** that provides a visualization of how the information model
+
+Note that although diagrams are mostly valuable as a help for humans for getting an overview not for specifying formal information, that is provided in the other parts.
+
+Now, lets turn our focus on semantic specifications:
+
+> *The purpose of semantic specification profile is to promote interoperability through reuse of classes, properties and concepts across specifications.* 
+
+A consequence of reuse of classes and properties is that they are defined more loosely to allow them to be combined in different ways. For instance, the property `publisher` can be applied to both a `Text` and a `Dataset`. Hence, we need to introduce a mechanism to combine and restrict their use in new situations:
+
+* **application profiles** provides a mechanism for describing how classes, properties and concepts are combined in new settings
+
 ## Profile parts
 
 1. [Background and motivation](docs/background.md) 
 2. [Conceptual design and definitions](docs/design.md) 
-3. [Profile for semantic specifications](docs/profile.md) ⇐ (**the formal specification**) 
+3. [Rules for semantic specifications](docs/rules.md) ⇐ (**the formal specification**) 
 4. Harvesting 
    1. Flavour 1 - natively according to profile 
    2. Flavour 2 - via UML according to the OSLO principles 
