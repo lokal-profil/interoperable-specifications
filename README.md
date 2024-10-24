@@ -21,6 +21,8 @@ A consequence of reuse of classes and properties is that they are defined more l
 
 * **application profiles** provides a mechanism for describing how classes, properties and concepts are combined in new settings
 
+<img src="docs/pics/semantic_specifications_simple.svg" width="800">
+
 ## Profile parts
 
 1. [Background and motivation](docs/background.md) 
