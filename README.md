@@ -4,24 +4,28 @@ This specification is a profile, that means that mainly propose a special use / 
 
 ## Short introduction
 
-At the core of most specification is an information model that describes how data is expressed. An information model is sometimes described informally in a document and sometimes more formally using a modelling language such as UML, ER-diagrams, OWL or RDFS. The information model often consists of:
+A specification has historically often been seen as a specification document containing a mixture of background, motivation and more formal descriptions. A more modern way of looking at a specification is that it is a package of resources, some targeted towards human consumtion others are machine readable.   
 
-* **classes** that describes the kind of entities that exists in the data
-* **properties** corresponding to attributes on or relations between classes 
-* **concepts** that provides fixed values with predefined meeting to be used as values in the data
-* **diagrams** that provides a visualization of how the information model
+At the core of most specification is an information model that describes how data is expressed. An information model can be described informally in a specification document but can also be expressed more formally using a modelling language such as UML, ER-diagrams, OWL or RDFS. The information model is often expressed in terms of **classes**, **properties** (attributes and relations) as well as **concepts**. In addition, there is nearly always a visualization, typically in the form of a UML class **diagram**.
 
-Note that although diagrams are mostly valuable as a help for humans for getting an overview not for specifying formal information, that is provided in the other parts.
+The purpose of semantic specification profile is to promote interoperability through reuse of classes, properties and concepts across specifications. A consequence of such reuse is that classes and properties needs to defined more loosely to allow them to be combined in different ways. For instance, the property `publisher` can be applied to both a `Text` and a `Dataset`. Consequently, there is a need to describe how they are combined in a specific setting, we refer to this as an **application profile**.
 
-Now, lets turn our focus on semantic specifications:
+Taken together, the following resources will have special role in a semantic specification:
 
-> *The purpose of semantic specification profile is to promote interoperability through reuse of classes, properties and concepts across specifications.* 
-
-A consequence of reuse of classes and properties is that they are defined more loosely to allow them to be combined in different ways. For instance, the property `publisher` can be applied to both a `Text` and a `Dataset`. Hence, we need to introduce a mechanism to combine and restrict their use in new situations:
-
-* **application profiles** provides a mechanism for describing how classes, properties and concepts are combined in new settings
+* **vocabulary** a container for:
+    * **classes** that describes the kind of entities that exists in the data
+    * **properties** corresponding to attributes on or relations between classes 
+* **terminology** a container for:
+    * **concepts** provides fixed values with predefined meeting to be used as values in the data
+    * **concept collection** a set of collections assempled for a specific purpose
+* **application profile** provides a mechanism for describing how classes, properties and concepts are combined in new settings
+* **diagrams** provides a visualization of the information model
 
 <img src="docs/pics/semantic_specifications_simple.svg" width="800">
+
+Note 1 that although diagrams are mostly valuable as a help for humans for getting an overview not for specifying formal information (which is provided in the vocabulary, terminology and application profile).
+
+Note 2 a semantic specification may contain more resources than those mentioned above, although they will not be understood in any deeper way.
 
 ## Profile parts
 
