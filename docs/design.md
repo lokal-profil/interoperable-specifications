@@ -12,7 +12,7 @@ Since classes and properties often are introduced together it will make sense to
 
 Concepts are often managed together in a **terminology** (or code lists). Sometimes it will be necessary to select a smaller set of concepts from a single or across several thesauri, then we will just refer to them as a **concept collection**.
 
-<img src="pics/semantic_specifications.svg" width="800">
+<img src="pics/interoperable_specifications.svg" width="800">
 
 There are organizations that focus on providing generic vocabularies, e.g. Dublin Core, FOAF, VCard etc. that will be part of many specifications. The same applies to well known thesauri like GEMET and the authority tables of the European Unions publication office. To avoid confusion regarding the origin of vocabularies and thesauri they should be included in specifications with a special "**reused" mark**".
 
