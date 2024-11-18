@@ -30,6 +30,9 @@ To reach this goal we need to allow individual parts of a specification to be de
 
 ## Classes, properties and concepts
 
-With a specification we mean an expression that specifies how data in a dataset should be expressed and understood.
-
-To express dat
+TODO, explain:
+* Classes, Extensional or intensional definitions
+* The aspect of reuse
+* How multiple data records of the same thing should be connected via both common identity, class and some overlapping properties
+* Type-token distinction and the need for concepts in addition to data vocabularies
+* Guidelines when to use a concept and when to use a class
