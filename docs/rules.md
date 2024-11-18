@@ -56,6 +56,7 @@ SKOS-SP builds on top of the SKOS specification by providing the following addit
 
 SHACL-SP builds on top of the SHACL specification by providing the following additional restrictions.
 
+THE FOLLOWING TEXT / RULES ARE VERY UNSTABLE
 
 To simplify the rules below we introduce the following terminology:
 
@@ -69,18 +70,13 @@ To simplify the rules below we introduce the following terminology:
 
 ><a name="AP2"></a> **Rule AP-2:** There MUST be a single profile resource typed as sp:Profile
 
-><a name="AP3"></a> **Rule AP-3:** All shapes MUST have URIs and point to the profile resource via the rdfs:isDefinedBy except ordering property shapes
-
-><a name="AP3"></a> **Rule AP-3:** All main and extended property profiles MUST have URIs and point to the profile resource via the rdfs:isDefinedBy
+><a name="AP3"></a> **Rule AP-3:** All shapes MUST have URIs and point to the profile resource via the rdfs:isDefinedBy except ordering property shapes introduced for ordering purposes only
 
 ><a name="AP3"></a> **Rule AP-3:** All ordering property profiles MUST be represented as blank nodes and MUST NOT point to the profile resource via the rdfs:isDefinedBy
 
 ><a name="AP5"></a> **Rule AP-5:** Shapes MAY inherit characteristics from other shapes via the sh:and construct, those shapes may reside in other RDF Datasets that are indicated via owl:import.   
 
 ><a name="AP5"></a> **Rule AP-5:** Entity profiles and main property profiles MAY indicate that they are based on other shapes via the sp:basedOn property, those shapes may reside in other RDF Datasets indicated via owl:import.
-
-URIs
-
 
 
 (*) Both RDFS and SKOS introduce building blocks (classes and properties) for for defining things (other classes, properties, concepts, collections) in an open world manner. However, both vocabularies and terminologies needs to work in the context of semantic specifications where it is stated explicitly what is included, hence it corresponds to a closed world perspective. Hence, in both RDFS-SP and SKOS-SP there is a restriction to assume that everything needed is provided in the indicated RDF Datasets.

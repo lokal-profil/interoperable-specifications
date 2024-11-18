@@ -33,8 +33,10 @@ Note 2 - an interoperable specification may contain more resources than those me
 
 1. [Background and motivation](docs/background.md) 
 2. [Conceptual design and definitions](docs/design.md) 
-3. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**) 
-4. Harvesting 
+3. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**)
+4. [Application Profile Model](docs/ap.md)
+5. Application Profile expressed in SHACL
+4. Harvesting interoperable specifications 
    1. Flavour 1 - natively according to profile 
    2. Flavour 2 - via UML according to the OSLO principles 
    3. Flavour 3 - via tabular annotations (CSV on the web)
