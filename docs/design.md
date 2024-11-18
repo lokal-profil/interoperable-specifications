@@ -1,22 +1,27 @@
-# Conceptual design
+# Conceptual design of interoperable specifications
 
-We start by identifying which parts of a specification we want to reuse. In short we want to focus on the information model and fixed value lists / terminologies we use in conjunction with it. Hence, we want to reuse the following constituents across specification borders:
+The focus on interoperable specifications is on reuse of the information model.
+We will take the perspective that an information model is best described by classes and properties (attributes and relations) as well as any fixed value lists / terminologies used in conjunction with properties. Hence, we want to reuse the following constituents across specification borders:
 
 * **Classes**
 * **Properties** (attributes and relations) (*)
 * **Concepts** (fixed values)
 
-To contextualize the classes, properties and concepts in a specification a new specification is needed, the mechanism is referred to as an **application profile**.
+In the context of this specification we now make this important definition:
+> 1. An **application profile** is an information model that manages to reuse and contextualize existing classes, properties and concepts.
+> 2. An **interoperable specification** is a specification that contains exactly one application profile
 
-Since classes and properties often are introduced together it will make sense to refer to them as a **data vocabulary**.
+Since sets of classes and properties often are introduced together for a specific purpose it will make sense to refer to such a set as a **data vocabulary**.
 
 Concepts are often managed together in a **terminology** (or code lists). Sometimes it will be necessary to select a smaller set of concepts from a single or across several terminologies, then we will just refer to them as a **concept collection**.
+
+There is a strong need for diagrammatic representations that can provide an overview of how classes, properties and concepts are combined. For this purpose we introduce **diagrams** and how they should be expressed to allow interaction with classes, properties, concepts and application profiles.
 
 <img src="pics/interoperable_specifications.svg" width="800">
 
 There are organizations that focus on providing generic data vocabularies, e.g. Dublin Core, FOAF, VCard etc. that will be part of many specifications. The same applies to well known terminologies like GEMET and the authority tables of the European Unions publication office. To avoid confusion regarding the origin of data vocabularies and terminologies they should be included in specifications with a special "**reused" mark**".
 
-Furthermore, there is a need to have interoperable specifications that does nothing else than introduce these generic data vocabularies or terminologies (without the reuse mark). Hence, we introduce:
+Furthermore, there is a need to provide a mechanism to introduce these generic data vocabularies or terminologies (without the reuse mark). Hence, we introduce:
 
 **Vocabulary specification** - a specification containing only a data vocabulary without the reuse mark. It is not allowed to contain an application profile or a terminology.
 
