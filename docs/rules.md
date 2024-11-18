@@ -1,6 +1,6 @@
-# Rules for semantic specifications
+# Rules for interoperable specifications
 
-The rules for semantic specifications are divided into five parts:
+The rules for interoperable specifications are divided into five parts:
 
 1. Rules for specifications
 2. Rules for vocabularies - RDFS-SP
@@ -10,7 +10,7 @@ The rules for semantic specifications are divided into five parts:
 
 ## Rules for specifications
 
-For a specification to be considered a semantic specification the following must apply:
+For a specification to be considered a interoperable specification the following must apply:
 
 ><a name="SP1"></a> **Rule SP-1:** The specification and its specification parts MUST be described with PROF
 

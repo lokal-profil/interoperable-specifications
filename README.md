@@ -1,6 +1,6 @@
 # Interoperable Specifications Profile
 
-The purpose of the this profile is to promote interoperability through reuse of classes, properties and concepts across specifications. By reuse we mean using the same identifiers and therefore share the formal definitions, not just names. The intention is to allow the information models of specifications to form a larger network of definitions that can act as a basis for interoperability, improved quality, quicker development time and a supportive community with a shared knowledge base. 
+The purpose of this profile is to promote interoperability through reuse of classes, properties and concepts across specifications. By reuse we mean using the same identifiers and therefore share the formal definitions, not just names. The intention is to allow the information models of specifications to form a larger network of definitions that can act as a basis for interoperability, improved quality, quicker development time and a supportive community with a shared knowledge base. 
 
 The requirements of interoperable specification are expressed in the form of a profile, this means that the requirements are expressed as special uses / pattern of something existing rather than introducing something entirely new. Absolute requirements are expressed with MUST / MUST NOT, strong requirments with SHOULD / SHOULD NOT and finally MAY for weaker recommendations, see [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt) for a longer treatment.
 
