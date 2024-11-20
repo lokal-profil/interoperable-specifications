@@ -61,8 +61,8 @@ This profile does note take a stance on specific tools.
 
 ## Process for the development of the profile
 
-The interoperable specification profile is beeing developed as part of the metadata working group within ENA, Swedish digital infrastructure. 
-The work is led by [Agency for Digital Government (DIGG)](https://www.digg.se).
+The interoperable specification profile is beeing developed as part of the metadata working group within Ena, Swedish digital infrastructure. 
+The work is led by [Agency for Digital Government (Digg)](https://www.digg.se).
 
 For more details, see the [separate page with planned meetings, slides, notes, reference group etc.](process/index.md).
 
