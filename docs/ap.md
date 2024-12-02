@@ -2,12 +2,10 @@
 
 The purpose of an application profile is to clarify in more detail on how to reuse classes, properties and concepts in new settings.
 The needs can to a large extent be covered by the SHACL Shapes Constraint Language, a language for validating RDF graphs against a set of conditions.
-However, 
-Below we go into the details and providide guidance on how to use a SHACL to express application profiles. This usage of SHACL can  
+However, SHACL is too flexibile for the use case of application profiles, hence we define the SHACL-INSPEC to capture the specific requirements / constraints that needs to be met when using SHACL for expressing application profiles. (A side note is that SHACL-INSPEC itself is formally an application profile of SHACL and could therefore be expressed with the help of itself. In time this will perhaps be done, but for now we ignore this as it most likely cause more confusion rather than help to clarify.)
 
-<img src="pics/application_profile_model.svg" width="800">
-
-Let's repeat the central terminology we are using:
+## Glossary
+Let's clarify the words we are using in SHACL-INSPEC:
 
 * Entity - a distinct thing/resource/instance/individual described in a dataset
 * Property - a specific characteristic of an entity
@@ -19,71 +17,90 @@ Let's repeat the central terminology we are using:
 * Node Shape - joins a set of property shapes into a larger constraint 
 * Application Profile - groups a set of node and property shapes together for a certain domain/use case
 
-## Application Profile contents
+## Application Profile expression
 
-For simplicity the requirement on multilinguality are not written explicitly below, i.e. labels, description / definition and usage note are all expected to be expressed with a language and potentially translated in several languages.
+If you have not already, take a look at the [nine rules of SHACL-INSPEC](rules.md#SHACL-INSPEC).
+These rules may be a bit hard to take in, especially since SHACL is a complex language. Hence, below we list what is to be expected based on the application profile as a whole as well as on the shapes.
 
-### Application Profile
+First of all, for simplicity the requirement on multilinguality are not written explicitly below, i.e. labels, description / definition and usage note are all expected to be expressed with a language and potentially translated into several languages.
 
-The following information MUST be provided for an application profile:
+The following picture shows the important relations between the different parts of an application profile expression:
+<img src="pics/application_profile_model.svg" width="800">
 
-* A stable identity in the form of a URI (subject position in triples)
-* A label
+### Application Profile resource
 
-The following information MAY be provided:
+The following information MUST be provided for an application profile resource:
 
-* A description / definition
-* A usage note
-* Reference to another application profile it is based on
-
-### Node shape
-
-The following information MUST be provided for an node shape:
-
-* A stable identity in the form of a URI (subject position in triples)
-* Reference to the application profile it belongs to
-* The class it corresponds to
-* A label
-* A list of ordered Property shapes
-* A mark if it is a main or supportive node shape
+* The application profile resource must have a stable identity in the form of a URI (subject position in triples)
+* The application profile resource must be typed as `prof:Profile`
+* A label expressed via the property `sh:name`
+* A list of main node shapes indicated via the property `dcterms:hasPart`
+* A list of supportive node shapes indicated via the property `dcterms:references`
+* A list of all property shapes referred to from main or supportive node shapes via the property `dcterms:references`
+* A list of all classes and properties used in the application profile must be indicated via the property `dcterms:requires` (the foundational classes from SKOS and RDFS should be exluded)
 
 The following information MAY be provided:
 
-* A description / definition
-* A usage note
-* A reference to another node shape it is based on
+* A description / definition expressed via the property `sh:description`
+* A usage note expressed via the property `vann:usageNote`
+* Reference to another application profile it is based on via the property `prof:isProfileOf` if shapes have been reused in some way
 
-### Property Shape
+### Main and supportive node shapes
+
+Note that there are node shapes of more technical nature that are excluded from the requirements below, all those must have a `sh:severity` set to `sh:INFO` or `sh:WARNING`. For example this covers node shapes pointed to via `sh:node` used to express more complex constraints such as indicating which terminology to choose concepts from.
+
+The following information MUST be provided for a node shape:
+
+* A stable identity in the form of a URI (subject position in triples)
+* A label expressed via the property `sh:name`
+* A list of property shapes via the property `sh:property` (see [section on defining order](#order))
+
+The following information MAY be provided:
+
+* A class it corresponds to via the target declaration `sh:targetClass`
+* A description / definition expressed via the property `sh:description`
+* A usage note expressed via the property `vann:usageNote`
+* A reference to another node shape it
+    * "refines" via `sh:and` with a SHACL list containing the refined node shape (see [section on refinement](#refine)), OR
+    * "is based on" via the `dcterms:isVersionOf` property (see [section on based on](#basedon))
+
+
+### Property Shapes pointed to from main and supportive node shapes
+
+Note that there are property shapes of more technical nature that are excluded from the requirements below. Property shapes are either excluded as they are referred to only from excluded node or from logical constraint components.  
 
 The following information MUST be provided for a property shape:
 
 * A stable identity in the form of a URI (subject position in triples)
-* A reference to the application profile it belongs to
-* The property it describes how to use
-* A label
-* Express mandatory, preferred or optional as well as the max cardinality
-* The value type to match against (URI, literal or blank node)
+* A label expressed via the property `sh:name`
+* The property it describes how to use via `sh:path`
+* The value type to match against, `sh:nodeKind` pointing to `sh:IRI`, `sh:BlankNode`, `sh:Literal` etc.
 
 The following information MAY be provided:
 
-* A description / definition
-* A usage note
-* That a datatype is required on literals (there might be one or several allowed datatypes)
-* That a language is required on literals
+* Express cardinality by:
+  * `sh:minCount` "1"^^xsd:integer for mandatory
+  * `sh:minCount` "-1"^^xsd:integer for preferred
+  * `sh:minCount "0"^^xsd:integer` for preferred (can be left out)
+  * `sh:maxCount "N"^^xsd:integer` for a maximum cardinality of `N`
+* A description / definition expressed via the property `sh:description`
+* A usage note expressed via the property `vann:usageNote`
+* That a datatype is required on literals by using `sh:datatype` (if several datatypes are allowed, a construction with several property shapes with individual `sh:datatype` joined togehter via `sh:or` is neccessary)
+* That a language is required on literals by setting `sh:datatype` to `rdf:langString`
 * Constraints on which literals that is allowed by:
-    * An explicit list
-    * A constraining pattern (Regular expression)
+    * An explicit list by using `sh:in` pointing to a SHACL list
+    * A constraining pattern expressed by `sh:pattern` (Regular expression)
 * Constraints on which URIs that is allowed by:
-    * An explicit list
-    * A constraining URI pattern (Regular expression)
-    * Constrain to concepts in an terminology
-    * Constrain to concepts in a concept collection
-    * Constrain to instances of a class
-* A reference to a another property shape:
-    * that it refines OR
-    * that it is based on
+    * An explicit list by using `sh:in` pointing to a SHACL list
+    * A constraining URI pattern expressed by `sh:pattern` (Regular expression)
+    * Constrain to concepts in a terminology (see [section below](#terminology))
+    * Constrain to concepts in a concept collection (see section below (TODO))
+    * Constrain to instances of a class by `sh:class` (if instances from several classes are allowed, a construction with several property shapes with `sh:class` joined togehter via a `sh:or` is neccessary)
+* A reference to another property shape it:
+  * "refines" via `sh:and` with a SHACL list containing the refined property shape (see [section on refinement](#refine)), OR
+  * "is based on" via the `dcterms:isVersionOf` property (see [section on based on](#basedon))
 
-## How to specialize shapes
+## <a name="refine"></a>How to refine/specialize/inherit shapes
 
 SHACL allows shapes to be combined via `sh:and`. This can be used to specialize an existing shapes with additional constraints or further restricting. E.g. consider the following property shape for the property `dcterms:publisher` where the range is `foaf:Agent`.
 
@@ -103,7 +120,9 @@ we can further constrain it to the subclass `foaf:Organization` via the followin
 
 Note that at a minimum we have to duplicate the `sh:path` property.
 
-Please note that we are not allowed to relax constraints via this construction. For instance if we need to relax the constraint and make the publisher optional we cannot specialize the property shape, instead we have to duplicate all information. But we can still provide an indication that we have "based" our property shape on another via the `dcterms:isVersionOf` property like this: 
+## <a name="basedon"></a>Based on - when refinement breaks down
+
+Note that we are not allowed to relax constraints via the refinement construction since it is a conjuction. For instance if we need to relax the constraint and make the publisher optional we cannot specialize the property shape, instead we have to duplicate all information. But we can still provide an indication that we have "based" our property shape on another via the `dcterms:isVersionOf` property like this: 
 
     ex:ps3 a sh:PropertyShape ;
       sh:label "Publisher" ;
@@ -114,14 +133,14 @@ Please note that we are not allowed to relax constraints via this construction. 
 
 Note that for node shapes it is more common to be be "based" on each other as you often want to change the order or include a slightly different set of property shapes.
 
-## Providing order of property shapes
+## <a name="order"></a>Providing order of property shapes
 
 An important aspect of application profiles is to generate specification documents in a predictable manner. Furthermore, since we aim for multilinguality the order cannot be based on alphabetical sorting of labels. Consequently we outline two rules:
 
 1. Provide an explicit order of all property shapes via `sh:order`.
 2. Sort all property shapes that have no sh:order via the alphabetical order of the localname of the property given via sh:path.
 
-Note that if two property shapes have the same property, they need to be separated by an explicit `sh:order`.
+Note that if two property shapes have the same property, they must be separated by an explicit `sh:order`.
 
 > It is a strong recommendation to always provide an explicit order on every property shape.
 
@@ -153,7 +172,7 @@ To change the order so the `dcterms:identifier` is at the top you can make a min
 
 Note that you have to repeat the `sh:path` due to SHACL rules. We have chosen to not give the new property shape a URI since it does not provide any additional value beyond the order, which is specific to the node shape. This is possible since it does not fall under the AP-4 rule since `sh:and` is excluded, `sh:path` is not a constraint and an `sh:order` is a characteristic (i.e. a non-validating property).
 
-## Restricting to concepts in a terminology
+## <a name="terminology"></a> Restricting to concepts in a terminology
 
 To restrict to concepts in a terminology you should specify:
 1. That you are expecting instances of the class `skos:Concept`.

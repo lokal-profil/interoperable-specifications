@@ -57,7 +57,7 @@ SKOS-INSPEC builds on top of the SKOS specification by providing the following a
 
 ><a name="TE5"></a> **Rule TE-5:** The "terminology resource" must be indicated via the `dcterms:requires` property from the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
-## Rules for application profiles - SHACL-INSPEC
+## <a name="SHACL-INSPEC"></a> Rules for application profiles - SHACL-INSPEC
 
 SHACL-INSPEC builds on top of the SHACL specification by providing additional restrictions. Since SHACL is a rich language the following rules does not unfortunately cover all situations. For a more complete treatment see the [SHACL-INSPEC separate document](ap.md) for patterns on how to use the profile in various situations.
 
@@ -65,11 +65,11 @@ SHACL-INSPEC builds on top of the SHACL specification by providing additional re
 
 ><a name="AP2"></a> **Rule AP-2:** There MUST be a single application profile resource with a URI in the RDF Dataset AND it must be the same as the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
-><a name="AP3"></a> **Rule AP-3:** All property shapes with a severity of `sh:Violation` and with a constraint (specialization via `sh:and` excluded) MUST have URIs AND be pointed to via `dcterms:references` property from the application profile resource
+><a name="AP3"></a> **Rule AP-3:** All property shapes with a severity of `sh:VIOLATION` and with a constraint (`sh:and` for specialization does not count) MUST have URIs AND be pointed to via `dcterms:references` property from the application profile resource
 
-><a name="AP4"></a> **Rule AP-4:** All node shapes with a severity of `Violation` and with a constraint (specialization via `sh:and` excluded) MUST have URIs AND be pointed to as main via the `dcterms:hasPart` or supportive via the `dcterms:references` properties from the application profile resource
+><a name="AP4"></a> **Rule AP-4:** All node shapes with a severity of `sh:VIOLATION` MUST have URIs AND be pointed to as main via the `dcterms:hasPart` or supportive via the `dcterms:references` properties from the application profile resource
 
-><a name="AP5"></a> **Rule AP-5:** All property shapes pointed to from node shapes that are either indicated as main or supportive MUST be ordered via an explicit `sh:order`
+><a name="AP5"></a> **Rule AP-5:** All main or supportive node shapes as well all property shapes pointed to from those MUST provide a label and MAY also provide a definition and a usage note
 
 ><a name="AP6"></a> **Rule AP-6:** Shapes MAY inherit and further restrict other shapes via the `sh:and` construct
 
