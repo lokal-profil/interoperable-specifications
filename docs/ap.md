@@ -1,6 +1,9 @@
 # Application Profile - SHACL-INSPEC
 
-The purpose of an application profile is to clarify in more detail on how to reuse classes, properties and concepts in new settings. We will to a large extent rely on SHACL to express application profiles and the explicit reuse via node shapes and property shapes. 
+The purpose of an application profile is to clarify in more detail on how to reuse classes, properties and concepts in new settings.
+The needs can to a large extent be covered by the SHACL Shapes Constraint Language, a language for validating RDF graphs against a set of conditions.
+However, 
+Below we go into the details and providide guidance on how to use a SHACL to express application profiles. This usage of SHACL can  
 
 <img src="pics/application_profile_model.svg" width="800">
 
