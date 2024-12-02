@@ -157,21 +157,22 @@ To restrict to concepts in a terminology you should specify:
 2. That you are expecting the concepts to have a `skos:inScheme` property pointing to the terminology.
 3. A regular expression for the concept URIs (optional).
 
-
-    ex:ps1 a sh:propetyShape ;
-        sh:path dcterms:subject ;
-        sh:pattern "^http://example.com/terminologyA/.*$" ;
-        sh:node [
-            a sh:NodeShape ;
-            sh:severity sh:Info ;
-            sh:property [
-              sh:path rdf:type ;
-              sh:hasValue skos:Concept
-            ], [
-              sh:path skos:inScheme ;
-              sh:hasValue ex:terminologyA
-            ]
+```
+ex:ps1 a sh:propetyShape ;
+    sh:path dcterms:subject ;
+    sh:pattern "^http://example.com/terminologyA/.*$" ;
+    sh:node [
+        a sh:NodeShape ;
+        sh:severity sh:Info ;
+        sh:property [
+          sh:path rdf:type ;
+          sh:hasValue skos:Concept
+        ], [
+          sh:path skos:inScheme ;
+          sh:hasValue ex:terminologyA
         ]
+    ]
+```
 
 The reason we se the `sh:severity` to `sh:Info` is that if we try validate a data graph against this SHACL expression we do not always expect to have the entire terminology loaded with `rdf:type` and `skos:inScheme` triples for all concepts. In this case we instead rely on the `sh:pattern` to give us a more syntactical indication that the URI in the data graph corresponds to a correct concept. The expression with `rdf:type` and `skos:inScheme` (1 & 2 above) is provided to allow us to both detect that this is in fact a terminology when we render the specification and a more correct way to search for the intended concepts.
 
