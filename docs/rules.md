@@ -57,7 +57,7 @@ SKOS-INSPEC builds on top of the SKOS specification by providing the following a
 
 ><a name="TE5"></a> **Rule TE-5:** The "terminology resource" must be indicated via the `dcterms:requires` property from the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
-## <a name="SHACL-INSPEC"></a> Rules for application profiles - SHACL-INSPEC
+##Rules for application profiles - SHACL-INSPEC
 
 SHACL-INSPEC builds on top of the SHACL specification by providing additional restrictions. Since SHACL is a rich language the following rules does not unfortunately cover all situations. For a more complete treatment see the [SHACL-INSPEC separate document](ap.md) for patterns on how to use the profile in various situations.
 
