@@ -48,7 +48,7 @@ Note 2 - an interoperable specification may contain more resources than those me
    6. DCAT-AP-SE
 7. RDF considerations
    1. Divisions into named graphs
-8. Example specification according to the profile
+8. [Example specification according to the profile](docs/example.md)
 
 ## Who this profile targets
 

@@ -65,19 +65,21 @@ SHACL-INSPEC builds on top of the SHACL specification by providing additional re
 
 ><a name="AP2"></a> **Rule AP-2:** There MUST be a single application profile resource with a URI in the RDF Dataset AND it must be the same as the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
-><a name="AP3"></a> **Rule AP-3:** All property shapes with a severity of `sh:VIOLATION` and with a constraint (`sh:and` for specialization does not count) MUST have URIs AND be pointed to via `dcterms:references` property from the application profile resource
+><a name="AP3"></a> **Rule AP-3:** All property shapes with a severity of `sh:VIOLATION` and with at least one constraint (`sh:and` for specialization does not count) are considered **reusable** and they MUST have URIs and MUST also be pointed to from the application profile resource via the `dcterms:hasPart` property
 
-><a name="AP4"></a> **Rule AP-4:** All node shapes with a severity of `sh:VIOLATION` MUST have URIs AND be pointed to as main via the `dcterms:hasPart` or supportive via the `dcterms:references` properties from the application profile resource
+><a name="AP4"></a> **Rule AP-4:** All node shapes with a severity of `sh:VIOLATION` are considered **reusable** and MUST have URIs and MUST also be pointed to from the application profile resource via the `dcterms:hasPart` property
 
-><a name="AP5"></a> **Rule AP-5:** All main or supportive node shapes as well all property shapes pointed to from those MUST provide a label and MAY also provide a definition and a usage note
+><a name="AP4"></a> **Rule AP-4:** Reusable node shapes are considered **main** if they have a target declaration, otherwise they are considered **alternative**
 
-><a name="AP6"></a> **Rule AP-6:** Shapes MAY inherit and further restrict other shapes via the `sh:and` construct
+><a name="AP6"></a> **Rule AP-6:** All reusable node shapes as well all property shapes pointed to from those MUST provide a label and MAY also provide a definition and a usage note
 
-><a name="AP7"></a> **Rule AP-7:** Shapes MAY indicate that they are based on other shapes via the dcterms:isVersionOf property
+><a name="AP7"></a> **Rule AP-7:** Shapes MAY inherit and further restrict other reusable shapes via the `sh:and` construct
 
-><a name="AP8"></a> **Rule AP-8:** Shapes that are inherited or based on MAY reside in other RDF Datasets as long as the dataset is pointed to via owl:import AND there is a `prof:isProfileOf` relation between the application profile resources
+><a name="AP8"></a> **Rule AP-8:** Shapes MAY indicate that they are based on other reusable shapes via the dcterms:isVersionOf property
 
-><a name="AP9"></a> **Rule AP-9:** All classes and properties referred to via shapes should be explicitly indicated via the `dcterms:requires` property from the "interoperable specification resource" (introduced in Rule INSPEC-1)
+><a name="AP9"></a> **Rule AP-9:** Shapes that are inherited or based on MAY reside in other RDF Datasets as long as the dataset is pointed to via owl:import AND there is a `prof:isProfileOf` relation between the application profile resources
+
+><a name="AP10"></a> **Rule AP-10:** All classes and properties referred to via shapes should be explicitly indicated via the `dcterms:requires` property from the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
 
 (*) Both RDFS and SKOS introduce building blocks (classes and properties) for for defining things (other classes, properties, concepts, collections) in an open world manner. However, both vocabularies and terminologies needs to work in the context of semantic specifications where it is stated explicitly what is included, hence it corresponds to a closed world perspective. Hence, in both RDFS-INSPEC and SKOS-INSPEC there is a restriction to assume that everything needed is provided in the indicated RDF Datasets.

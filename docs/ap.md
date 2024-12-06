@@ -80,8 +80,8 @@ The following information MAY be provided:
 
 * Express cardinality by:
   * `sh:minCount` "1"^^xsd:integer for mandatory
-  * `sh:minCount` "-1"^^xsd:integer for preferred
-  * `sh:minCount "0"^^xsd:integer` for preferred (can be left out)
+  * `sh:minCount` "0"^^xsd:integer for preferred
+  * `sh:minCount "-1"^^xsd:integer` for optional (or, if left out it should be interpreted as -1)
   * `sh:maxCount "N"^^xsd:integer` for a maximum cardinality of `N`
 * A description / definition expressed via the property `sh:description`
 * A usage note expressed via the property `vann:usageNote`
