@@ -20,6 +20,9 @@ The publisher should be a person must have a name, an email that is recommended 
 
 ex:spec1 a prof:Profile ;
    dcterms:title "DocPub1.0 - document and publisher"@en ;
+   dcterms:description """DocPub 1.0 is an example of an interoperable specification.
+It reuses classes and properties from DCTerms and FOAF as well as introduces an own property.
+The purpose is to show how all of the different parts of an interoperable specification fits together.""" ;
    prof:hasResource ex:ap1 ;
    prof:hasResource ex:dv1 ;
    prof:hasResource ex:te1 ;
@@ -122,8 +125,10 @@ dtheme: a skos:ConceptScheme ;
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dmitype: <http://purl.org/dc/dcmitype/> .
-@prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/>
+@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
+@prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 ex:ns-document a sh:NodeShape ;
   sh:targetClass dcmitype:Text ;
