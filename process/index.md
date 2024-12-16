@@ -6,9 +6,13 @@
     * [Slides](slides-meeting1.pdf)
     * [Notes](notes-meeting1.pdf)
 * Meeting 2 reference group - 2024-11-25 14-15 - Collect feedback and discuss options
-    * [Slides](https://docs.google.com/presentation/d/1AESOj3AUmWBW2rJ8lQUOm5TJuOxIXSqZQqpTyBFSYDQ/edit?usp=sharing)
-    * Notes
+    * [Slides](slides-meeting2.pdf)
+    * [Notes](notes-meeting2.pdf)
 * Meeting 3 reference group - 2024-11-02 15-16:0 - Go through proposed profile part 1
+  * [Slides](slides-meeting3.pdf)
+  * [Notes](notes-meeting3.pdf)
 * Meeting 4 reference group - 2024-11-09 15-16:30 - Go through proposed profile part 2 and take decision
+  * [Slides](slides-meeting4.pdf)
+  * [Notes](notes-meeting4.pdf)
 
 ## Reference group
