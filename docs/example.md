@@ -2,9 +2,9 @@
 
 Let us consider a very simple interoperable specification where we describe a document and an associated publisher.
 
-The document must have a title, creation date and a publisher. It also recommended that the document is categorized with help of an external terminology, let us use the data categories from the publication office.
+The document must have a title, creation date and a publisher. It also recommended that the document is categorized with help of an external terminology. In this case we will use the data categories from the publication office.
 
-The publisher should be a person must have a name, an email that is recommended and an optional special identifier expressed via a custom property in a specific data vocabulary. 
+The publisher should be typed as a person, have a name, an email that is recommended and an optional special identifier expressed via a custom property in a specific data vocabulary. 
 
 ## PROF-INSPEC expression
 
