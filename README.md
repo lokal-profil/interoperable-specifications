@@ -1,6 +1,6 @@
 # Interoperable Specifications Profile
 
-The purpose of this profile is to promote interoperability through reuse of classes, properties and concepts across specifications. By reuse we mean using the same identifiers and therefore share the formal definitions, not just names. The intention is to allow the information models of specifications to form a larger network of definitions that can act as a basis for interoperability, improved quality, quicker development time and a supportive community with a shared knowledge base. 
+The purpose of the *Interoperability Specification Profile*, or *INSPEC* in short, is to promote interoperability through reuse of classes, properties and concepts across specifications. By reuse we mean using the same identifiers and therefore share the formal definitions, not just names. The intention is to allow the information models of specifications to form a larger network of definitions that can act as a basis for interoperability, improved quality, quicker development time and a supportive community with a shared knowledge base.
 
 The requirements of interoperable specification are expressed in the form of a profile, this means that the requirements are expressed as special uses / pattern of something existing rather than introducing something entirely new. Absolute requirements are expressed with MUST / MUST NOT, strong requirments with SHOULD / SHOULD NOT and finally MAY for weaker recommendations, see [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt) for a longer treatment.
 
@@ -18,9 +18,9 @@ Taken together, the following resources will have special roles in an interopera
     * **classes** that describes the kind of entities that exists in the data
     * **properties** corresponding to attributes on or relations between classes 
 * **terminology** a container for:
-    * **concepts** provides fixed values with predefined meeting to be used as values in the data
-    * **concept collection** a set of collections assembled for a specific purpose
-* **application profile** provides a mechanism for describing how classes, properties and concepts are combined in new settings
+    * **concepts** provides fixed values with predefined meaning to be used as values in the data
+    * **concept collection** a set of concepts assembled for a specific purpose
+* **application profile** provides a mechanism for describing how classes, properties and concepts are combined in a new setting
 * **diagrams** provides visualizations of the information model
 
 <img src="docs/pics/interoperable_specifications_simple.svg" width="800">
@@ -31,28 +31,18 @@ Note 2 - an interoperable specification may contain more resources than those me
 
 ## Profile parts
 
-1. [Background and motivation](docs/background.md) 
-2. [Conceptual design and definitions](docs/design.md) 
-3. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**)
-4. [Application Profiles as SHACL-INSPEC](docs/ap.md)
-5. Harvesting interoperable specifications 
-   1. Flavour 1 - natively according to profile 
-   2. Flavour 2 - via UML according to the OSLO principles 
-   3. Flavour 3 - via tabular annotations (CSV on the web)
-6. Bootstrapping specifications used in the different flavours
-   1. RDFS 
-   2. SHACL 
-   3. UML-OSLO 
-   4. CSV 
-   5. SKOS-SE 
-   6. DCAT-AP-SE
-7. RDF considerations
-   1. Divisions into named graphs
+1. [Background and motivation](docs/background.md)
+2. [Conceptual design and definitions](docs/design.md)
+3. [Application profiles and subclassing](docs/subclassing.md)
+4. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**)
+5. [Application Profiles as SHACL-INSPEC](docs/ap.md)
+6. [Bootstrapping specifications](docs/bootstrapping.md)
+7. [Harvesting interoperable specifications](docs/harvesting.md)
 8. [Example specification according to the profile](docs/example.md)
 
 ## Who this profile targets
 
-The interoperable specification profile targets anyone who has the task of describing an information model and is either required to or sees an added value in reusing classes, properties and concepts when possible. An added value could be improved quality, quicker development time and/or a supportive community with a shared knowledge base to lean on. An example of a more harsh requirement is *"the result should be interoperable with existing intiatives"*. Sometimes the requirement is expressed in law.
+The interoperable specification profile targets anyone who has the task of describing an information model and is either required to or sees an added value in reusing classes, properties and concepts when possible. An added value could be improved quality, quicker development time and/or a supportive community with a shared knowledge base to lean on. An example of a more demanding requirement is *"the result should be interoperable with existing intiatives"*. Sometimes such requirement are expressed in law.
 
 ## Delimitations
 
@@ -60,7 +50,7 @@ This profile does note take a stance on specific tools.
 
 ## Process for the development of the profile
 
-The interoperable specification profile is beeing developed as part of the metadata working group within Ena, Swedish digital infrastructure. 
+The interoperable specification profile is beeing developed as part of the metadata working group within ENA, Swedish digital infrastructure. 
 The work is led by [Agency for Digital Government (Digg)](https://www.digg.se).
 
 For more details, see the [separate page with planned meetings, slides, notes, reference group etc.](process/index.md).
