@@ -17,12 +17,14 @@ The publisher should be typed as a person, have a name, an email that is recomme
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/> .
 @prefix dmitype: <http://purl.org/dc/dcmitype/> .
+@prefix inspec: <http://purl.org/inspec/> .
 
 ex:spec1 a prof:Profile ;
    dcterms:title "DocPub1.0 - document and publisher"@en ;
    dcterms:description """DocPub 1.0 is an example of an interoperable specification.
 It reuses classes and properties from DCTerms and FOAF as well as introduces an own property.
 The purpose is to show how all of the different parts of an interoperable specification fits together.""" ;
+   dcterms:conformsTo inspec:PROF ;
    prof:hasResource ex:ap1 ;
    prof:hasResource ex:dv1 ;
    prof:hasResource ex:te1 ;
@@ -30,28 +32,28 @@ The purpose is to show how all of the different parts of an interoperable specif
 
 ex:ap1 a prof:ResourceDescriptor ;
    dcterms:title "Application Profile for DocPub1.0";
-   dcterms:conformsTo dp:SHACL-INSPEC ;
+   dcterms:conformsTo inspec:SHACL ;
    dcterms:format "text/turtle" ;
    prof:hasArtifact ex:AP1File ;
    prof:hasRole prof:schema, prof:constraints ;
 
 ex:dv1 a prof:ResourceDescriptor ;
    dcterms:title "Data vocabulary for DocPub1.0";
-   dcterms:conformsTo dp:RDFS-INSPEC ;
+   dcterms:conformsTo inspec:RDFS ;
    dcterms:format "text/turtle" ;
    prof:hasArtifact ex:DV1File ;
    prof:hasRole prof:schema, prof:vocabulary .
 
 ex:te1 a prof:ResourceDescriptor ;
    dcterms:title "Data themes terminology from EU publication office";
-   dcterms:conformsTo dp:SKOS-INSPEC ;
+   dcterms:conformsTo inspec:SKOS ;
    dcterms:format "text/turtle" ;
    prof:hasArtifact ex:TE1File ;
    prof:hasRole prof:vocabulary .
 
 ex:vi1 a prof:ResourceDescriptor ;
    dcterms:title "Diagram of DocPub1.0";
-   dcterms:conformsTo dp:SVG-INSPEC ;
+   dcterms:conformsTo inspec:SVG ;
    dcterms:format "application/SVG" ;
    prof:hasArtifact ex:VI1File ;
    prof:hasRole prof:specification .

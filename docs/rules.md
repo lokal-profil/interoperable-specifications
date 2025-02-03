@@ -12,19 +12,21 @@ The rules for interoperable specifications are divided into five parts:
 
 For a specification to be considered a interoperable specification the following must apply:
 
-><a name="INSPEC1"></a> **Rule INSPEC-1:** The "interoperable specification resource" and its parts MUST have URIs and be described with PROF, the interoperable specification resource must be typed as `prof:Profile`
+><a name="INSPEC1"></a> **Rule INSPEC-1:** The "interoperable specification resource" and its parts MUST have URIs and be described with PROF, the interoperable specification resource must be typed as `prof:Profile` and have a `dct:conformsTo` point to `inspec:PROF`
 
 ><a name="INSPEC2"></a> **Rule INSPEC-2:** An interoperable specification part MAY be a data vocabulary, a terminology, an application profile or a diagram. Other parts may exist but have no prescribed meaning by the interoperable specification profile.
 
-><a name="INSPEC3"></a> **Rule INSPEC-3:** Each data vocabulary MUST be possible to interpret as RDFS-INSPEC.
+><a name="INSPEC3"></a> **Rule INSPEC-3:** Each data vocabulary MUST be detected by `dcterms:conformsTo` pointing to `inspec:RDFS` and MUST be possible to interpret as RDFS-INSPEC.
 
-><a name="INSPEC4"></a> **Rule INSPEC-4:** Each terminology MUST be possible to interpret as SKOS-INSPEC.
+><a name="INSPEC4"></a> **Rule INSPEC-4:** Each terminology MUST be detected by `dcterms:conformsTo` pointing to `inspec:SKOS` and MUST be possible to interpret as SKOS-INSPEC.
 
 ><a name="INSPEC5"></a> **Rule INSPEC-5:** The interoperable specification MUST list all data vocabularies and terminologies it reuses explicitly and where they are introduced via the `prof:isInheritedFrom`
 
-><a name="INSPEC6"></a> **Rule INSPEC-6:** Each application profile MUST be possible to interpret as SHACL-INSPEC
+><a name="INSPEC6"></a> **Rule INSPEC-6:** Each application profile MUST be detected by `dct:conformsTo` pointing to `inspec:SHACL` and MUST be possible to interpret as SHACL-INSPEC
 
-><a name="INSPEC7"></a> **Rule INSPEC-7:** An interoperable specification MUST contain at least one data vocabulary and at least one application profile
+><a name="INSPEC7"></a> **Rule INSPEC-7:** A diagram MUST be detected by `dct:conformsTo` property pointing to `inspec:SVG` and MUST follow SVG-INSPEC 
+
+><a name="INSPEC8"></a> **Rule INSPEC-8:** An interoperable specification MUST contain at least one data vocabulary and at least one application profile
 
 ## Rules for data vocabularies - RDFS-INSPEC
 

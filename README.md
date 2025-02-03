@@ -36,17 +36,8 @@ Note 2 - an interoperable specification may contain more resources than those me
 3. [Application profiles and subclassing](docs/subclassing.md)
 4. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**)
 5. [Application Profiles as SHACL-INSPEC](docs/ap.md)
-6. Harvesting interoperable specifications 
-   1. Flavour 1 - natively according to profile 
-   2. Flavour 2 - via UML according to the OSLO principles 
-   3. Flavour 3 - via tabular annotations (CSV on the web)
-7. Bootstrapping specifications used in the different flavours
-   1. RDFS
-   2. SHACL
-   3. UML-OSLO
-   4. CSV
-   5. SKOS-SE
-   6. DCAT-AP-SE
+6. [Harvesting interoperable specifications](docs/harvesting.md)
+7. [Bootstrapping specifications](docs/bootstrapping.md)
 8. [Example specification according to the profile](docs/example.md)
 
 ## Who this profile targets
