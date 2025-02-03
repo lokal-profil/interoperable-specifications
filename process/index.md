@@ -11,9 +11,16 @@
 * Meeting 3 reference group - 2024-11-02 15-16:0 - Go through proposed profile part 1
   * [Slides](slides-meeting3.pdf)
   * [Notes](notes-meeting3.pdf)
-* Meeting 4 reference group - 2024-11-09 15-16:30 - Go through proposed profile part 2 and take decision
+* Meeting 4 reference group - 2024-11-09 15-16:30 - Go through proposed profile part 2
   * [Slides](slides-meeting4.pdf)
   * [Notes](notes-meeting4.pdf)
+* Meeting 5 reference group - 2025-02-03 15-16:30 - Go through proposed profile part 3
+  * [slides](https://docs.google.com/presentation/d/19Gi_T8taWG-ywzlZbZ3SV9OCTKR2K_SAf-6Mw-FnaEQ/edit?usp=sharing)
+  * Notes
+* Meetnig 6 reference group - 2025-02-24 15-16:30 - Go through feedback and decide
+  * Slides
+  * Notes
+
 
 ## Reference group
 Marjan Akhavan Sadeghi E-hälsomyndigheten

@@ -22,14 +22,15 @@ Although an application profile may refer to individual concepts, it is more com
 
 An interoperable specifications should include **diagrams** to provide a visual overview of how classes, properties and concepts are combined. Formally, diagrams does not provide any new information as everything they convey are already covered in the application profile. However, diagrams do help human readers to quickly gain an overview as well as provide ways to navigate complex information models.
 
-## Practical considerations
+## Practical requirements
 
-It is important to notice that individual classes and properties are never introduced on their own. Rather, 
-classes and properties are introduced in larger sets to cover a specific purpose or domain. We will refer to such a set of classes and properties as a **data vocabulary**. Interoperable specification should indicate which data vocabularies it is based on to improve human readability and simplify discovery of associated information.
+From the requirements above it is clear that an interoperable specification need to be considered a container with multiple parts, see also discussion in the [background and motivation document](background.md). In practise this means that a interoperable specification needs an expression where it is possible to describe the specification and the parts with metadata separately as well as connect them. It also means that there needs to be an explicit mechanism to retrieve the parts. From the requirements above we recognize terminologies, diagrams and application profiles to be clear specification parts that should be described individually and retrievable. 
 
-It could be argued that the data vocabularies could be deduced automatically if classes and properties have identifiers that allows them to be looked up according to linked data principles. This would also require that classes and properties indicate the data vocabulary they belong to. A similar argument could be made for looking up the concepts from the terminology or concept collections indicated from the application profile. Although automatic detection is possible, providers on interoperable specifications is adviced to not rely on such discovery processes and instead provide explicit dependencies.
+However, when it comes to classes and properties we prefer to not include as parts individually into the specification for two reasons. First they would be quite many and would lead to a loss of overview of the specification. Second, this does would lead to a mismatch with how they are managed. Classes and properties are generally introduced and managd in larger sets to cover a specific purpose or domain. Consequently, we will refer to such a set of classes and properties as a **data vocabulary** and include it as a part.
 
-To conclude, an interoperable specification should reference not just the application profiles and diagrams but also the data vocabularies and terminologies used to avoid unneccessary complicated lookup processes.
+A sidenote is that data vocabularies could be deduced automatically from the application profile if classes and properties have identifiers that allows them to be looked up according to linked data principles. A prerequisite would be that classes and properties indicate the data vocabulary they belong to. A similar argument could be made for looking up the terminology or concept collections indicated from the application profile. Although automatic detection is possible, providers on interoperable specifications is adviced to not rely on such discovery processes and instead provide explicit dependencies.
+
+To conclude, an interoperable specification should reference all parts explicitly to avoid unnecessary complicated lookup processes.
 
 ## Foundational specifications
 
@@ -37,4 +38,4 @@ There are organizations that focus on providing generic data vocabularies, e.g. 
 
 Please note that this does not mean that an interoperable specification is forbidden to introduce its own specific data vocabulary or terminology. (But if it only did this, it is evident that it is not trying to build on top of what other have done already.)
 
-We will refer to specifications that introduce generic data vocabularies or terminologies (i.e. no reuse mark) without providing an application profile as **foundational specifications**. This will allow for organizations that provide these generic data vocabularies or terminologies to announce their work and simplify / encourage discovery and reuse.
+We will refer to specifications that introduce generic data vocabularies or terminologies (i.e. without reuse mark) without providing an application profile as **foundational specifications**. This will allow for organizations that provide these generic data vocabularies or terminologies to announce their work and simplify / encourage discovery and reuse.
