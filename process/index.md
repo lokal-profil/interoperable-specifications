@@ -16,11 +16,12 @@
   * [Notes](notes-meeting4.pdf)
 * Meeting 5 reference group - 2025-02-03 15-16:30 - Go through proposed profile part 3
   * [slides](https://docs.google.com/presentation/d/19Gi_T8taWG-ywzlZbZ3SV9OCTKR2K_SAf-6Mw-FnaEQ/edit?usp=sharing)
-  * Notes
-* Meetnig 6 reference group - 2025-02-24 15-16:30 - Go through feedback and decide
-  * Slides
+  * [Notes](notes-meeting5.pdf)
+* Meeting 6 reference group - 2025-02-24 15-16:30 - Go through feedback and decide
+  * [Slides](https://docs.google.com/presentation/d/10NKxVN3nIrMKEayEGER6qXFwEFlJXUZJ1mSXHDspeDk)
   * Notes
 
+Also there is [an english presentation](INSPEC-SEMIC-20250213.pdf) on 13 of February in 2025.
 
 ## Reference group
 
