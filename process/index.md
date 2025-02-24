@@ -21,7 +21,7 @@
   * [Slides](https://docs.google.com/presentation/d/10NKxVN3nIrMKEayEGER6qXFwEFlJXUZJ1mSXHDspeDk)
   * Notes
 
-Also there is [an english presentation](INSPEC-SEMIC-20250213.pdf) on 13 of February in 2025.
+Also there is [an english presentation](INSPEC-SEMIC-20250213.pdf) held for people involved in SEMIC on the 13 of February in 2025.
 
 ## Reference group
 
