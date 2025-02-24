@@ -33,12 +33,13 @@ Note 2 - an interoperable specification may contain more resources than those me
 
 1. [Background and motivation](docs/background.md)
 2. [Conceptual design and definitions](docs/design.md)
-3. [Application profiles and subclassing](docs/subclassing.md)
-4. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**)
-5. [Application Profiles as SHACL-INSPEC](docs/ap.md)
-6. [Bootstrapping specifications](docs/bootstrapping.md)
-7. [Harvesting interoperable specifications](docs/harvesting.md)
-8. [Example specification according to the profile](docs/example.md)
+3. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**)
+4. [Application Profiles as SHACL-INSPEC](docs/ap.md)
+5. [Bootstrapping specifications](docs/bootstrapping.md)
+6. [Harvesting interoperable specifications](docs/harvesting.md)
+7. [Example specification according to the profile](docs/example.md)
+8. [Application profiles and subclassing](docs/subclassing.md)
+9. [Using the same property for different purposes](docs/property-reuse.md)
 
 ## Who this profile targets
 
