@@ -79,13 +79,13 @@ SHACL-INSPEC builds on top of the SHACL specification by providing additional re
 
 ><a name="AP8"></a> **Rule AP-8:** A property shapes MAY express that it is a **variant** of a reusable property shape via the `inspec:variant` property
 
-><a name="AP9"></a> **Rule AP-9:** A node shape *B* MAY express that it **refines** a reusable node shape *A* via the 'inspec:refines` property only if for every property shape *X* in *A* there is a refined property shape *Y* in *B*. 
+><a name="AP9"></a> **Rule AP-9:** A node shape *B* MAY express that it **refines** a reusable node shape *A* via the `inspec:refines` property only if for every property shape *X* in *A* there is a refined property shape *Y* in *B*. 
 
-><a name="AP10"></a> **Rule AP-10:** A node shape *B* MAY express that it is a **variant** of a reusable node shape *A* via the 'inspec:variant` property only if for every property shape *X* in *A* there is a variant or refined property shape *Y* in *B*, at least one of the property shapes must be a variant and not a refinement.
+><a name="AP10"></a> **Rule AP-10:** A node shape *B* MAY express that it is a **variant** of a reusable node shape *A* via the `inspec:variant` property only if for every property shape *X* in *A* there is a variant or refined property shape *Y* in *B*, at least one of the property shapes must be a variant and not a refinement.
 
-><a name="AP11"></a> **Rule AP-11:** An applicatin profile *B* MAY express that it is a **subprofile of** of an application profile *A* via the 'prof:isProfileOf` property only if for every node shape *X* in *A* there is a refined node shape *Y* in *B*.
+><a name="AP11"></a> **Rule AP-11:** An applicatin profile *B* MAY express that it is a **subprofile of** of an application profile *A* via the `prof:isProfileOf` property only if for every node shape *X* in *A* there is a refined node shape *Y* in *B*.
 
-><a name="AP12"></a> **Rule AP-12:** An application profile *B* MAY express that it is a **variant** of a application profile *A* via the 'inspec:variant` property only if for every node shape *X* in *A* there is a variant or refined node shape *Y* in *B*, at least one of the node shapes must be a variant and not a refinement.
+><a name="AP12"></a> **Rule AP-12:** An application profile *B* MAY express that it is a **variant** of a application profile *A* via the `inspec:variant` property only if for every node shape *X* in *A* there is a variant or refined node shape *Y* in *B*, at least one of the node shapes must be a variant and not a refinement.
 
 ><a name="AP13"></a> **Rule AP-13:** Shapes used for refinement or for variants MAY reside in other RDF Datasets as long as the dataset is pointed to via owl:import AND there is a either a `prof:isProfileOf` or a `inspec:variant` relation between the application profile resources.
 
@@ -97,14 +97,16 @@ SVG-INSPEC builds on top of SVG to provide a way to clarify whether objects in a
 
 ><a name="SVG1"></a> **Rule SVG-1:** An element corresponding to an INSPEC entity MUST have a href pointing to it's URI. 
 
-><a name="SVG2"></a> **Rule SVG-2:** An element corresponding to an INSPEC entity MUST have a custom data attribute on the form 'data-inspec-type="TYPE"' where TYPE is one of foundational, application-profile, diagram, data-vocabulary, class, property, node-shape, property-shape, concept, terminology and concept-collection. If the element corresponds to two things, e.g. both a class and a node-shape they can be listed both with a separating comma, the first should be considered dominant.
+><a name="SVG2"></a> **Rule SVG-2:** An element corresponding to an INSPEC entity MUST have a custom data attribute on the form `data-inspec-type="TYPE"` where TYPE is one of foundational, application-profile, diagram, data-vocabulary, class, property, node-shape, property-shape, concept, terminology and concept-collection. If the element corresponds to two things, e.g. both a class and a node-shape they can be listed both with a separating comma, the first should be considered dominant.
 
-><a name="SVG3"></a> **Rule SVG-3:** An element corresponding to an INSPEC entity MAY have an id on the form 'id="d_EID"' where EID is the md5 sum of the entitys URI.
+><a name="SVG3"></a> **Rule SVG-3:** An element corresponding to an INSPEC entity MAY have an id on the form `id="d_EID"` where EID is the md5 sum (***) of the entitys URI.
 
-><a name="SVG4"></a> **Rule SVG-4:** An element with type node-shape or property-shape MAY have a custom data attribute on the form 'data-inspec-reusable="true"' if it is reusable according to rule AP-3 or AP-4.
+><a name="SVG4"></a> **Rule SVG-4:** An element with type node-shape or property-shape MAY have a custom data attribute on the form `data-inspec-reusable="true"` if it is reusable according to rule AP-3 or AP-4.
 
-><a name="SVG5"></a> **Rule SVG-5:** An element with type node-shape that is also reusable MAY have a custom data attribute on the form 'data-inspec-weight="WEIGHT"' where WEIGHT is either "main" or "supportive" according to rule AP-5.
+><a name="SVG5"></a> **Rule SVG-5:** An element with type node-shape that is also reusable MAY have a custom data attribute on the form `data-inspec-weight="WEIGHT"` where WEIGHT is either "main" or "supportive" according to rule AP-5.
 
 (*) Both RDFS and SKOS introduce building blocks (classes and properties) for for defining things (other classes, properties, concepts, collections) in an open world manner. However, both vocabularies and terminologies needs to work in the context of semantic specifications where it is stated explicitly what is included, hence it corresponds to a closed world perspective. Hence, in both RDFS-INSPEC and SKOS-INSPEC there is a restriction to assume that everything needed is provided in the indicated RDF Datasets.
 
 (**) SHACL supports imports declared via owl:import, the rules are written from the perspective that these are respected and all RDF Datasets (potentially recursively) are imported first into a single RDF Dataset.
+
+(***) The value the id could in principle be the URI, however, it is highly likely that we want to write CSS rules targeting individual elements and then we need to be more restrictive as CSS rules cannot use URIs as part of selectors.
