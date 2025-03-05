@@ -75,13 +75,21 @@ SHACL-INSPEC builds on top of the SHACL specification by providing additional re
 
 ><a name="AP6"></a> **Rule AP-6:** All reusable node shapes as well all property shapes pointed to from those MUST provide a label and MAY also provide a definition and a usage note
 
-><a name="AP7"></a> **Rule AP-7:** Shapes MAY inherit and further restrict other reusable shapes via the `sh:and` construct
+><a name="AP7"></a> **Rule AP-7:** A property shapes MAY express that it **refines** a reusable property shape via both the `inspec:refines` property as well as via a `sh:and` construct, the latter to be compatible with normal SHACL validation
 
-><a name="AP8"></a> **Rule AP-8:** Shapes MAY indicate that they are based on other reusable shapes via the dcterms:isVersionOf property
+><a name="AP8"></a> **Rule AP-8:** A property shapes MAY express that it is a **variant** of a reusable property shape via the `inspec:variant` property
 
-><a name="AP9"></a> **Rule AP-9:** Shapes that are inherited or based on MAY reside in other RDF Datasets as long as the dataset is pointed to via owl:import AND there is a `prof:isProfileOf` relation between the application profile resources
+><a name="AP9"></a> **Rule AP-9:** A node shape *B* MAY express that it **refines** a reusable node shape *A* via the 'inspec:refines` property only if for every property shape *X* in *A* there is a refined property shape *Y* in *B*. 
 
-><a name="AP10"></a> **Rule AP-10:** All classes, properties and terminologies referred to via shapes should be explicitly indicated via the `dcterms:requires` property from the "interoperable specification resource" (introduced in Rule INSPEC-1)
+><a name="AP10"></a> **Rule AP-10:** A node shape *B* MAY express that it is a **variant** of a reusable node shape *A* via the 'inspec:variant` property only if for every property shape *X* in *A* there is a variant or refined property shape *Y* in *B*, at least one of the property shapes must be a variant and not a refinement.
+
+><a name="AP11"></a> **Rule AP-11:** An applicatin profile *B* MAY express that it is a **subprofile of** of an application profile *A* via the 'prof:isProfileOf` property only if for every node shape *X* in *A* there is a refined node shape *Y* in *B*.
+
+><a name="AP12"></a> **Rule AP-12:** An application profile *B* MAY express that it is a **variant** of a application profile *A* via the 'inspec:variant` property only if for every node shape *X* in *A* there is a variant or refined node shape *Y* in *B*, at least one of the node shapes must be a variant and not a refinement.
+
+><a name="AP13"></a> **Rule AP-13:** Shapes used for refinement or for variants MAY reside in other RDF Datasets as long as the dataset is pointed to via owl:import AND there is a either a `prof:isProfileOf` or a `inspec:variant` relation between the application profile resources.
+
+><a name="AP14"></a> **Rule AP-14:** All classes, properties and terminologies referred to via shapes should be explicitly indicated via the `dcterms:requires` property from the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
 ## Rules for diagrams - SVG-INSPEC
 

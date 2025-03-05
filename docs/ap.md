@@ -43,7 +43,15 @@ The following information MAY be provided:
 
 * A description / definition expressed via the property `sh:description`
 * A usage note expressed via the property `vann:usageNote`
-* Reference to another application profile it is based on via the property `prof:isProfileOf` if shapes have been reused in some way
+* A reference to another application profile that expresses that it is a
+    * "subprofile" of another profile via `prof:isProfileOf`
+    * "variant of" another profile via the `dcterms:isVersionOf`
+
+Note that for B being a subprofile of A:
+* Data following application profile B will also follow application profile A.
+* Data following application profile A will not always follow application profile B. 
+
+Note also that the concepts of Application profiles being subprofiles and variant of each other of are exclusive since for the variant relation there is a requirement that at least one of the node shapes has to be a variant.
 
 ### Main and supportive node shapes
 
@@ -62,7 +70,7 @@ The following information MAY be provided:
 * A usage note expressed via the property `vann:usageNote`
 * A reference to another node shape it
     * "refines" via `sh:and` with a SHACL list containing the refined node shape (see [section on refinement](#refine)), OR
-    * "is based on" via the `dcterms:isVersionOf` property (see [section on based on](#basedon))
+    * "is a variant of" via the `dcterms:isVersionOf` property (see [section on variants](#variants))
 
 
 ### Property Shapes pointed to from main and supportive node shapes
@@ -97,14 +105,14 @@ The following information MAY be provided:
     * Constrain to concepts in a concept collection (see section below (TODO))
     * Constrain to instances of a class by `sh:class` (if instances from several classes are allowed, a construction with several property shapes with `sh:class` joined togehter via a `sh:or` is neccessary)
 * A reference to another property shape it:
-  * "refines" via `sh:and` with a SHACL list containing the refined property shape (see [section on refinement](#refine)), OR
-  * "is based on" via the `dcterms:isVersionOf` property (see [section on based on](#basedon))
+  * "refines" via `sh:and` with a SHACL list containing the refined property shape (see [section on property refinement](#propertyRefinement)), OR
+  * "is variant of" via the `dcterms:isVersionOf` property (see [section on property variants](#propertyVariant))
 
-## <a name="refine"></a>How to refine/specialize/inherit shapes
+## <a name="propertyRefinement"></a>Property shape refinement - how to refine/specialize/inherit property shapes
 
 SHACL allows shapes to be combined via `sh:and`. This can be used to specialize an existing shapes with additional constraints or further restricting. E.g. consider the following property shape for the property `dcterms:publisher` where the range is `foaf:Agent`.
 
-    ex:ps1 a sh:PropertyShape ;
+    ex:ps-publisher a sh:PropertyShape ;
       sh:label "Publisher" ;
       sh:path dcterms:publisher ;
       sh:nodeKind sh:URI ;
@@ -113,25 +121,87 @@ SHACL allows shapes to be combined via `sh:and`. This can be used to specialize 
 
 we can further constrain it to the subclass `foaf:Organization` via the following construction:
 
-    ex:ps2 a sh:PropertyShape
+    ex:ps-publisher2 a sh:PropertyShape
       sh:path dcterms:publisher ;
       sh:class foaf:Organization ;
-      sh:and ( ex:ps1 ) .
+      sh:and ( ex:ps-publisher ) .
 
 Note that at a minimum we have to duplicate the `sh:path` property.
 
-## <a name="basedon"></a>Based on - when refinement breaks down
+## <a name="propertyVariants"></a>Property shape variants - when property refinement breaks down
 
-Note that we are not allowed to relax constraints via the refinement construction since it is a conjuction. For instance if we need to relax the constraint and make the publisher optional we cannot specialize the property shape, instead we have to duplicate all information. But we can still provide an indication that we have "based" our property shape on another via the `dcterms:isVersionOf` property like this: 
+Note that we are not allowed to relax constraints via the refinement construction since it is a conjunction. For instance if we need to relax the constraint and make the publisher optional we cannot specialize the property shape, instead we have to duplicate all information. But we can still provide an indication that we have provided a "variant" of our property shape via the `dcterms:isVersionOf` property like this: 
 
-    ex:ps3 a sh:PropertyShape ;
+    ex:ps-publisher3 a sh:PropertyShape ;
       sh:label "Publisher" ;
       sh:path dcterms:publisher ;
       sh:nodeKind sh:URI ;
       sh:class foaf:Agent ;
-      dcterms:isVersionOf ex:ps1 .
+      dcterms:isVersionOf ex:ps-publisher .
 
-Note that for node shapes it is more common to be be "based" on each other as you often want to change the order or include a slightly different set of property shapes.
+Note that for node shapes it is more common to have "variants" as you often want to change the order or include a slightly different set of property shapes.
+
+## <a name="nodeRefinement"></a>Node shape refinement - how to refine/specialize/inherit node shapes
+The `sh:and` construction used for property shapes cannot be used for node shape refinement since it would not let us indicate which property shapes that are refined (they would be mixed in a unclear manner and it would also be problematic if we need to change the order, see [section on order](#order)). Instead we have to make a new node shape. Luckily we can refer directly to all reusable property shapes that we want to use as is. In addition we point out the property shape we are refining. 
+
+Let us introduce a node shape for a book profile that we want to extend including it's two property shapes (we define the property shape ps-publisher from above again to make it easier to read):
+
+    ex:ns-book a sh:NodeShape ;
+      sh:label "Book"@en ;
+      sh:property ex:ps-title, ex:ps-publisher .
+    ex:ps-title a sh:PropertyShape ;
+      sh:path dcterms:title ;
+      sh:nodeKind sh:Literal ;
+      sh:label "Title"@en ;
+      sh:order "1"^^xsd:decimal ;
+    ex:ps-publisher a sh:PropertyShape ;
+      sh:label "Publisher" ;
+      sh:path dcterms:publisher ;
+      sh:nodeKind sh:URI ;
+      sh:minCount "1" ;
+      sh:class foaf:Agent .
+
+Now we want to extend the book profile with the publisher restricted to organizations (again we duplicate the property shape ps-publisher2 from above for readability):
+
+    ex:ns-book2 a sh:NodeShape ;
+      sh:label "Book2"@en ;
+      prof:isProfileOf ex:ns-book ;
+      sh:property ex:ps-title, ex:ps-publisher2 .
+    ex:ps-publisher2 a sh:PropertyShape
+      sh:path dcterms:publisher ;
+      sh:class foaf:Organization ;
+      sh:and ( ex:ps-publisher ) .
+
+## <a name="nodeVariant"></a>Node shape variant - provide variants of node shapes
+The solution for node shape variants is very similar to refinements, we can look at an example directly (again we repeat everything for readability):
+
+    ex:ns-book a sh:NodeShape ;
+      sh:label "Book"@en ;
+      sh:property ex:ps-title, ex:ps-publisher .
+    ex:ps-title a sh:PropertyShape ;
+      sh:path dcterms:title ;
+      sh:nodeKind sh:Literal ;
+      sh:label "Title"@en ;
+      sh:order "1"^^xsd:decimal ;
+    ex:ps-publisher a sh:PropertyShape ;
+      sh:label "Publisher" ;
+      sh:path dcterms:publisher ;
+      sh:nodeKind sh:URI ;
+      sh:minCount "1" ;
+      sh:class foaf:Agent .
+
+Now to provide a variant of the book profile we use the `dcterms:isVersionOf` property instead (again we duplicate the property shape ps-publisher3 from above for readability):
+
+    ex:ns-book3 a sh:NodeShape ;
+      sh:label "Book2"@en ;
+      dcterms:isVersionOf ex:ns-book ;
+      sh:property ex:ps-title, ex:ps-publisher3 .
+    ex:ps-publisher3 a sh:PropertyShape ;
+      sh:label "Publisher" ;
+      sh:path dcterms:publisher ;
+      sh:nodeKind sh:URI ;
+      sh:class foaf:Agent ;
+      dcterms:isVersionOf ex:ps-publisher .
 
 ## <a name="order"></a>Providing order of property shapes
 
