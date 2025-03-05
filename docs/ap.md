@@ -69,8 +69,8 @@ The following information MAY be provided:
 * A description / definition expressed via the property `sh:description`
 * A usage note expressed via the property `vann:usageNote`
 * A reference to another node shape it
-    * "refines" via `inspec:refines` AND `sh:and` with a SHACL list containing the refined node shape (see [section on refinement](#nodeRefinement)), OR
-    * "is a variant of" via the `inspec:variant` property (see [section on variants](#nodeVariant))
+    * "refines" via `inspec:refines` AND `sh:and` with a SHACL list containing the refined node shape (see [section on refinement](#node_refinement)), OR
+    * "is a variant of" via the `inspec:variant` property (see [section on variants](#node_variant))
 
 ### Property Shapes pointed to from main and supportive node shapes
 
@@ -104,10 +104,11 @@ The following information MAY be provided:
     * Constrain to concepts in a concept collection (see section below (TODO))
     * Constrain to instances of a class by `sh:class` (if instances from several classes are allowed, a construction with several property shapes with `sh:class` joined togehter via a `sh:or` is neccessary)
 * A reference to another property shape it:
-  * "refines" via `inspec:refines` AND `sh:and` with a SHACL list containing the refined property shape (see [section on property refinement](#propertyRefinement)), OR
-  * "is variant of" via the `inspec:variant` property (see [section on property variants](#propertyVariant))
+  * "refines" via `inspec:refines` AND `sh:and` with a SHACL list containing the refined property shape (see [section on property refinement](#property_refinement)), OR
+  * "is variant of" via the `inspec:variant` property (see [section on property variants](#property_variant))
 
-## <a name="propertyRefinement"></a>Property shape refinement - how to refine/specialize/inherit property shapes ([Rule AP-7](rules.md#AP7))
+## Property shape refinement - how to refine/specialize/inherit property shapes ([Rule AP-7](rules.md#ap7))
+<a id="property_refinement"></a>
 
 SHACL allows shapes to be combined via `sh:and`. This can be used to specialize an existing shapes with additional constraints or further restricting. We also express the relation directly to the property shape being refined via the `inspec:refines`, this is due to the `sh:and` construction is a bit obscure and can be hard to distinguish from other expressions when querying. E.g. consider the following property shape for the property `dcterms:publisher` where the range is `foaf:Agent`.
 
@@ -128,7 +129,8 @@ we can further constrain it to the subclass `foaf:Organization` via the followin
 
 Note that at a minimum we have to duplicate the `sh:path` property.
 
-## <a name="propertyVariants"></a>Property shape variants - when property refinement breaks down ([Rule AP-8](rules.md#AP8))
+## Property shape variants - when property refinement breaks down ([Rule AP-8](rules.md#ap8))
+<a id="property_variants"></a>
 
 Note that we are not allowed to relax constraints via the refinement construction since it is a conjunction. For instance if we need to relax the constraint and make the publisher optional we cannot specialize the property shape, instead we have to duplicate all information. But we can still provide an indication that we have provided a "variant" of our property shape via the `inspec:variant` property like this: 
 
@@ -141,7 +143,9 @@ Note that we are not allowed to relax constraints via the refinement constructio
 
 Note that for node shapes it is more common to have "variants" as you often want to change the order or include a slightly different set of property shapes.
 
-## <a name="nodeRefinement"></a>Node shape refinement - how to refine/specialize/inherit node shapes ([Rule AP-9](rules.md#AP9))
+## Node shape refinement - how to refine/specialize/inherit node shapes ([Rule AP-9](rules.md#ap9))
+<a id="node_refinement"></a>
+
 The `sh:and` construction used for property shapes cannot be used for node shape refinement since it would not let us indicate which property shapes that are refined (they would be mixed in a unclear manner and it would also be problematic if we need to change the order, see [section on order](#order)). Instead we have to make a new node shape. Luckily we can refer directly to all reusable property shapes that we want to use as is. In addition we point out the property shape we are refining via the `inspec:refine` property. 
 
 Let us introduce a node shape for a book profile that we want to extend including it's two property shapes (we define the property shape ps-publisher from above again to make it easier to read):
@@ -172,7 +176,9 @@ Now we want to extend the book profile with the publisher restricted to organiza
       sh:class foaf:Organization ;
       sh:and ( ex:ps-publisher ) .
 
-## <a name="nodeVariant"></a>Node shape variant - provide variants of node shapes ([Rule AP-10](rules.md#AP10))
+## Node shape variant - provide variants of node shapes ([Rule AP-10](rules.md#ap10))
+<a id="node_variant"></a>
+
 The solution for node shape variants is very similar to refinements, we can look at an example directly (again we repeat everything for readability):
 
     ex:ns-book a sh:NodeShape ;
@@ -203,7 +209,8 @@ Now to provide a variant of the book profile we use the `inspec:variant` propert
       sh:class foaf:Agent ;
       dcterms:isVersionOf ex:ps-publisher .
 
-## <a name="order"></a>Providing order of property shapes
+## Providing order of property shapes
+<a id="order"></a>
 
 An important aspect of application profiles is to generate specification documents in a predictable manner. Furthermore, since we aim for multilinguality the order cannot be based on alphabetical sorting of labels. Consequently we outline two rules:
 
@@ -242,7 +249,8 @@ To change the order so the `dcterms:identifier` is at the top you can make a min
 
 Note that you have to repeat the `sh:path` due to SHACL rules. We have chosen to not give the new property shape a URI since it does not provide any additional value beyond the order, which is specific to the node shape. This is possible since it does not fall under the AP-4 rule since `sh:and` is excluded, `sh:path` is not a constraint and an `sh:order` is a characteristic (i.e. a non-validating property).
 
-## <a name="terminology"></a> Restricting to concepts in a terminology
+## Restricting to concepts in a terminology
+<a id="terminology"></a>
 
 To restrict to concepts in a terminology you should specify:
 1. That you are expecting instances of the class `skos:Concept`.
