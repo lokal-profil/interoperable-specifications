@@ -25,24 +25,29 @@ Also there is [an english presentation](INSPEC-SEMIC-20250213.pdf) held for peop
 
 ## Reference group
 
-* Marjan Akhavan Sadeghi E-hälsomyndigheten
-* Martin Brandhagen VR
-* Mattias Ekhem Digg
-* Fredrik Emanuelsson Riksarkivet
-* Kristofer Gäfvert Lantmäteriet
-* Stefan Jakobsson SND
-* Per Jännebring Skatteverket
-* Olov Johansson SGU
-* Fredrik Klingwall KB
-* Tomas Lindberg SGU
-* Benny Lund Bolagsverket
-* Andrew Mercer Riksantikvarieämbetet
-* Erik Mossing Bolagsverket
-* Lars Näslund Trafikverket
-* Johan Oelrich Arbetsförmedlingen
-* Olof Olsson SND
-* Matthias Palmér Digg
-* Fredrik Persäter Lantmäteriet 
-* Marcus Smith Riksantikvarieämbetet
-* Michalis Vassilas Digg
-* Cilla Öhnfeldt Naturvårdsverket
+* Andrew Mercer - Riksarkivet
+* Benny Lund - Bolagsverket
+* Caspar Almalander - Sveriges Kommuner och Regioner
+* Cilla Öhnfeldt - Naturvårdsverket
+* Erik Mossing - Bolagsverket
+* Fredrik Emanuelsson - Riksarkivet
+* Fredrik Klingwall - Kungliga biblioteket
+* Fredrik Persäter - Lantmäteriet
+* Jan Rydkvist - Statistikmyndigheten SCB
+* Johan Oelrich - Arbetsförmedlingen
+* Kristofer Gäfvert - Lantmäteriet
+* Lars Näslund - Trafikverket
+* Marcus Smith - Riksarkivet
+* Marjan Akhavan - E-hälsomyndigheten
+* Martin Brandhagen - Vetenskapsrådet
+* Matthias Palmér - Myndigheten för digital förvaltning
+* Mattias Ekhem - Myndigheten för digital förvaltning
+* Michalis Vassilas - Myndigheten för digital förvaltning
+* Olof Olsson - Svensk Nationell Datatjänst
+* Olov Johansson - Sveriges geologiska undersökning
+* Patrik Wahlgren - Statistikmyndigheten SCB
+* Per Wiklander - Vetenskapsrådet
+* Peter Israelsson - Myndigheten för digital förvaltning
+* Stefan Jakobsson - Svensk nationell datatjänst
+* Tomas Lindberg - Sveriges geologiska undersökning
+* Ulrika Domellöf Mattson - Myndigheten för digital förvaltning
