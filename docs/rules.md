@@ -73,17 +73,17 @@ SHACL-INSPEC builds on top of the SHACL specification by providing additional re
 
 ><a id="ap5"></a> **Rule AP-5:** Reusable node shapes are considered **main** if they have a target declaration, otherwise they are considered **supportive**
 
-><a id="ap6"></a> **Rule AP-6:** All reusable node shapes as well all property shapes pointed to from those MUST provide a label and MAY also provide a definition and a usage note
+><a id="ap6"></a> **Rule AP-6:** All reusable node shapes, as well as all property shapes pointed to from those, MUST provide a label and MAY also provide a definition and a usage note
 
-><a id="ap7"></a> **Rule AP-7:** A property shapes MAY express that it **refines** a reusable property shape via both the `inspec:refines` property as well as via a `sh:and` construct, the latter to be compatible with normal SHACL validation.
+><a id="ap7"></a> **Rule AP-7:** A property shape MAY express that it **refines** a reusable property shape via both the `inspec:refines` property as well as via a `sh:and` construct, the latter to be compatible with normal SHACL validation.
 
-><a id="ap8"></a> **Rule AP-8:** A property shapes MAY express that it is a **variant** of a reusable property shape via the `inspec:variant` property
+><a id="ap8"></a> **Rule AP-8:** A property shape MAY express that it is a **variant** of a reusable property shape via the `inspec:variant` property
 
 ><a id="ap9"></a> **Rule AP-9:** A node shape *B* MAY express that it **refines** a reusable node shape *A* via the `inspec:refines` property only if for every property shape *X* in *A* either *X* or a refinement *Y* of *X* is in *B*. 
 
 ><a id="ap10"></a> **Rule AP-10:** A node shape *B* MAY express that it is a **variant** of a reusable node shape *A* via the `inspec:variant` property only if for every property shape *X* in *A* either *X* or *Y* is in *B* where *Y* is a refinement or a variant of *X*. At least one of the property shapes must be a variant and not a refinement.
 
-><a id="ap11"></a> **Rule AP-11:** An applicatin profile *B* MAY express that it is a **subprofile of** of an application profile *A* via the `prof:isProfileOf` property only if for every node shape *X* in *A* there is a refined node shape *Y* in *B*.
+><a id="ap11"></a> **Rule AP-11:** An application profile *B* MAY express that it is a **subprofile of** of an application profile *A* via the `prof:isProfileOf` property only if for every node shape *X* in *A* there is a refined node shape *Y* in *B*.
 
 ><a id="ap12"></a> **Rule AP-12:** An application profile *B* MAY express that it is a **variant** of a application profile *A* via the `inspec:variant` property only if for every node shape *X* in *A* there is a variant or refined node shape *Y* in *B*, at least one of the node shapes must be a variant and not a refinement.
 
