@@ -174,6 +174,7 @@ Now we want to extend the book profile with the publisher restricted to organiza
     ex:ps-publisher2 a sh:PropertyShape
       sh:path dcterms:publisher ;
       sh:class foaf:Organization ;
+      inspec:refines ex:ps-publisher;
       sh:and ( ex:ps-publisher ) .
 
 ## Node shape variant - provide variants of node shapes ([Rule AP-10](rules.md#ap10))
@@ -320,3 +321,5 @@ However, there are situations where the same property is reused on the same node
         sh:path foaf:topic_interests ;
         sh:nodeKind sh:URI ;
         sh:pattern "^http://example.com/computer_science/.*$";
+
+Read the chapter "[Using the same property for different purposes](property-reuse.md)" for a longer background and recommendations on when it is suitable to reuse properties in this manner.
