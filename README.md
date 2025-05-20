@@ -2,13 +2,13 @@
 
 The purpose of the *Interoperability Specification Profile*, or *INSPEC* in short, is to promote interoperability through reuse of classes, properties and concepts across specifications. By reuse we mean using the same identifiers and therefore share the formal definitions, not just names. The intention is to allow the information models of specifications to form a larger network of definitions that can act as a basis for interoperability, improved quality, quicker development time and a supportive community with a shared knowledge base.
 
-The requirements of interoperable specification are expressed in the form of a profile, this means that the requirements are expressed as special uses / pattern of something existing rather than introducing something entirely new. Absolute requirements are expressed with MUST / MUST NOT, strong requirments with SHOULD / SHOULD NOT and finally MAY for weaker recommendations, see [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt) for a longer treatment.
+The requirements of interoperable specification are expressed in the form of a profile, this means that the requirements are expressed as special uses / pattern of something existing rather than introducing something entirely new. Absolute requirements are expressed with MUST / MUST NOT, strong requirements with SHOULD / SHOULD NOT and finally MAY for weaker recommendations, see [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt) for a longer treatment.
 
 ## Short introduction
 
 A specification has historically often been seen as a specification document containing a mixture of background, motivation and more formal descriptions. A more modern way of looking at a specification is that it is a package of resources, some targeted towards human consumption while others towards processing by machines.
 
-At the core of most specification is an **information model** that describes how data is expressed. An information model can be described informally in a specification document but can also be expressed more formally using a modelling language such as UML, ER-diagrams, OWL or RDFS. The information model is often expressed in terms of **classes**, **properties** (attributes and relations) as well as **concepts**. In addition, there is nearly always a visualization, typically in the form of a UML class **diagram**.
+At the core of most specification is an **information model** that describes how data is expressed. An information model can be described informally in a specification document but can also be expressed more formally using a modeling language such as UML, ER-diagrams, OWL or RDFS. The information model is often expressed in terms of **classes**, **properties** (attributes and relations) as well as **concepts**. In addition, there is nearly always a visualization, typically in the form of a UML class **diagram**.
 
 A consequence of aiming for reuse of classes and properties is that they need to defined more loosely so they are flexible enough to be combined in different ways. For instance, the property `publisher` from the Dublin Core Metadata Initiative is described in a sufficient generic manner so it can be applied to both a `Text` and a `Dataset`. Consequently, there is a need to describe how they are combined in a specific setting, we refer to this as an **application profile**.
 
@@ -51,7 +51,7 @@ This profile does note take a stance on specific tools.
 
 ## Process for the development of the profile
 
-The interoperable specification profile is beeing developed as part of the metadata working group within ENA, Swedish digital infrastructure. 
+The interoperable specification profile is being developed as part of the metadata working group within ENA, Swedish digital infrastructure.
 The work is led by [Agency for Digital Government (Digg)](https://www.digg.se).
 
 For more details, see the [separate page with planned meetings, slides, notes, reference group etc.](process/index.md).
@@ -59,6 +59,6 @@ For more details, see the [separate page with planned meetings, slides, notes, r
 ## How to give feedback
 
 - Create and comment on issues in Github
-- Create pull-requests for concreate changes
+- Create pull-requests for concrete changes
 - Participate in the reference group meetings
 - Send mail to [info@digg.se](mailto:info@digg.se) for other questions or to reach out to get involved

@@ -13,7 +13,6 @@ The publisher should be typed as a person, have a name, an email that is recomme
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/>
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/> .
 @prefix dmitype: <http://purl.org/dc/dcmitype/> .

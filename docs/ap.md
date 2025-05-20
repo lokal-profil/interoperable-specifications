@@ -2,14 +2,14 @@
 
 The purpose of an application profile is to clarify in more detail on how to reuse classes, properties and concepts in new settings.
 The needs can to a large extent be covered by the SHACL Shapes Constraint Language, a language for validating RDF graphs against a set of conditions.
-However, SHACL is too flexibile for the use case of application profiles, hence we define the SHACL-INSPEC to capture the specific requirements / constraints that needs to be met when using SHACL for expressing application profiles. (A side note is that SHACL-INSPEC itself is formally an application profile of SHACL and could therefore be expressed with the help of itself. In time this will perhaps be done, but for now we ignore this as it most likely cause more confusion rather than help to clarify.)
+However, SHACL is too flexible for the use case of application profiles, hence we define the SHACL-INSPEC to capture the specific requirements / constraints that needs to be met when using SHACL for expressing application profiles. (A side note is that SHACL-INSPEC itself is formally an application profile of SHACL and could therefore be expressed with the help of itself. In time this will perhaps be done, but for now we ignore this as it most likely cause more confusion rather than help to clarify.)
 
 ## Glossary
 Let's clarify the words we are using in SHACL-INSPEC:
 
 * Entity - a distinct thing/resource/instance/individual described in a dataset
 * Property - a specific characteristic of an entity
-* Class - a set of entites of the same kind / character / category
+* Class - a set of entities of the same kind / character / category
 * Data graph - data about an entity expressed as RDF
 * Node - a reference to a entity in a data graph
 * Triple - a fact/statement about an entity (via a node) in a data graph
@@ -37,7 +37,7 @@ The following information MUST be provided for an application profile resource:
 * A list of main node shapes indicated via the property `dcterms:hasPart`
 * A list of supportive node shapes indicated via the property `dcterms:references`
 * A list of all property shapes referred to from main or supportive node shapes via the property `dcterms:references`
-* A list of all classes and properties used in the application profile must be indicated via the property `dcterms:requires` (the foundational classes from SKOS and RDFS should be exluded)
+* A list of all classes and properties used in the application profile must be indicated via the property `dcterms:requires` (the foundational classes from SKOS and RDFS should be excluded)
 
 The following information MAY be provided:
 
@@ -86,13 +86,13 @@ The following information MUST be provided for a property shape:
 The following information MAY be provided:
 
 * Express cardinality by:
-  * `sh:minCount` "1"^^xsd:integer for mandatory
-  * `sh:minCount` "0"^^xsd:integer for preferred
+  * `sh:minCount "1"^^xsd:integer` for mandatory
+  * `sh:minCount "0"^^xsd:integer` for preferred
   * `sh:minCount "-1"^^xsd:integer` for optional (or, if left out it should be interpreted as -1)
   * `sh:maxCount "N"^^xsd:integer` for a maximum cardinality of `N`
 * A description / definition expressed via the property `sh:description`
 * A usage note expressed via the property `vann:usageNote`
-* That a datatype is required on literals by using `sh:datatype` (if several datatypes are allowed, a construction with several property shapes with individual `sh:datatype` joined togehter via `sh:or` is neccessary)
+* That a datatype is required on literals by using `sh:datatype` (if several datatypes are allowed, a construction with several property shapes with individual `sh:datatype` joined together via `sh:or` is necessary)
 * That a language is required on literals by setting `sh:datatype` to `rdf:langString`
 * Constraints on which literals that is allowed by:
     * An explicit list by using `sh:in` pointing to a SHACL list
@@ -102,7 +102,7 @@ The following information MAY be provided:
     * A constraining URI pattern expressed by `sh:pattern` (Regular expression)
     * Constrain to concepts in a terminology (see [section below](#terminology))
     * Constrain to concepts in a concept collection (see section below (TODO))
-    * Constrain to instances of a class by `sh:class` (if instances from several classes are allowed, a construction with several property shapes with `sh:class` joined togehter via a `sh:or` is neccessary)
+    * Constrain to instances of a class by `sh:class` (if instances from several classes are allowed, a construction with several property shapes with `sh:class` joined together via a `sh:or` is necessary)
 * A reference to another property shape it:
   * "refines" via `inspec:refines` AND `sh:and` with a SHACL list containing the refined property shape (see [section on property refinement](#property_refinement)), OR
   * "is variant of" via the `inspec:variant` property (see [section on property variants](#property_variant))
@@ -110,7 +110,7 @@ The following information MAY be provided:
 ## Property shape refinement - how to refine/specialize/inherit property shapes ([Rule AP-7](rules.md#ap7))
 <a id="property_refinement"></a>
 
-SHACL allows shapes to be combined via `sh:and`. This can be used to specialize an existing shapes with additional constraints or further restricting. We also express the relation directly to the property shape being refined via the `inspec:refines`, this is due to the `sh:and` construction is a bit obscure and can be hard to distinguish from other expressions when querying. E.g. consider the following property shape for the property `dcterms:publisher` where the range is `foaf:Agent`.
+SHACL allows shapes to be combined via `sh:and`. This can be used to specialize an existing shapes with additional constraints or further restricting. We also express the relation directly to the property shape being refined via the `inspec:refines`, this is due to the `sh:and` construction being a bit obscure and it can be hard to distinguish from other expressions when querying. E.g. consider the following property shape for the property `dcterms:publisher` where the range is `foaf:Agent`.
 
     ex:ps-publisher a sh:PropertyShape ;
       sh:label "Publisher" ;
@@ -174,6 +174,7 @@ Now we want to extend the book profile with the publisher restricted to organiza
     ex:ps-publisher2 a sh:PropertyShape
       sh:path dcterms:publisher ;
       sh:class foaf:Organization ;
+      inspec:refines ex:ps-publisher;
       sh:and ( ex:ps-publisher ) .
 
 ## Node shape variant - provide variants of node shapes ([Rule AP-10](rules.md#ap10))
@@ -207,7 +208,7 @@ Now to provide a variant of the book profile we use the `inspec:variant` propert
       sh:path dcterms:publisher ;
       sh:nodeKind sh:URI ;
       sh:class foaf:Agent ;
-      dcterms:isVersionOf ex:ps-publisher .
+      inspec:variant ex:ps-publisher .
 
 ## Providing order of property shapes
 <a id="order"></a>
@@ -240,14 +241,14 @@ If you are reusing property shapes in new settings (e.g. in specialization of no
 To change the order so the `dcterms:identifier` is at the top you can make a minimal specialization of that property shape with another `sh:order`:
 
     ex:ns2 a sh:NodeShape ;
-      sh:label "Book 2" ;
+      sh:label "Book 2"@en ;
       sh:property [
           sh:path dcterms:identifier ;
           sh:order "0.5"^^xsd:decimal ;
           sh:and ( ex:ps-identifier ) .
       ], ex:ps-title.
 
-Note that you have to repeat the `sh:path` due to SHACL rules. We have chosen to not give the new property shape a URI since it does not provide any additional value beyond the order, which is specific to the node shape. This is possible since it does not fall under the AP-4 rule since `sh:and` is excluded, `sh:path` is not a constraint and an `sh:order` is a characteristic (i.e. a non-validating property).
+Note that you have to repeat the `sh:path` due to SHACL rules. We have chosen to not give the new property shape a URI since it does not provide any additional value beyond the order, which is specific to the node shape. This is possible since it does not fall under the AP-3 rule since `sh:and` is excluded, `sh:path` is not a constraint and an `sh:order` is a characteristic (i.e. a non-validating property).
 
 ## Restricting to concepts in a terminology
 <a id="terminology"></a>
@@ -274,7 +275,7 @@ ex:ps1 a sh:propetyShape ;
     ]
 ```
 
-The reason we se the `sh:severity` to `sh:Info` is that if we try validate a data graph against this SHACL expression we do not always expect to have the entire terminology loaded with `rdf:type` and `skos:inScheme` triples for all concepts. In this case we instead rely on the `sh:pattern` to give us a more syntactical indication that the URI in the data graph corresponds to a correct concept. The expression with `rdf:type` and `skos:inScheme` (1 & 2 above) is provided to allow us to both detect that this is in fact a terminology when we render the specification and a more correct way to search for the intended concepts.
+The reason we set the `sh:severity` to `sh:Info` is that if we try validate a data graph against this SHACL expression we do not always expect to have the entire terminology loaded with `rdf:type` and `skos:inScheme` triples for all concepts. In this case we instead rely on the `sh:pattern` to give us a more syntactical indication that the URI in the data graph corresponds to a correct concept. The expression with `rdf:type` and `skos:inScheme` (1 & 2 above) is provided to allow us to both detect that this is in fact a terminology when we render the specification and a more correct way to search for the intended concepts.
 
 TODO Concept Collections
 
@@ -320,3 +321,5 @@ However, there are situations where the same property is reused on the same node
         sh:path foaf:topic_interests ;
         sh:nodeKind sh:URI ;
         sh:pattern "^http://example.com/computer_science/.*$";
+
+Read the chapter "[Using the same property for different purposes](property-reuse.md)" for a longer background and recommendations on when it is suitable to reuse properties in this manner.

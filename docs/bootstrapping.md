@@ -1,8 +1,8 @@
 # Bootstrapping specifications
 
-To make intoperable specifications work we need a clear way to identify the different parts. This is achieved by indicating the character of various resources by saying that they conform to a specification. Note that these bootstrapping specifications need not be interoperable specifications in themselves (but it does not hurt if they are).
+To make interoperable specifications work we need a clear way to identify the different parts. This is achieved by indicating the character of various resources by saying that they conform to a specification. Note that these bootstrapping specifications need not be interoperable specifications in themselves (but it does not hurt if they are).
 
-The bootstrapping specifications have not yet recieved a stable namespace, but a good candidate may be:
+The bootstrapping specifications have not yet received a stable namespace, but a good candidate may be:
 
 namespace | expansion
 --- | ---
