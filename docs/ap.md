@@ -290,7 +290,7 @@ The section was purposefully kept very similar to the section on Restricting to 
 
 
 ```
-ex:ps1 a sh:propetyShape ;
+ex:ps1 a sh:PropertyShape ;
     sh:path dcterms:subject ;
     sh:node [
         a sh:NodeShape ;
