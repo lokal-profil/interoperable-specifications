@@ -284,6 +284,11 @@ To restrict to concepts in a concept collection you should specify:
 1. That you are expecting instances of the class `skos:Concept`.
 2. That you are expecting the concept collection to have a `skos:member` property pointing to the concepts.
 
+Add missing section on Restricting to concepts in a concept collection
+
+The section was purposefully kept very similar to the section on Restricting to concepts in a terminology
+
+
 ```
 ex:ps1 a sh:propetyShape ;
     sh:path dcterms:subject ;
@@ -302,7 +307,7 @@ ex:ps1 a sh:propetyShape ;
     ]
 ```
 
-The reason we se the `sh:severity` to `sh:Info` is that if we try validate a data graph against this SHACL expression we do not always expect to have the entire terminology loaded with `rdf:type` and `skos:member` triples for all concepts in the collection. The expression with `rdf:type` and `skos:member` (1 & 2 above) is provided to allow us to both detect that this is in fact a concept collection when we render the specification and a more correct way to search for the intended concepts.
+The reason we set the `sh:severity` to `sh:Info` is that if we try validate a data graph against this SHACL expression we do not always expect to have the entire terminology loaded with `rdf:type` and `skos:member` triples for all concepts in the collection. The expression with `rdf:type` and `skos:member` (1 & 2 above) is provided to allow us to both detect that this is in fact a concept collection when we render the specification and a more correct way to search for the intended concepts.
 
 ## Anti patterns
 
