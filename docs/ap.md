@@ -259,7 +259,7 @@ To restrict to concepts in a terminology you should specify:
 3. A regular expression for the concept URIs (optional).
 
 ```
-ex:ps1 a sh:propetyShape ;
+ex:ps1 a sh:PropertyShape ;
     sh:path dcterms:subject ;
     sh:pattern "^http://example.com/terminologyA/.*$" ;
     sh:node [
@@ -317,7 +317,7 @@ However, there are situations where the same property is reused on the same node
         sh:nodeKind sh:URI ;
         sh:pattern "^http://example.com/hobbies/.*$";
     ex:ps2 a sh:PropertyShape ;
-        sh:label "Proffessional interests in computer science" ;
+        sh:label "Professional interests in computer science" ;
         sh:path foaf:topic_interests ;
         sh:nodeKind sh:URI ;
         sh:pattern "^http://example.com/computer_science/.*$";

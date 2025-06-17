@@ -99,7 +99,7 @@ SVG-INSPEC builds on top of SVG to provide a way to clarify whether objects in a
 
 ><a id="svg2"></a> **Rule SVG-2:** An element corresponding to an INSPEC entity MUST have a custom data attribute on the form `data-inspec-type="TYPE"` where TYPE is one of foundational, application-profile, diagram, data-vocabulary, class, property, node-shape, property-shape, concept, terminology and concept-collection. If the element corresponds to two things, e.g. both a class and a node-shape they can be listed both with a separating comma, the first should be considered dominant.
 
-><a id="svg3"></a> **Rule SVG-3:** An element corresponding to an INSPEC entity MAY have an id on the form `id="d_EID"` where EID is the md5 sum (***) of the entitys URI.
+><a id="svg3"></a> **Rule SVG-3:** An element corresponding to an INSPEC entity MAY have an id on the form `id="d_EID"` where EID is the md5 sum (***) of the entity's URI.
 
 ><a id="svg4"></a> **Rule SVG-4:** An element with type node-shape or property-shape MAY have a custom data attribute on the form `data-inspec-reusable="true"` if it is reusable according to rule AP-3 or AP-4.
 
