@@ -101,7 +101,7 @@ The following information MAY be provided:
     * An explicit list by using `sh:in` pointing to a SHACL list
     * A constraining URI pattern expressed by `sh:pattern` (Regular expression)
     * Constrain to concepts in a terminology (see [section below](#terminology))
-    * Constrain to concepts in a concept collection (see section below (TODO))
+    * Constrain to concepts in a concept collection (see [section below](#collection))
     * Constrain to instances of a class by `sh:class` (if instances from several classes are allowed, a construction with several property shapes with `sh:class` joined together via a `sh:or` is necessary)
 * A reference to another property shape it:
   * "refines" via `inspec:refines` AND `sh:and` with a SHACL list containing the refined property shape (see [section on property refinement](#property_refinement)), OR
@@ -277,7 +277,37 @@ ex:ps1 a sh:PropertyShape ;
 
 The reason we set the `sh:severity` to `sh:Info` is that if we try validate a data graph against this SHACL expression we do not always expect to have the entire terminology loaded with `rdf:type` and `skos:inScheme` triples for all concepts. In this case we instead rely on the `sh:pattern` to give us a more syntactical indication that the URI in the data graph corresponds to a correct concept. The expression with `rdf:type` and `skos:inScheme` (1 & 2 above) is provided to allow us to both detect that this is in fact a terminology when we render the specification and a more correct way to search for the intended concepts.
 
-TODO Concept Collections
+## Restricting to concepts in a concept collection
+<a id="collection"></a>
+
+To restrict to concepts in a concept collection you should specify:
+1. That you are expecting instances of the class `skos:Concept`.
+2. That you are expecting the concept collection to have a `skos:member` property pointing to the concepts.
+
+Add missing section on Restricting to concepts in a concept collection
+
+The section was purposefully kept very similar to the section on Restricting to concepts in a terminology
+
+
+```
+ex:ps1 a sh:PropertyShape ;
+    sh:path dcterms:subject ;
+    sh:node [
+        a sh:NodeShape ;
+        sh:severity sh:Info ;
+        sh:property [
+          sh:path rdf:type ;
+          sh:hasValue skos:Concept
+        ], [
+          sh:path [
+            sh:inversePath skos:member
+          ] ;
+          sh:hasValue ex:collectionA
+        ]
+    ]
+```
+
+The reason we set the `sh:severity` to `sh:Info` is that if we try validate a data graph against this SHACL expression we do not always expect to have the entire terminology loaded with `rdf:type` and `skos:member` triples for all concepts in the collection. The expression with `rdf:type` and `skos:member` (1 & 2 above) is provided to allow us to both detect that this is in fact a concept collection when we render the specification and a more correct way to search for the intended concepts.
 
 ## Anti patterns
 
