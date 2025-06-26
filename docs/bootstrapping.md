@@ -10,7 +10,7 @@ inspec | http://purl.org/inspec/
 
 ## inspec:PROF
 
-This is a specification corresponding to a profile of PROF used to capture an interoperable specification. Corresponds to the rules INSPEC-1 — INSPEC-8.
+This is a specification corresponding to a profile of PROF used to capture an interoperable specification. Corresponds to the rules INSPEC-1 — INSPEC-10.
 
 ## inspec:RDFS
 
@@ -22,7 +22,7 @@ This is a specification corresponding to a profile of SKOS used to capture an ex
 
 ## inspec:SHACL
 
-This is a specification corresponding to a profile of SHACL used to capture an expression of application profiles. Corresponds to the rules AP-1 — AP-10.
+This is a specification corresponding to a profile of SHACL used to capture an expression of application profiles. Corresponds to the rules AP-1 — AP-14.
 
 ## inspec:SVG
 
