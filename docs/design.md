@@ -9,14 +9,14 @@ The core of interoperable specifications is to find a design that allow parts of
 We will take the perspective that an information model is best described by classes and properties (attributes and relations) as well as ranges of fixed values, from now on referred to as concepts. Hence, we want to reuse the following constituents across specification borders:
 
 * **Classes** - named collections of individuals (instances/objects/things)
-* **Properties** - attributes and relations on or between individuals (*)
+* **Properties** - attributes and relations on or between individuals[^1]
 * **Concepts** - fixed values with clear semantics
 
 To describe how we reuse and contextualize classes, properties and concepts we need an **application profile**. An application profile is a kind of information model that is good at referring to existing classes, properties and concepts via their stable identifiers. Furthermore the application profile restricts usage of classes, properties and concepts in a specific context. A special aspect is that it accomplishes such restriction without relying on introducing new classes, properties or concepts via inheritance or similar approaches, see [discussion on subclassing](subclassing.md).
 
 Although an application profile may refer to individual concepts, it is more common to refer to a set of concepts, e.g. as expected values for a certain property. In such cases we will refer to **terminologies** (or code lists), which is also the way concepts are managed together. We may also make use of **concept collections** if it is necessary to refer to a smaller set of concepts from a single or across several terminologies.
 
-(*) Those familiar with UML may notice something different here, attributes and relations are in UML always bound to the class where they are introduced. The only way to let them have a wider applicability is to introduce subclasses. Allowing reuse of properties (attributes and relations) and apply them to classes in new contexts is indeed something different from the traditional object oriented paradigm. However, treating both classes and properties as reusable building blocks that can be repurposed in new settings is the best practice in the linked data domain and widely recognized as a best practice.
+[^1]: Those familiar with UML may notice something different here, attributes and relations are in UML always bound to the class where they are introduced. The only way to let them have a wider applicability is to introduce subclasses. Allowing reuse of properties (attributes and relations) and apply them to classes in new contexts is indeed something different from the traditional object oriented paradigm. However, treating both classes and properties as reusable building blocks that can be repurposed in new settings is the best practice in the linked data domain and widely recognized as a best practice.
 
 ## Human readability requirements
 
