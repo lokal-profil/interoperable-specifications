@@ -29,7 +29,9 @@ This is a specification corresponding to a profile of SHACL used to capture an e
 This is a specification corresponding to a profile of SVG used to capture an expression of diagrams for interoperable specifications. Corresponds to the rules SVG-1 — SVG-5.
 
 ## inspec:UML_OSLO
+
 TODO
 
 ## inspec:CSV
+
 TODO

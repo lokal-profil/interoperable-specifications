@@ -3,11 +3,11 @@
 ## Meetings
 
 * Meeting 1 reference group - 2024-11-18 15-16:30 - Introduction, background and walk through of starting points
-    * [Slides](slides-meeting1.pdf)
-    * [Notes](notes-meeting1.pdf)
+  * [Slides](slides-meeting1.pdf)
+  * [Notes](notes-meeting1.pdf)
 * Meeting 2 reference group - 2024-11-25 14-15 - Collect feedback and discuss options
-    * [Slides](slides-meeting2.pdf)
-    * [Notes](notes-meeting2.pdf)
+  * [Slides](slides-meeting2.pdf)
+  * [Notes](notes-meeting2.pdf)
 * Meeting 3 reference group - 2024-11-02 15-16:0 - Go through proposed profile part 1
   * [Slides](slides-meeting3.pdf)
   * [Notes](notes-meeting3.pdf)

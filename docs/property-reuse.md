@@ -6,7 +6,7 @@ This section discusses under which conditions it is possible to reuse the same p
 2. Literals with different datatypes.
 3. URIs if they can be separated based on different patterns.
 4. URIs if they are so few it makes sense to enumerate them (typically less than 50).
-5. Blank nodes if there are direct outgoing properties that are different, e.g. a `rdf:type`. 
+5. Blank nodes if there are direct outgoing properties that are different, e.g. a `rdf:type`.
 
 The following section provides a longer background, motivation, example and technicalities for how we distinguish the above five situations in SHACL.
 
@@ -53,7 +53,7 @@ The following situations should be avoided:
 
 * Presence of language or different languages.
 * Distinguish between URIs solely based on if they belong to different classes / concept in terminologies, unless:
-    * The URIs are few enough to be explicitly listed via `sh:in`
-    * All matching URIs can be determined uniquely via `sh:pattern`
+  * The URIs are few enough to be explicitly listed via `sh:in`
+  * All matching URIs can be determined uniquely via `sh:pattern`
 
 The reason for not recommending looking at further triples for URIs is that we typically do not have them in the same graph. For instance, when pointing to a concept in a terminology we do not usually copy over further triples like it's type, prefLabel etc. If such triples are copied over there is a risk of having stale information. In addition, in a harvesting scenario we would have to keep track of the original source of each entity to make sure we do not discard the wrong information or propagate stale information to others.

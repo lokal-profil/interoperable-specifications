@@ -5,6 +5,7 @@ The needs can to a large extent be covered by the SHACL Shapes Constraint Langua
 However, SHACL is too flexible for the use case of application profiles, hence we define the SHACL-INSPEC to capture the specific requirements / constraints that needs to be met when using SHACL for expressing application profiles. (A side note is that SHACL-INSPEC itself is formally an application profile of SHACL and could therefore be expressed with the help of itself. In time this will perhaps be done, but for now we ignore this as it most likely cause more confusion rather than help to clarify.)
 
 ## Glossary
+
 Let's clarify the words we are using in SHACL-INSPEC:
 
 * Entity - a distinct thing/resource/instance/individual described in a dataset
@@ -14,7 +15,7 @@ Let's clarify the words we are using in SHACL-INSPEC:
 * Node - a reference to a entity in a data graph
 * Triple - a fact/statement about an entity (via a node) in a data graph
 * Property Shape - constrains the triple expression for a certain property
-* Node Shape - joins a set of property shapes into a larger constraint 
+* Node Shape - joins a set of property shapes into a larger constraint
 * Application Profile - groups a set of node and property shapes together for a certain domain/use case
 
 ## Application Profile expression
@@ -44,12 +45,13 @@ The following information MAY be provided:
 * A description / definition expressed via the property `sh:description`
 * A usage note expressed via the property `vann:usageNote`
 * A reference to another application profile that expresses that it is a
-    * "subprofile" of another profile via `prof:isProfileOf`
-    * "variant of" another profile via the `inspec:variant`
+  * "subprofile" of another profile via `prof:isProfileOf`
+  * "variant of" another profile via the `inspec:variant`
 
 Note that for B being a subprofile of A:
+
 * Data following application profile B will also follow application profile A.
-* Data following application profile A will not always follow application profile B. 
+* Data following application profile A will not always follow application profile B.
 
 Note also that the concepts of Application profiles being subprofiles and variant of each other of are exclusive since for the variant relation there is a requirement that at least one of the node shapes has to be a variant.
 
@@ -69,8 +71,8 @@ The following information MAY be provided:
 * A description / definition expressed via the property `sh:description`
 * A usage note expressed via the property `vann:usageNote`
 * A reference to another node shape it
-    * "refines" via `inspec:refines` AND `sh:and` with a SHACL list containing the refined node shape (see [section on refinement](#node_refinement)), OR
-    * "is a variant of" via the `inspec:variant` property (see [section on variants](#node_variant))
+  * "refines" via `inspec:refines` AND `sh:and` with a SHACL list containing the refined node shape (see [section on refinement](#node_refinement)), OR
+  * "is a variant of" via the `inspec:variant` property (see [section on variants](#node_variant))
 
 ### Property Shapes pointed to from main and supportive node shapes
 
@@ -95,14 +97,14 @@ The following information MAY be provided:
 * That a datatype is required on literals by using `sh:datatype` (if several datatypes are allowed, a construction with several property shapes with individual `sh:datatype` joined together via `sh:or` is necessary)
 * That a language is required on literals by setting `sh:datatype` to `rdf:langString`
 * Constraints on which literals that is allowed by:
-    * An explicit list by using `sh:in` pointing to a SHACL list
-    * A constraining pattern expressed by `sh:pattern` (Regular expression)
+  * An explicit list by using `sh:in` pointing to a SHACL list
+  * A constraining pattern expressed by `sh:pattern` (Regular expression)
 * Constraints on which URIs that is allowed by:
-    * An explicit list by using `sh:in` pointing to a SHACL list
-    * A constraining URI pattern expressed by `sh:pattern` (Regular expression)
-    * Constrain to concepts in a terminology (see [section below](#terminology))
-    * Constrain to concepts in a concept collection (see [section below](#collection))
-    * Constrain to instances of a class by `sh:class` (if instances from several classes are allowed, a construction with several property shapes with `sh:class` joined together via a `sh:or` is necessary)
+  * An explicit list by using `sh:in` pointing to a SHACL list
+  * A constraining URI pattern expressed by `sh:pattern` (Regular expression)
+  * Constrain to concepts in a terminology (see [section below](#terminology))
+  * Constrain to concepts in a concept collection (see [section below](#collection))
+  * Constrain to instances of a class by `sh:class` (if instances from several classes are allowed, a construction with several property shapes with `sh:class` joined together via a `sh:or` is necessary)
 * A reference to another property shape it:
   * "refines" via `inspec:refines` AND `sh:and` with a SHACL list containing the refined property shape (see [section on property refinement](#property_refinement)), OR
   * "is variant of" via the `inspec:variant` property (see [section on property variants](#property_variant))
@@ -134,9 +136,9 @@ ex:ps-publisher2 a sh:PropertyShape
 Note that at a minimum we have to duplicate the `sh:path` property.
 
 ## Property shape variants - when property refinement breaks down ([Rule AP-8](rules.md#ap8))
-<a id="property_variants"></a>
+<a id="property_variant"></a>
 
-Note that we are not allowed to relax constraints via the refinement construction since it is a conjunction. For instance if we need to relax the constraint and make the publisher optional we cannot specialize the property shape, instead we have to duplicate all information. But we can still provide an indication that we have provided a "variant" of our property shape via the `inspec:variant` property like this: 
+Note that we are not allowed to relax constraints via the refinement construction since it is a conjunction. For instance if we need to relax the constraint and make the publisher optional we cannot specialize the property shape, instead we have to duplicate all information. But we can still provide an indication that we have provided a "variant" of our property shape via the `inspec:variant` property like this:
 
 ```turtle
 ex:ps-publisher3 a sh:PropertyShape ;
@@ -152,7 +154,7 @@ Note that for node shapes it is more common to have "variants" as you often want
 ## Node shape refinement - how to refine/specialize/inherit node shapes ([Rule AP-9](rules.md#ap9))
 <a id="node_refinement"></a>
 
-The `sh:and` construction used for property shapes cannot be used for node shape refinement since it would not let us indicate which property shapes that are refined (they would be mixed in a unclear manner and it would also be problematic if we need to change the order, see [section on order](#order)). Instead we have to make a new node shape. Luckily we can refer directly to all reusable property shapes that we want to use as is. In addition we point out the property shape we are refining via the `inspec:refine` property. 
+The `sh:and` construction used for property shapes cannot be used for node shape refinement since it would not let us indicate which property shapes that are refined (they would be mixed in a unclear manner and it would also be problematic if we need to change the order, see [section on order](#order)). Instead we have to make a new node shape. Luckily we can refer directly to all reusable property shapes that we want to use as is. In addition we point out the property shape we are refining via the `inspec:refine` property.
 
 Let us introduce a node shape for a book profile that we want to extend including it's two property shapes (we define the property shape ps-publisher from above again to make it easier to read):
 
@@ -272,6 +274,7 @@ Note that you have to repeat the `sh:path` due to SHACL rules. We have chosen to
 <a id="terminology"></a>
 
 To restrict to concepts in a terminology you should specify:
+
 1. That you are expecting instances of the class `skos:Concept`.
 2. That you are expecting the concepts to have a `skos:inScheme` property pointing to the terminology.
 3. A regular expression for the concept URIs (optional).
@@ -299,13 +302,13 @@ The reason we set the `sh:severity` to `sh:Info` is that if we try validate a da
 <a id="collection"></a>
 
 To restrict to concepts in a concept collection you should specify:
+
 1. That you are expecting instances of the class `skos:Concept`.
 2. That you are expecting the concept collection to have a `skos:member` property pointing to the concepts.
 
 Add missing section on Restricting to concepts in a concept collection
 
 The section was purposefully kept very similar to the section on Restricting to concepts in a terminology
-
 
 ```turtle
 ex:ps1 a sh:PropertyShape ;
@@ -330,6 +333,7 @@ The reason we set the `sh:severity` to `sh:Info` is that if we try validate a da
 ## Anti patterns
 
 ### Multiple top-level property shapes for the same triple
+
 SHACL allows a node shape to include multiple property shapes that together constrain a single triple. For instance, one property shape may constrain the node type and another the cardinality. This is problematic and should be avoided as it both makes it hard to generate documentation and complicates reuse. E.g. the following example is not encouraged:
 
 ```turtle

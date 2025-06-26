@@ -4,7 +4,7 @@ Let us consider a very simple interoperable specification where we describe a do
 
 The document must have a title, creation date and a publisher. It also recommended that the document is categorized with help of an external terminology. In this case we will use the data categories from the publication office.
 
-The publisher should be typed as a person, have a name, an email that is recommended and an optional special identifier expressed via a custom property in a specific data vocabulary. 
+The publisher should be typed as a person, have a name, an email that is recommended and an optional special identifier expressed via a custom property in a specific data vocabulary.
 
 ## PROF-INSPEC expression
 
@@ -58,6 +58,7 @@ ex:vi1 a prof:ResourceDescriptor ;
    prof:hasRole prof:specification .
 
 ```
+
 The following triples can be provided as part of PROF-INSPEC, alternatively they can be auto generated as part of the harvesting process.
 
 ```turtle
@@ -117,6 +118,7 @@ dtheme: a skos:ConceptScheme ;
    dcterms:title "Data theme terminology" .
 ...
 ```
+
 ## SHACL-INSPEC expression
 
 ```turtle

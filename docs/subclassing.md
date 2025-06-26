@@ -1,9 +1,11 @@
 # Application Profiles and subclassing
+
 The TLDR ("Too Long Did not Read") takeaway from the discussion below is that we should avoid introducing subclasses for the purpose of clarifying which characteristics are expected on a set of instances. We will use application profiles for this instead. The reason is that it comes with a cost of complicating the reuse. More specifically we should not use them purely based on technical limitations of a data modeling language like OWL. This is also the reason for why interoperable specifications rely on the combination of RDFS and Application Profiles rather than OWL. (Or the subset of OWL that coincides with RDFS.)
 
 ## The problem with subclassing
 
 Let us consider a situation where you:
+
 1. have a well known class, i.e. many information consumers know how instances of the class should be handled.
 2. need to express more information and you are considering using a subclass to indicate this.
 3. want existing consumers that are not aware of this new class to be able to treat data from you without further instructions.
@@ -21,6 +23,7 @@ Formulated differently, there is a cost involved with using subclasses and subpr
 This brings us to the question of why we subclass in the first place.
 
 ## What is a class
+
 A class corresponds to grouping a set of instances together into a set, either by including them explicitly (by their names / identities) or based on a rule, e.g. some characteristic / category that unites them. From a more philosophical perspective these two approaches are referred to as the [extensional and intentional definitions of classes](https://en.wikipedia.org/wiki/Class_(knowledge_representation)#Extensional_or_intensional_definitions). RDFS takes the intentional path as it allows two classes to be different even if they correspond to the same set of instances.
 The intentional path also allows us to make a lot of inferences about instances of classes based on rules, for instance, a certain property may have domain and range specified so we can infer that entities are instances of a certain class.
 
@@ -46,6 +49,7 @@ So how do you reap the benefits of subclasses without paying the cost outlined a
 Schema.org provides an interesting solution that is somewhere between 2 and 3 as they have introduced schema:additionalType as a variant on double typing. It is a hybrid since schema:additionalType is a subproperty of rdf:type.
 
 ## Why using OWL can be problematic
+
 OWL is a very useful tool for making inferences. However, OWL is poorly fitted for expressing reuse of properties in new settings. The reason for this is that it you have to choose between two alternatives:
 
 1. Defining a subclass and use property restrictions
@@ -54,7 +58,6 @@ OWL is a very useful tool for making inferences. However, OWL is poorly fitted f
 Alternative 1 is clearly problematic from our discussion above as it would introduce subclasses that are not well known just to circumvent a technical limitation in OWL. Alternative 2 is problematic as it will complicate reuse of data in the same environment. It would require to treat the information from different sources separately as the definitions it relies on could lead to conflicts.
 
 However, please note that there is nothing wrong with using OWL instead of RDFS for defining classes and properties. Just avoid introducing a lot of new classes with property restrictions or redeclare classes for specifying how a class should be used in a certain setting as it will demand the closed world assumptions.
-
 
 ## What does the SEMIC style guide say
 

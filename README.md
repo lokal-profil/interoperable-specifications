@@ -15,11 +15,11 @@ A consequence of aiming for reuse of classes and properties is that they need to
 Taken together, the following resources will have special roles in an interoperable specification:
 
 * **data vocabulary** a container for:
-    * **classes** that describes the kind of entities that exists in the data
-    * **properties** corresponding to attributes on or relations between classes 
+  * **classes** that describes the kind of entities that exists in the data
+  * **properties** corresponding to attributes on or relations between classes
 * **terminology** a container for:
-    * **concepts** provides fixed values with predefined meaning to be used as values in the data
-    * **concept collection** a set of concepts assembled for a specific purpose
+  * **concepts** provides fixed values with predefined meaning to be used as values in the data
+  * **concept collection** a set of concepts assembled for a specific purpose
 * **application profile** provides a mechanism for describing how classes, properties and concepts are combined in a new setting
 * **diagrams** provides visualizations of the information model
 
@@ -58,7 +58,7 @@ For more details, see the [separate page with planned meetings, slides, notes, r
 
 ## How to give feedback
 
-- Create and comment on issues in Github
-- Create pull-requests for concrete changes
-- Participate in the reference group meetings
-- Send mail to [info@digg.se](mailto:info@digg.se) for other questions or to reach out to get involved
+* Create and comment on issues in Github
+* Create pull-requests for concrete changes
+* Participate in the reference group meetings
+* Send mail to [info@digg.se](mailto:info@digg.se) for other questions or to reach out to get involved

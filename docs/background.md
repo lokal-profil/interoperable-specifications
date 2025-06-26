@@ -21,6 +21,7 @@ We live in an increasingly digital world where data is supposed to be exchanged 
 The purpose of the interoperable specifications profile is to provide a mechanism for reusing parts of specifications when creating new specifications.
 
 There are many potential added values:
+
 * Quicker development of new specifications as you do not have to start from scratch.
 * Improved quality since reused parts have been battle tested.
 * Shorter learning time if new specifications have fewer parts that are unique.
