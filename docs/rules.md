@@ -24,7 +24,7 @@ For a specification to be considered a interoperable specification the following
 
 ><a id="inspec5"></a> **Rule INSPEC-5:** Each application profile MUST be detected by `dct:conformsTo` pointing to `inspec:SHACL` and MUST be possible to interpret as SHACL-INSPEC
 
-><a id="inspec6"></a> **Rule INSPEC-6:** A diagram MUST be detected by `dct:conformsTo` property pointing to `inspec:SVG` and MUST follow SVG-INSPEC 
+><a id="inspec6"></a> **Rule INSPEC-6:** A diagram MUST be detected by `dct:conformsTo` property pointing to `inspec:SVG` and MUST follow SVG-INSPEC
 
 ><a id="inspec7"></a> **Rule INSPEC-7:** A **foundational** interoperable specification MUST contain at least one data vocabulary or one terminology, MUST NOT contain an application profile and MUST be typed as `dcterms:Standard`
 
@@ -33,7 +33,6 @@ For a specification to be considered a interoperable specification the following
 ><a id="inspec9"></a> **Rule INSPEC-9:** A profile interoperable specification MUST list all data vocabularies and terminologies it **uses** in the application profile explicitly as interoperable specification parts
 
 ><a id="inspec10"></a> **Rule INSPEC-10:** Data vocabularies and terminologies that are **reused** SHOULD indicate that by referring to the interoperable specification where they where introduced via the `prof:isInheritedFrom` property
-
 
 ## Rules for data vocabularies - RDFS-INSPEC
 
