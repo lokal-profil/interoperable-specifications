@@ -8,7 +8,7 @@ The publisher should be typed as a person, have a name, an email that is recomme
 
 ## PROF-INSPEC expression
 
-```
+```turtle
 @prefix ex: <http://example.com/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
@@ -60,7 +60,7 @@ ex:vi1 a prof:ResourceDescriptor ;
 ```
 The following triples can be provided as part of PROF-INSPEC, alternatively they can be auto generated as part of the harvesting process.
 
-```
+```turtle
 ex:spec1 dcterms:requires ex:DV1Ontology ;
    dcterms:requires dtheme: ;
    dcterms:hasPart ex:ns-document ;
@@ -85,7 +85,7 @@ ex:spec1 dcterms:requires ex:DV1Ontology ;
 
 ## RDFS-INSPEC expression
 
-```
+```turtle
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -104,7 +104,7 @@ ex:DV1Ontology a owl:Ontology ;
 
 The following is just regular SKOS.
 
-```
+```turtle
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/>
@@ -119,7 +119,7 @@ dtheme: a skos:ConceptScheme ;
 ```
 ## SHACL-INSPEC expression
 
-```
+```turtle
 # --------Document shape----------
 @prefix ex: <http://example.com/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
