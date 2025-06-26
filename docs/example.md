@@ -43,6 +43,22 @@ ex:dv1 a prof:ResourceDescriptor ;
    prof:hasArtifact ex:DV1File ;
    prof:hasRole prof:schema, prof:vocabulary .
 
+ex:dv2 a prof:ResourceDescriptor ;
+   dcterms:title "Data vocabulary for Dublin Core";
+   dcterms:conformsTo inspec:RDFS ;
+   prof:isInheritedFrom ex:spec_DCTERMS ;
+   dcterms:format "rdf/xml" ;
+   prof:hasArtifact <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.rdf> ;
+   prof:hasRole prof:schema, prof:vocabulary .
+
+ex:dv3 a prof:ResourceDescriptor ;
+   dcterms:title "Data vocabulary for Friend of a Friend (FOAF)";
+   dcterms:conformsTo inspec:RDFS ;
+   prof:isInheritedFrom ex:spec_FOAF ;
+   dcterms:format "rdf/xml" ;
+   prof:hasArtifact <http://xmlns.com/foaf/spec/index.rdf> ;
+   prof:hasRole prof:schema, prof:vocabulary .
+
 ex:te1 a prof:ResourceDescriptor ;
    dcterms:title "Data themes terminology from EU publication office";
    dcterms:conformsTo inspec:SKOS ;
@@ -73,7 +89,7 @@ ex:spec1 dcterms:requires ex:DV1Ontology ;
    dcterms:hasPart ex:ns-name ;
    dcterms:hasPart ex:ns-mbox ;
    dcterms:hasPart ex:ns-pnr ;
-   dcterms:requires dcmitype:Text ;
+   dcterms:requires foaf:Document ;
    dcterms:requires dcterms:title ;
    dcterms:requires dcterms:created ;
    dcterms:requires dcterms:publisher ;
@@ -128,13 +144,12 @@ dtheme: a skos:ConceptScheme ;
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dcmitype: <http://purl.org/dc/dcmitype/> .
 @prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 ex:ns-document a sh:NodeShape ;
-  sh:targetClass dcmitype:Text ;
+  sh:targetClass foaf:Document ;
   sh:name "Document"@en ;
   sh:property ex:ps-title, ex:ps-created, ex:ps-subject .
 
