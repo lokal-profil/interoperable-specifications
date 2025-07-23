@@ -1,0 +1,63 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prof: <http://www.w3.org/ns/dx/prof/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+
+@prefix inspec: <http://w3id.org/inspec/> .
+
+inspec: a owl:Ontology ;
+  rdfs:label "The Interoperable Specifications Profile (INSPEC) Vocabulary"@en ;
+  rdfs:comment "This vocabulary defines terms used in INSPEC."@en .
+
+inspec:SVG a rdfs:Class ;
+  rdfs:label "SVG"@en ;
+  rdfs:isDefinedBy inspec: ;
+  rdfs:comment "This is a specification corresponding to a profile of SVG used to capture an expression of diagrams for interoperable specifications. Corresponds to the rules SVG-1 — SVG-5."@en ;
+  rdfs:seeAlso <https://www.w3.org/TR/SVG11/> .
+
+inspec:SHACL a rdfs:Class ;
+  rdfs:label "SHACL"@en ;
+  rdfs:isDefinedBy inspec: ;
+  rdfs:comment "This is a specification corresponding to a profile of SHACL used to capture an expression of application profiles. Corresponds to the rules AP-1 — AP-10."@en ;
+  rdfs:seeAlso <https://www.w3.org/TR/shacl> .
+
+inspec:SKOS a rdfs:Class ;
+  rdfs:label "SKOS"@en ;
+  rdfs:isDefinedBy inspec: ;
+  rdfs:comment "This is a specification corresponding to a profile of SKOS used to capture an expression of terminologies. Corresponds to the rules TE-1 — TE-5."@en ;
+  rdfs:seeAlso <https://www.w3.org/TR/skos-reference/> .
+
+inspec:RDFS a rdfs:Class ;
+  rdfs:label "RDFS"@en ;
+  rdfs:isDefinedBy inspec: ;
+  rdfs:comment "This is a specification corresponding to a profile of RDFS used to capture an expression of data vocabularies. Corresponds to the rules DV-1 — DV-6."@en ;
+  rdfs:seeAlso <https://www.w3.org/TR/rdf12-schema/> .
+
+inspec:PROF a rdfs:Class ;
+  rdfs:label "PROF"@en ;
+  rdfs:isDefinedBy inspec: ;
+  rdfs:comment "This is a specification corresponding to a profile of PROF used to capture an interoperable specification. Corresponds to the rules INSPEC-1 — INSPEC-8."@en ;
+  rdfs:seeAlso <https://www.w3.org/TR/dx-prof/> .
+
+inspec:variant a rdf:Property ;
+  rdfs:label "variant"@en ;
+  rdfs:isDefinedBy inspec: ;
+  rdfs:comment "a shape or profile is a variant of another if it relaxes some of its constraints"@en ;
+  rdfs:subPropertyOf dcterms:relation ;
+  rdfs:domain [
+	owl:unionOf (sh:Shape prof:Profile)
+    ] ;
+  rdfs:range [
+	owl:unionOf (sh:Shape prof:Profile)
+    ].
+
+inspec:refines a rdf:Property ;
+  rdfs:label "refines"@en ;
+  rdfs:isDefinedBy inspec: ;
+  rdfs:comment "a shape refines another by adding additional constraints to it"@en ;
+  rdfs:subPropertyOf dcterms:relation ;
+  rdfs:domain sh:Shape ;
+  rdfs:range sh:Shape ;
+  rdfs:seeAlso prof:isProfileOf .
