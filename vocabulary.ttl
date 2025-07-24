@@ -44,7 +44,7 @@ inspec:PROF a rdfs:Class ;
 inspec:variant a rdf:Property ;
   rdfs:label "variant"@en ;
   rdfs:isDefinedBy inspec: ;
-  rdfs:comment "a shape or profile is a variant of another if it relaxes some of its constraints"@en ;
+  rdfs:comment "A shape or profile is a variant of another if it relaxes some of its constraints"@en ;
   rdfs:subPropertyOf dcterms:relation ;
   rdfs:domain [
 	owl:unionOf (sh:Shape prof:Profile)
@@ -56,7 +56,7 @@ inspec:variant a rdf:Property ;
 inspec:refines a rdf:Property ;
   rdfs:label "refines"@en ;
   rdfs:isDefinedBy inspec: ;
-  rdfs:comment "a shape refines another by adding additional constraints to it"@en ;
+  rdfs:comment "A shape refines another by adding additional constraints to it"@en ;
   rdfs:subPropertyOf dcterms:relation ;
   rdfs:domain sh:Shape ;
   rdfs:range sh:Shape ;
