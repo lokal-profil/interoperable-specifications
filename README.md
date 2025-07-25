@@ -7,15 +7,15 @@ The requirements of interoperable specification are expressed in the form of a p
 ## Profile parts
 
 1. [INSPEC in a nutshell](#inspec-in-a-nutshell)
-2. [Background and motivation](docs/background.md)
-3. [Conceptual design and definitions](docs/design.md)
-4. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**)
-5. [Application Profiles as SHACL-INSPEC](docs/ap.md)
-6. [Bootstrapping specifications](docs/bootstrapping.md)
-7. [Harvesting interoperable specifications](docs/harvesting.md)
-8. [Example specification according to the profile](docs/example.md)
-9. [Application profiles and subclassing](docs/subclassing.md)
-10. [Using the same property for different purposes](docs/property-reuse.md)
+2. [Background and motivation↗](docs/background.md)
+3. [Conceptual design and definitions↗](docs/design.md)
+4. [Rules for interoperable specifications↗](docs/rules.md) ⇐ (**the formal specification**)
+5. [Application Profiles as SHACL-INSPEC↗](docs/ap.md)
+6. [Bootstrapping specifications↗](docs/bootstrapping.md)
+7. [Harvesting interoperable specifications↗](docs/harvesting.md)
+8. [Example specification according to the profile↗](docs/example.md)
+9. [Application profiles and subclassing↗](docs/subclassing.md)
+10. [Using the same property for different purposes↗](docs/property-reuse.md)
 
 ## INSPEC in a nutshell
 
