@@ -32,7 +32,7 @@ For a specification to be considered a interoperable specification the following
 
 RDFS-INSPEC builds on top of the RDF Schema specification by providing the following additional restrictions:
 
-><a id="dv1"></a> **Rule DV-1:** A data vocabulary MUST be expressed in a single RDF Dataset. (*)
+><a id="dv1"></a> **Rule DV-1:** A data vocabulary MUST be expressed in a single RDF Dataset.[^note1]
 
 ><a id="dv2"></a> **Rule DV-2:** There MUST be a single "data vocabulary resource" typed as `owl:Ontology` in the RDF Dataset
 
@@ -48,7 +48,7 @@ RDFS-INSPEC builds on top of the RDF Schema specification by providing the follo
 
 SKOS-INSPEC builds on top of the SKOS specification by providing the following additional restrictions:
 
-><a id="te1"></a> **Rule TE-1:** A terminology MUST be expressed in a single RDF Dataset. (*)
+><a id="te1"></a> **Rule TE-1:** A terminology MUST be expressed in a single RDF Dataset.[^note1]
 
 ><a id="te2"></a> **Rule TE-2:** There MUST be a single "terminology resource" with a URI typed as `skos:ConceptScheme` in the RDF Dataset
 
@@ -62,7 +62,7 @@ SKOS-INSPEC builds on top of the SKOS specification by providing the following a
 
 SHACL-INSPEC builds on top of the SHACL specification by providing additional restrictions. Since SHACL is a rich language the following rules does not cover all situations. For instance, the following rules does not indicate how to specify how to restrict to concepts from a specific terminology. For a more complete treatment see the [SHACL-INSPEC separate document](ap.md) for patterns on how to use the profile in various situations.
 
-><a id="ap1"></a> **Rule AP-1:** An application profile MUST be expressed in a single RDF Dataset (**)
+><a id="ap1"></a> **Rule AP-1:** An application profile MUST be expressed in a single RDF Dataset[^note2]
 
 ><a id="ap2"></a> **Rule AP-2:** There MUST be a single "application profile resource" with a URI in the RDF Dataset AND it must be the same as the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
@@ -98,14 +98,14 @@ SVG-INSPEC builds on top of SVG to provide a way to clarify whether objects in a
 
 ><a id="svg2"></a> **Rule SVG-2:** An element corresponding to an INSPEC entity MUST have a custom data attribute on the form `data-inspec-type="TYPE"` where TYPE is one of foundational, application-profile, diagram, data-vocabulary, class, property, node-shape, property-shape, concept, terminology and concept-collection. If the element corresponds to two things, e.g. both a class and a node-shape they can be listed both with a separating comma, the first should be considered dominant.
 
-><a id="svg3"></a> **Rule SVG-3:** An element corresponding to an INSPEC entity MAY have an id on the form `id="d_EID"` where EID is the md5 sum (***) of the entity's URI.
+><a id="svg3"></a> **Rule SVG-3:** An element corresponding to an INSPEC entity MAY have an id on the form `id="d_EID"` where EID is the md5 sum[^note3] of the entity's URI.
 
 ><a id="svg4"></a> **Rule SVG-4:** An element with type node-shape or property-shape MAY have a custom data attribute on the form `data-inspec-reusable="true"` if it is reusable according to rule AP-3 or AP-4.
 
 ><a id="svg5"></a> **Rule SVG-5:** An element with type node-shape that is also reusable MAY have a custom data attribute on the form `data-inspec-weight="WEIGHT"` where WEIGHT is either "main" or "supportive" according to rule AP-5.
 
-(*) Both RDFS and SKOS introduce building blocks (classes and properties) for defining things (other classes, properties, concepts, collections) in an open world manner. However, both vocabularies and terminologies needs to work in the context of semantic specifications where it is stated explicitly what is included, hence it corresponds to a closed world perspective. Hence, in both RDFS-INSPEC and SKOS-INSPEC there is a restriction to assume that everything needed is provided in the indicated RDF Datasets.
+[^note1]: Both RDFS and SKOS introduce building blocks (classes and properties) for defining things (other classes, properties, concepts, collections) in an open world manner. However, both vocabularies and terminologies needs to work in the context of semantic specifications where it is stated explicitly what is included, hence it corresponds to a closed world perspective. Hence, in both RDFS-INSPEC and SKOS-INSPEC there is a restriction to assume that everything needed is provided in the indicated RDF Datasets.
 
-(**) SHACL supports imports declared via `owl:import`, the rules are written from the perspective that these are respected and all RDF Datasets (potentially recursively) are imported first into a single RDF Dataset.
+[^note2]: SHACL supports imports declared via `owl:import`, the rules are written from the perspective that these are respected and all RDF Datasets (potentially recursively) are imported first into a single RDF Dataset.
 
-(***) The id value could in principle be the URI, however, it is highly likely that we want to write CSS rules targeting individual elements and then we need to be more restrictive as CSS rules cannot use URIs as part of selectors.
+[^note3]: The id value could in principle be the URI, however, it is highly likely that we want to write CSS rules targeting individual elements and then we need to be more restrictive as CSS rules cannot use URIs as part of selectors.
