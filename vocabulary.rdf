@@ -12,7 +12,7 @@
         <rdfs:comment xml:lang="en">This vocabulary defines terms used in INSPEC.</rdfs:comment>
       </owl:Ontology>
     </rdfs:isDefinedBy>
-    <rdfs:comment xml:lang="en">This is a specification corresponding to a profile of PROF used to capture an interoperable specification. Corresponds to the rules INSPEC-1 — INSPEC-8.</rdfs:comment>
+    <rdfs:comment xml:lang="en">This is a specification corresponding to a profile of PROF used to capture an interoperable specification. Corresponds to the rules INSPEC-1 — INSPEC-10.</rdfs:comment>
     <rdfs:seeAlso rdf:resource="https://www.w3.org/TR/dx-prof/"/>
   </rdfs:Class>
   <rdfs:Class rdf:about="http://w3id.org/inspec/RDFS">
