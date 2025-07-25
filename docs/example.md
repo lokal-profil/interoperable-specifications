@@ -15,7 +15,7 @@ The publisher should be typed as a person, have a name, an email that is recomme
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/> .
-@prefix inspec: <http://purl.org/inspec/> .
+@prefix inspec: <http://w3id.org/inspec/datavoc/> .
 
 ex:spec1 a prof:Profile ;
    dcterms:title "DocPub1.0 - document and publisher"@en ;
