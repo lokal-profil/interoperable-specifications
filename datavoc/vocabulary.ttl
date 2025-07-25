@@ -5,7 +5,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 
-@prefix inspec: <http://w3id.org/inspec/datavoc/> .
+@prefix inspec: <https://w3id.org/inspec/datavoc/> .
 
 inspec: a owl:Ontology ;
   rdfs:label "The Interoperable Specifications Profile (INSPEC) Vocabulary"@en ;

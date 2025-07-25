@@ -6,7 +6,7 @@ The bootstrapping specifications have not yet received a stable namespace, but a
 
 namespace | expansion
 --- | ---
-inspec | <http://w3id.org/inspec/datavoc/>
+inspec | <https://w3id.org/inspec/datavoc/>
 
 ## inspec:PROF
 
