@@ -72,21 +72,21 @@ SHACL-INSPEC builds on top of the SHACL specification by providing additional re
 
 ><a id="ap2"></a> **Rule AP-2:** There MUST be a single "application profile resource" with a URI in the RDF Dataset AND it must be the same as the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
-><a id="ap3"></a> **Rule AP-3:** All property shapes with a severity of `sh:VIOLATION` and with at least one constraint (`sh:and` for specialization does not count) are considered **reusable** and they MUST have URIs and MUST also be pointed to from the application profile resource via the `dcterms:hasPart` property
+><a id="ap3"></a> **Rule AP-3:** All property shapes with a severity of `sh:VIOLATION` and with at least one constraint (`sh:and` for specialization does not count) are considered **public** and they MUST have URIs and MUST also be pointed to from the application profile resource via the `dcterms:hasPart` property
 
-><a id="ap4"></a> **Rule AP-4:** All node shapes with a severity of `sh:VIOLATION` are considered **reusable** and MUST have URIs and MUST also be pointed to from the application profile resource via the `dcterms:hasPart` property
+><a id="ap4"></a> **Rule AP-4:** All node shapes with a severity of `sh:VIOLATION` are considered **public** and MUST have URIs and MUST also be pointed to from the application profile resource via the `dcterms:hasPart` property
 
-><a id="ap5"></a> **Rule AP-5:** Reusable node shapes are considered **main** if they have a target declaration, otherwise they are considered **supportive**
+><a id="ap5"></a> **Rule AP-5:** Public node shapes are considered **main** if they have a target declaration, otherwise they are considered **supportive**
 
-><a id="ap6"></a> **Rule AP-6:** All reusable node shapes, as well as all property shapes pointed to from those, MUST provide a label and MAY also provide a definition and a usage note
+><a id="ap6"></a> **Rule AP-6:** All public node shapes, as well as all property shapes pointed to from those, MUST provide a label and MAY also provide a definition and a usage note
 
-><a id="ap7"></a> **Rule AP-7:** A property shape MAY express that it **refines** a reusable property shape via both the `inspec:refines` property as well as via a `sh:and` construct, the latter to be compatible with normal SHACL validation.
+><a id="ap7"></a> **Rule AP-7:** A property shape MAY express that it **refines** a public property shape via both the `inspec:refines` property as well as via a `sh:and` construct, the latter to be compatible with normal SHACL validation.
 
-><a id="ap8"></a> **Rule AP-8:** A property shape MAY express that it is a **variant** of a reusable property shape via the `inspec:variant` property
+><a id="ap8"></a> **Rule AP-8:** A property shape MAY express that it is a **variant** of a public property shape via the `inspec:variant` property
 
-><a id="ap9"></a> **Rule AP-9:** A node shape *B* MAY express that it **refines** a reusable node shape *A* via the `inspec:refines` property only if for every property shape *X* in *A* either *X* or a refinement *Y* of *X* is in *B*.
+><a id="ap9"></a> **Rule AP-9:** A node shape *B* MAY express that it **refines** a public node shape *A* via the `inspec:refines` property only if for every property shape *X* in *A* either *X* or a refinement *Y* of *X* is in *B*.
 
-><a id="ap10"></a> **Rule AP-10:** A node shape *B* MAY express that it is a **variant** of a reusable node shape *A* via the `inspec:variant` property only if for every property shape *X* in *A* either *X* or *Y* is in *B* where *Y* is a refinement or a variant of *X*. At least one of the property shapes must be a variant and not a refinement.
+><a id="ap10"></a> **Rule AP-10:** A node shape *B* MAY express that it is a **variant** of a public node shape *A* via the `inspec:variant` property only if for every property shape *X* in *A* either *X* or *Y* is in *B* where *Y* is a refinement or a variant of *X*. At least one of the property shapes must be a variant and not a refinement.
 
 ><a id="ap11"></a> **Rule AP-11:** An application profile *B* MAY express that it is a **subprofile of** of an application profile *A* via the `prof:isProfileOf` property only if for every node shape *X* in *A* there is a refined node shape *Y* in *B*.
 
@@ -106,9 +106,9 @@ SVG-INSPEC builds on top of SVG to provide a way to clarify whether objects in a
 
 ><a id="svg3"></a> **Rule SVG-3:** An element corresponding to an INSPEC entity MAY have an id on the form `id="d_EID"` where EID is the md5 sum[^note3] of the entity's URI.
 
-><a id="svg4"></a> **Rule SVG-4:** An element with type node-shape or property-shape MAY have a custom data attribute on the form `data-inspec-reusable="true"` if it is reusable according to rule AP-3 or AP-4.
+><a id="svg4"></a> **Rule SVG-4:** An element with type node-shape or property-shape MAY have a custom data attribute on the form `data-inspec-public="true"` if it is public according to rule AP-3 or AP-4.
 
-><a id="svg5"></a> **Rule SVG-5:** An element with type node-shape that is also reusable MAY have a custom data attribute on the form `data-inspec-weight="WEIGHT"` where WEIGHT is either "main" or "supportive" according to rule AP-5.
+><a id="svg5"></a> **Rule SVG-5:** An element with type node-shape that is also public MAY have a custom data attribute on the form `data-inspec-weight="WEIGHT"` where WEIGHT is either "main" or "supportive" according to rule AP-5.
 
 [^note1]: Both RDFS and SKOS introduce building blocks (classes and properties) for defining things (other classes, properties, concepts, collections) in an open world manner. However, both vocabularies and terminologies needs to work in the context of semantic specifications where it is stated explicitly what is included, hence it corresponds to a closed world perspective. Hence, in both RDFS-INSPEC and SKOS-INSPEC there is a restriction to assume that everything needed is provided in the indicated RDF Datasets.
 

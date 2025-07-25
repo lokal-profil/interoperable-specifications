@@ -154,7 +154,7 @@ Note that for node shapes it is more common to have "variants" as you often want
 ## Node shape refinement - how to refine/specialize/inherit node shapes ([Rule AP-9](rules.md#ap9))
 <a id="node_refinement"></a>
 
-The `sh:and` construction used for property shapes cannot be used for node shape refinement since it would not let us indicate which property shapes that are refined (they would be mixed in a unclear manner and it would also be problematic if we need to change the order, see [section on order](#order)). Instead we have to make a new node shape. Luckily we can refer directly to all reusable property shapes that we want to use as is. In addition we point out the property shape we are refining via the `inspec:refine` property.
+The `sh:and` construction used for property shapes cannot be used for node shape refinement since it would not let us indicate which property shapes that are refined (they would be mixed in a unclear manner and it would also be problematic if we need to change the order, see [section on order](#order)). Instead we have to make a new node shape. Luckily we can refer directly to all public property shapes that we want to use as is. In addition we point out the property shape we are refining via the `inspec:refine` property.
 
 Let us introduce a node shape for a book profile that we want to extend including it's two property shapes (we define the property shape ps-publisher from above again to make it easier to read):
 
@@ -268,7 +268,7 @@ ex:ns2 a sh:NodeShape ;
   ], ex:ps-title.
 ```
 
-Note that you have to repeat the `sh:path` due to SHACL rules. We have chosen to not give the new property shape a URI since it does not provide any additional value beyond the order, which is specific to the node shape. This is possible since it does not fall under the AP-3 rule since `sh:and` is excluded, `sh:path` is not a constraint and an `sh:order` is a characteristic (i.e. a non-validating property).
+Note that you have to repeat the `sh:path` due to SHACL rules. We have chosen to not give the new property shape a URI since it does not provide any additional value beyond the order, which is specific to the node shape. This is possible since it does not fall under the [Rule AP-3](rules.md#ap3) rule since `sh:and` is excluded, `sh:path` is not a constraint and an `sh:order` is a characteristic (i.e. a non-validating property). The property shape should therefore be considered **private** (as opposed to public).
 
 ## Restricting to concepts in a terminology
 <a id="terminology"></a>
@@ -296,7 +296,9 @@ ex:ps1 a sh:PropertyShape ;
     ]
 ```
 
-The reason we set the `sh:severity` to `sh:Info` is that if we try validate a data graph against this SHACL expression we do not always expect to have the entire terminology loaded with `rdf:type` and `skos:inScheme` triples for all concepts. In this case we instead rely on the `sh:pattern` to give us a more syntactical indication that the URI in the data graph corresponds to a correct concept. The expression with `rdf:type` and `skos:inScheme` (1 & 2 above) is provided to allow us to both detect that this is in fact a terminology when we render the specification and a more correct way to search for the intended concepts.
+The reason we set the `sh:severity` to `sh:Info` is that if we try validate a data graph against this SHACL expression we do not always expect to have the entire terminology loaded with `rdf:type` and `skos:inScheme` triples for all concepts. In this case we instead rely on the `sh:pattern` to give us a more syntactical indication that the URI in the data graph corresponds to a correct concept. The expression with `rdf:type` and `skos:inScheme` (1 & 2 above) is provided to allow us to both detect that this is in fact a terminology when we render the specification and a more correct way to search for the intended concepts.[^1]
+
+[^1]: We here introduced a node shape and two property shapes which we consider to be private (as opposed to public, see [AP-3](rules.md#ap3) and [AP-4](rules.md#ap4)) as they are primarily a technical construction. This also necessitates setting the `sh:severity` below `sh:VIOLATION` but allows us to use blank blank nodes for these shapes.
 
 ## Restricting to concepts in a concept collection
 <a id="collection"></a>
@@ -328,7 +330,7 @@ ex:ps1 a sh:PropertyShape ;
     ]
 ```
 
-The reason we set the `sh:severity` to `sh:Info` is that if we try validate a data graph against this SHACL expression we do not always expect to have the entire terminology loaded with `rdf:type` and `skos:member` triples for all concepts in the collection. The expression with `rdf:type` and `skos:member` (1 & 2 above) is provided to allow us to both detect that this is in fact a concept collection when we render the specification and a more correct way to search for the intended concepts.
+The reason we set the `sh:severity` to `sh:Info` is that if we try validate a data graph against this SHACL expression we do not always expect to have the entire terminology loaded with `rdf:type` and `skos:member` triples for all concepts in the collection. The expression with `rdf:type` and `skos:member` (1 & 2 above) is provided to allow us to both detect that this is in fact a concept collection when we render the specification and a more correct way to search for the intended concepts.[^1]
 
 ## Anti patterns
 
