@@ -6,18 +6,18 @@ The requirements of interoperable specification are expressed in the form of a p
 
 ## Profile parts
 
-0. [Short introduction](#short-introduction)
-1. [Background and motivation](docs/background.md)
-2. [Conceptual design and definitions](docs/design.md)
-3. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**)
-4. [Application Profiles as SHACL-INSPEC](docs/ap.md)
-5. [Bootstrapping specifications](docs/bootstrapping.md)
-6. [Harvesting interoperable specifications](docs/harvesting.md)
-7. [Example specification according to the profile](docs/example.md)
-8. [Application profiles and subclassing](docs/subclassing.md)
-9. [Using the same property for different purposes](docs/property-reuse.md)
+1. [INSPEC in a nutshell](#inspec-in-a-nutshell)
+2. [Background and motivation](docs/background.md)
+3. [Conceptual design and definitions](docs/design.md)
+4. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**)
+5. [Application Profiles as SHACL-INSPEC](docs/ap.md)
+6. [Bootstrapping specifications](docs/bootstrapping.md)
+7. [Harvesting interoperable specifications](docs/harvesting.md)
+8. [Example specification according to the profile](docs/example.md)
+9. [Application profiles and subclassing](docs/subclassing.md)
+10. [Using the same property for different purposes](docs/property-reuse.md)
 
-## Short introduction
+## INSPEC in a nutshell
 
 A specification has historically often been seen as a specification document containing a mixture of background, motivation and more formal descriptions. A more modern way of looking at a specification is that it is a package of resources, some targeted towards human consumption while others towards processing by machines.
 
