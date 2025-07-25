@@ -4,6 +4,19 @@ The purpose of the *Interoperability Specification Profile*, or *INSPEC* in shor
 
 The requirements of interoperable specification are expressed in the form of a profile, this means that the requirements are expressed as special uses / pattern of something existing rather than introducing something entirely new. Absolute requirements are expressed with MUST / MUST NOT, strong requirements with SHOULD / SHOULD NOT and finally MAY for weaker recommendations, see [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt) for a longer treatment.
 
+## Profile parts
+
+0. [Short introduction](#short-introduction)
+1. [Background and motivation](docs/background.md)
+2. [Conceptual design and definitions](docs/design.md)
+3. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**)
+4. [Application Profiles as SHACL-INSPEC](docs/ap.md)
+5. [Bootstrapping specifications](docs/bootstrapping.md)
+6. [Harvesting interoperable specifications](docs/harvesting.md)
+7. [Example specification according to the profile](docs/example.md)
+8. [Application profiles and subclassing](docs/subclassing.md)
+9. [Using the same property for different purposes](docs/property-reuse.md)
+
 ## Short introduction
 
 A specification has historically often been seen as a specification document containing a mixture of background, motivation and more formal descriptions. A more modern way of looking at a specification is that it is a package of resources, some targeted towards human consumption while others towards processing by machines.
@@ -28,18 +41,6 @@ Taken together, the following resources will have special roles in an interopera
 Note 1 - diagrams are mostly valuable as a help for humans for getting an overview not for specifying formal information (which is provided in the vocabulary, terminology and application profile).
 
 Note 2 - an interoperable specification may contain more resources than those mentioned above but this profile does not proscribe how they should be understood or treated.
-
-## Profile parts
-
-1. [Background and motivation](docs/background.md)
-2. [Conceptual design and definitions](docs/design.md)
-3. [Rules for interoperable specifications](docs/rules.md) ⇐ (**the formal specification**)
-4. [Application Profiles as SHACL-INSPEC](docs/ap.md)
-5. [Bootstrapping specifications](docs/bootstrapping.md)
-6. [Harvesting interoperable specifications](docs/harvesting.md)
-7. [Example specification according to the profile](docs/example.md)
-8. [Application profiles and subclassing](docs/subclassing.md)
-9. [Using the same property for different purposes](docs/property-reuse.md)
 
 ## Who this profile targets
 
