@@ -185,7 +185,7 @@ ex:ns-book2 a sh:NodeShape ;
 ex:ps-publisher2 a sh:PropertyShape
   sh:path dcterms:publisher ;
   sh:class foaf:Organization ;
-  inspec:refines ex:ps-publisher;
+  inspec:refines ex:ps-publisher ;
   sh:and ( ex:ps-publisher ) .
 ```
 

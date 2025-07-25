@@ -1,6 +1,6 @@
 # Harvesting interoperable specifications
 
-The starting point when you harvest is an expression according to PROF-INSPEC, see rules INSPEC-1 - INSPEC-8.
+The starting point when you harvest is an expression according to PROF-INSPEC, see rules INSPEC-1 - INSPEC-10.
 
 ## Native harvesting according to INSPEC profile
 
