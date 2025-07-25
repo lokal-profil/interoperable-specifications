@@ -110,6 +110,7 @@ The following information MAY be provided:
   * "is variant of" via the `inspec:variant` property (see [section on property variants](#property_variant))
 
 ## Property shape refinement - how to refine/specialize/inherit property shapes ([Rule AP-7](rules.md#ap7))
+
 <a id="property_refinement"></a>
 
 SHACL allows shapes to be combined via `sh:and`. This can be used to specialize an existing shapes with additional constraints or further restricting. We also express the relation directly to the property shape being refined via the `inspec:refines`, this is due to the `sh:and` construction being a bit obscure and it can be hard to distinguish from other expressions when querying. E.g. consider the following property shape for the property `dcterms:publisher` where the range is `foaf:Agent`.
@@ -136,6 +137,7 @@ ex:ps-publisher2 a sh:PropertyShape
 Note that at a minimum we have to duplicate the `sh:path` property.
 
 ## Property shape variants - when property refinement breaks down ([Rule AP-8](rules.md#ap8))
+
 <a id="property_variant"></a>
 
 Note that we are not allowed to relax constraints via the refinement construction since it is a conjunction. For instance if we need to relax the constraint and make the publisher optional we cannot specialize the property shape, instead we have to duplicate all information. But we can still provide an indication that we have provided a "variant" of our property shape via the `inspec:variant` property like this:
@@ -152,6 +154,7 @@ ex:ps-publisher3 a sh:PropertyShape ;
 Note that for node shapes it is more common to have "variants" as you often want to change the order or include a slightly different set of property shapes.
 
 ## Node shape refinement - how to refine/specialize/inherit node shapes ([Rule AP-9](rules.md#ap9))
+
 <a id="node_refinement"></a>
 
 The `sh:and` construction used for property shapes cannot be used for node shape refinement since it would not let us indicate which property shapes that are refined (they would be mixed in a unclear manner and it would also be problematic if we need to change the order, see [section on order](#order)). Instead we have to make a new node shape. Luckily we can refer directly to all public property shapes that we want to use as is. In addition we point out the property shape we are refining via the `inspec:refine` property.
@@ -190,6 +193,7 @@ ex:ps-publisher2 a sh:PropertyShape
 ```
 
 ## Node shape variant - provide variants of node shapes ([Rule AP-10](rules.md#ap10))
+
 <a id="node_variant"></a>
 
 The solution for node shape variants is very similar to refinements, we can look at an example directly (again we repeat everything for readability):
@@ -227,6 +231,7 @@ ex:ps-publisher3 a sh:PropertyShape ;
 ```
 
 ## Providing order of property shapes
+
 <a id="order"></a>
 
 An important aspect of application profiles is to generate specification documents in a predictable manner. Furthermore, since we aim for multilinguality the order cannot be based on alphabetical sorting of labels. Consequently we outline two rules:
@@ -271,6 +276,7 @@ ex:ns2 a sh:NodeShape ;
 Note that you have to repeat the `sh:path` due to SHACL rules. We have chosen to not give the new property shape a URI since it does not provide any additional value beyond the order, which is specific to the node shape. This is possible since it does not fall under the [Rule AP-3](rules.md#ap3) rule since `sh:and` is excluded, `sh:path` is not a constraint and an `sh:order` is a characteristic (i.e. a non-validating property). The property shape should therefore be considered **private** (as opposed to public).
 
 ## Restricting to concepts in a terminology
+
 <a id="terminology"></a>
 
 To restrict to concepts in a terminology you should specify:
@@ -301,6 +307,7 @@ The reason we set the `sh:severity` to `sh:Info` is that if we try validate a da
 [^1]: We here introduced a node shape and two property shapes which we consider to be private (as opposed to public, see [AP-3](rules.md#ap3) and [AP-4](rules.md#ap4)) as they are primarily a technical construction. This also necessitates setting the `sh:severity` below `sh:VIOLATION` but allows us to use blank blank nodes for these shapes.
 
 ## Restricting to concepts in a concept collection
+
 <a id="collection"></a>
 
 To restrict to concepts in a concept collection you should specify:

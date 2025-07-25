@@ -6,7 +6,7 @@ The bootstrapping specifications have not yet received a stable namespace, but a
 
 namespace | expansion
 --- | ---
-inspec | http://purl.org/inspec/
+inspec | <http://purl.org/inspec/>
 
 ## inspec:PROF
 
