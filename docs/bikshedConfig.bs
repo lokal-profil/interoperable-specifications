@@ -1,0 +1,17 @@
+<pre class='metadata'>
+Title: Interoperable Specifications Profile
+Shortname: INSPEC
+Level: 1.0
+Status: LS
+URL: https://w3id.org/inspec/specification
+Markup Shorthands: markdown yes
+Editor: Matthias Palmér, MetaSolutions https://metasolutions.se/ <!-- skulle vilja få in digg här-->
+Editor: André Costa, MetaSolutions https://metasolutions.se/
+Repository: https://github.com/diggsweden/interoperable-specifications
+!Contributions from the reference group (in alphabetic order): Andrew Mercer (Riksantikvarieämbetet)
+!Contributions from the reference group (in alphabetic order): Benny Lund (Bolagsverket)
+Abstract: The Interoperability Specification Profile aims to provide a mechanism for reusing parts of specifications when creating new specifications. It thus defines a specification as a container that consists of one or more resources each given URIs and described using RDF.
+</pre>
+<pre class=include>
+path: rules.md
+</pre>
