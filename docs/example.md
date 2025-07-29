@@ -125,7 +125,7 @@ The following is just regular SKOS.
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/>
 
-dtheme:/ECON a skos:Concept ;
+dtheme:ECON a skos:Concept ;
    skos:prefLabel "Economy"@en ;
    skos:topConceptOf dtheme: .
 
