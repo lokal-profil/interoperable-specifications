@@ -1490,7 +1490,7 @@ Possible extra rowspan handling
 </style>
   <meta content="Bikeshed version 3f621ba99, updated Mon Jul 28 15:38:36 2025 -0700" name="generator">
   <link href="https://w3id.org/inspec/specification" rel="canonical">
-  <meta content="733db18e78d24d213476a5f231a49624f2260ef6" name="revision">
+  <meta content="77b4fd621fa029c25713b1b2fde42c080ec46476" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>/* Boilerplate: style-autolinks */
 .css.css, .property.property, .descriptor.descriptor {
@@ -1999,7 +1999,7 @@ Parts of this work may be from another specification document.  If so, those par
    <h3 class="heading settled" data-level="1.2" id="rules-for-data-vocabularies---rdfs-inspec"><span class="secno">1.2. </span><span class="content">Rules for data vocabularies - RDFS-INSPEC</span><a class="self-link" href="#rules-for-data-vocabularies---rdfs-inspec"></a></h3>
    <p>RDFS-INSPEC builds on top of the RDF Schema specification by providing the following additional restrictions:</p>
    <blockquote>
-    <p><span id="dv1"></span> <strong>Rule DV-1:</strong> A data vocabulary MUST be expressed in a single RDF Dataset.[^note1]</p>
+    <p><span id="dv1"></span> <strong>Rule DV-1:</strong> A data vocabulary MUST be expressed in a single RDF Dataset.<sup><a href="#fn1" id="fn1_1">[1]</a></sup></p>
    </blockquote>
    <blockquote>
     <p><span id="dv2"></span> <strong>Rule DV-2:</strong> There MUST be a single "data vocabulary resource" typed as <code>owl:Ontology</code> in the RDF Dataset</p>
@@ -2019,7 +2019,7 @@ Parts of this work may be from another specification document.  If so, those par
    <h3 class="heading settled" data-level="1.3" id="rules-for-terminologies---skos-inspec"><span class="secno">1.3. </span><span class="content">Rules for terminologies - SKOS-INSPEC</span><a class="self-link" href="#rules-for-terminologies---skos-inspec"></a></h3>
    <p>SKOS-INSPEC builds on top of the SKOS specification by providing the following additional restrictions:</p>
    <blockquote>
-    <p><span id="te1"></span> <strong>Rule TE-1:</strong> A terminology MUST be expressed in a single RDF Dataset.[^note1]</p>
+    <p><span id="te1"></span> <strong>Rule TE-1:</strong> A terminology MUST be expressed in a single RDF Dataset.<sup><a href="#fn1" id="fn1_2">[1]</a></sup></p>
    </blockquote>
    <blockquote>
     <p><span id="te2"></span> <strong>Rule TE-2:</strong> There MUST be a single "terminology resource" with a URI typed as <code>skos:ConceptScheme</code> in the RDF Dataset</p>
@@ -2036,7 +2036,7 @@ Parts of this work may be from another specification document.  If so, those par
    <h3 class="heading settled" data-level="1.4" id="rules-for-application-profiles---shacl-inspec"><span class="secno">1.4. </span><span class="content">Rules for application profiles - SHACL-INSPEC</span><a class="self-link" href="#rules-for-application-profiles---shacl-inspec"></a></h3>
    <p>SHACL-INSPEC builds on top of the SHACL specification by providing additional restrictions. Since SHACL is a rich language the following rules does not cover all situations. For instance, the following rules does not indicate how to specify how to restrict to concepts from a specific terminology. For a more complete treatment see the <a href="ap.md">SHACL-INSPEC separate document</a> for patterns on how to use the profile in various situations.</p>
    <blockquote>
-    <p><span id="ap1"></span> <strong>Rule AP-1:</strong> An application profile MUST be expressed in a single RDF Dataset[^note2]</p>
+    <p><span id="ap1"></span> <strong>Rule AP-1:</strong> An application profile MUST be expressed in a single RDF Dataset<sup><a href="#fn2" id="fn2_1">[2]</a></sup></p>
    </blockquote>
    <blockquote>
     <p><span id="ap2"></span> <strong>Rule AP-2:</strong> There MUST be a single "application profile resource" with a URI in the RDF Dataset AND it must be the same as the "interoperable specification resource" (introduced in Rule INSPEC-1)</p>
@@ -2086,7 +2086,7 @@ Parts of this work may be from another specification document.  If so, those par
     <p><span id="svg2"></span> <strong>Rule SVG-2:</strong> An element corresponding to an INSPEC entity MUST have a custom data attribute on the form <code>data-inspec-type="TYPE"</code> where TYPE is one of foundational, application-profile, diagram, data-vocabulary, class, property, node-shape, property-shape, concept, terminology and concept-collection. If the element corresponds to two things, e.g. both a class and a node-shape they can be listed both with a separating comma, the first should be considered dominant.</p>
    </blockquote>
    <blockquote>
-    <p><span id="svg3"></span> <strong>Rule SVG-3:</strong> An element corresponding to an INSPEC entity MAY have an id on the form <code>id="d_EID"</code> where EID is the md5 sum[^note3] of the entity’s URI.</p>
+    <p><span id="svg3"></span> <strong>Rule SVG-3:</strong> An element corresponding to an INSPEC entity MAY have an id on the form <code>id="d_EID"</code> where EID is the md5 sum<sup><a href="#fn3" id="fn3_1">[3]</a></sup> of the entity’s URI.</p>
    </blockquote>
    <blockquote>
     <p><span id="svg4"></span> <strong>Rule SVG-4:</strong> An element with type node-shape or property-shape MAY have a custom data attribute on the form <code>data-inspec-public="true"</code> if it is public according to rule AP-3 or AP-4.</p>
@@ -2094,9 +2094,13 @@ Parts of this work may be from another specification document.  If so, those par
    <blockquote>
     <p><span id="svg5"></span> <strong>Rule SVG-5:</strong> An element with type node-shape that is also public MAY have a custom data attribute on the form <code>data-inspec-weight="WEIGHT"</code> where WEIGHT is either "main" or "supportive" according to rule AP-5.</p>
    </blockquote>
-   <p>[^note1]: Both RDFS and SKOS introduce building blocks (classes and properties) for defining things (other classes, properties, concepts, collections) in an open world manner. However, both vocabularies and terminologies needs to work in the context of semantic specifications where it is stated explicitly what is included, hence it corresponds to a closed world perspective. Hence, in both RDFS-INSPEC and SKOS-INSPEC there is a restriction to assume that everything needed is provided in the indicated RDF Datasets.</p>
-   <p>[^note2]: SHACL supports imports declared via <code>owl:import</code>, the rules are written from the perspective that these are respected and all RDF Datasets (potentially recursively) are imported first into a single RDF Dataset.</p>
-   <p>[^note3]: The id value could in principle be the URI, however, it is highly likely that we want to write CSS rules targeting individual elements and then we need to be more restrictive as CSS rules cannot use URIs as part of selectors.</p>
+   <section id="footnotes" style="font-size:smaller;border-top:1px solid">
+    <ol>
+     <li id="fn1"><a class="self-link" href="#fn1"></a>Both RDFS and SKOS introduce building blocks (classes and properties) for defining things (other classes, properties, concepts, collections) in an open world manner. However, both vocabularies and terminologies needs to work in the context of semantic specifications where it is stated explicitly what is included, hence it corresponds to a closed world perspective. Hence, in both RDFS-INSPEC and SKOS-INSPEC there is a restriction to assume that everything needed is provided in the indicated RDF Datasets. <a href="#fn1_1">↩<sup>1</sup></a><a href="#fn1_2">↩<sup>2</sup></a>
+     <li id="fn2"><a class="self-link" href="#fn2"></a>SHACL supports imports declared via <code>owl:import</code>, the rules are written from the perspective that these are respected and all RDF Datasets (potentially recursively) are imported first into a single RDF Dataset. <a href="#fn2_1">↩</a>
+     <li id="fn3"><a class="self-link" href="#fn3"></a>The id value could in principle be the URI, however, it is highly likely that we want to write CSS rules targeting individual elements and then we need to be more restrictive as CSS rules cannot use URIs as part of selectors. <a href="#fn3_1">↩</a>
+    </ol>
+   </section>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content">
