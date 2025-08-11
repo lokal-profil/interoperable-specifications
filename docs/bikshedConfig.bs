@@ -5,7 +5,7 @@ Level: 1.0
 Status: LS
 URL: https://w3id.org/inspec/specification
 Markup Shorthands: markdown yes
-Editor: Matthias Palmér, MetaSolutions https://metasolutions.se/ <!-- skulle vilja få in digg här-->
+Editor: Matthias Palmér, Swedish Agency for Digital Government https://digg.se, https://metasolutions.se/
 Editor: André Costa, MetaSolutions https://metasolutions.se/
 Repository: https://github.com/diggsweden/interoperable-specifications
 !Contributions from the reference group (in alphabetic order): Andrew Mercer (Riksantikvarieämbetet)
