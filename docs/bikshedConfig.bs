@@ -1,15 +1,41 @@
 <pre class='metadata'>
 Title: Interoperable Specifications Profile
 Shortname: INSPEC
-Level: 1.0
+Level: 1
 Status: LS
 URL: https://w3id.org/inspec/specification
 Markup Shorthands: markdown yes
-Editor: Matthias Palmér, Swedish Agency for Digital Government https://digg.se, https://metasolutions.se/
+Editor: Matthias Palmér, MetaSolutions https://metasolutions.se/
 Editor: André Costa, MetaSolutions https://metasolutions.se/
 Repository: https://github.com/diggsweden/interoperable-specifications
+!Version: 1.0
+!On behalf of: <a href="https://www.digg.se">Swedish Agency for Digital Government</a>
 !Contributions from the reference group (in alphabetic order): Andrew Mercer (Riksantikvarieämbetet)
 !Contributions from the reference group (in alphabetic order): Benny Lund (Bolagsverket)
+!Contributions from the reference group (in alphabetic order): Caspar Almalander (SKR)
+!Contributions from the reference group (in alphabetic order): Cilla Öhnfeldt (Naturvårdsverket)
+!Contributions from the reference group (in alphabetic order): Erik Mossing (Bolagsverket)
+!Contributions from the reference group (in alphabetic order): Fredrik Emanuelsson (Riksarkivet)
+!Contributions from the reference group (in alphabetic order): Fredrik Klingwall (Kungliga biblioteket)
+!Contributions from the reference group (in alphabetic order): Fredrik Persäter (Lantmäteriet)
+!Contributions from the reference group (in alphabetic order): Jan Rydkvist ()
+!Contributions from the reference group (in alphabetic order): Johan Oelrich (Arbetsförmedlingen)
+!Contributions from the reference group (in alphabetic order): Kristofer Gäfvert (Lantmäteriet)
+!Contributions from the reference group (in alphabetic order): Lars Näslund (Trafikverket)
+!Contributions from the reference group (in alphabetic order): Marcus Smith (Riksantikvarieämbetet)
+!Contributions from the reference group (in alphabetic order): Marjan Akhavan (E-hälsomyndigheten)
+!Contributions from the reference group (in alphabetic order): Martin Brandhagen (Vetenskapsrådet)
+!Contributions from the reference group (in alphabetic order): Matthias Palmér (Digg)
+!Contributions from the reference group (in alphabetic order): Mattias Ekhem (Digg)
+!Contributions from the reference group (in alphabetic order): Michalis Vassilas (Digg)
+!Contributions from the reference group (in alphabetic order): Olof Olsson (Svensk nationell datatjänst)
+!Contributions from the reference group (in alphabetic order): Olov Johansson (SGU)
+!Contributions from the reference group (in alphabetic order): Patrik Wahlgren (SCB)
+!Contributions from the reference group (in alphabetic order): Per Wiklander (VU)
+!Contributions from the reference group (in alphabetic order): Peter Israelsson (Digg)
+!Contributions from the reference group (in alphabetic order): Stefan Jakobsson (Svensk nationell datatjänst)
+!Contributions from the reference group (in alphabetic order): Tomas Lindberg (SGU)
+!Contributions from the reference group (in alphabetic order): Ulrika Domellöf Mattson (Digg)
 Abstract: The Interoperability Specification Profile aims to provide a mechanism for reusing parts of specifications when creating new specifications. It thus defines a specification as a container that consists of one or more resources each given URIs and described using RDF.
 </pre>
 <pre class=include>
