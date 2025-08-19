@@ -59,7 +59,7 @@ For more details, see the [separate page with planned meetings, slides, notes, r
 
 ## How to give feedback
 
-* Create and comment on issues in Github
+* Create and comment on issues in [Github](https://github.com/diggsweden/interoperable-specifications)
 * Create pull-requests for concrete changes
 * Participate in the reference group meetings
 * Send mail to [info@digg.se](mailto:info@digg.se) for other questions or to reach out to get involved
