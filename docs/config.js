@@ -11,7 +11,7 @@ var respecConfig = {
   editors: [
     {
       name: "Matthias Palmér",
-      url: "matthias@metasolutions.se",
+      url: "mailto:matthias@metasolutions.se",
       company: "MetaSolutions",
       companyURL: "https://metasolutions.se/",
     },
@@ -33,7 +33,7 @@ var respecConfig = {
       key: "On behalf of",
       data: [{
         value: "Swedish Agency for Digital Government",
-        href: "https://www.digg.se",
+        href: "https://www.digg.se/en",
         class: "p-org org h-org",
       }]},
     {
