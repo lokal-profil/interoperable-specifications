@@ -4,12 +4,14 @@ The purpose of the *Interoperable Specification Profile*, or *INSPEC* in short, 
 
 The requirements of interoperable specification are expressed in the form of a profile, this means that the requirements are expressed as special uses / pattern of something existing rather than introducing something entirely new. Absolute requirements are expressed with MUST / MUST NOT, strong requirements with SHOULD / SHOULD NOT and finally MAY for weaker recommendations, see [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt) for a longer treatment.
 
+The formal specification can be found at <http://w3id.org/inspec/specification>.
+
 ## Profile parts
 
 1. [INSPEC in a nutshell](#inspec-in-a-nutshell)
 2. [Background and motivation↗](docs/background.md)
 3. [Conceptual design and definitions↗](docs/design.md)
-4. [Rules for interoperable specifications↗](docs/rules.md) ⇐ (**the formal specification**)
+4. [Rules for interoperable specifications↗](docs/rules.md) ⇐ (**the contents of the formal specification**)
 5. [Application Profiles as SHACL-INSPEC↗](docs/ap.md)
 6. [Bootstrapping specifications↗](docs/bootstrapping.md)
 7. [Harvesting interoperable specifications↗](docs/harvesting.md)

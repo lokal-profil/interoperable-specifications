@@ -23,6 +23,12 @@ var respecConfig = {
   github: "diggsweden/interoperable-specifications",
   otherLinks: [
     {
+      key: "Additional specification resources",
+      data: [{
+        value: "http://w3id.org/inspec",
+        href: "http://w3id.org/inspec",
+      }]},
+    {
       key: "On behalf of",
       data: [{
         value: "Swedish Agency for Digital Government",
