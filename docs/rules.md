@@ -2,11 +2,11 @@
 
 The rules for interoperable specifications are divided into five parts:
 
-1. Rules for interoperable specifications - PROF-INSPEC
-2. Rules for data vocabularies - RDFS-INSPEC
-3. Rules for terminologies - SKOS-INSPEC
-4. Rules for application profiles - SHACL-INSPEC
-5. Rules for diagrams - SVG-INSPEC
+1. Rules for interoperable specifications - PROF-INSPEC - based on [[[DX-PROF]]]
+2. Rules for data vocabularies - RDFS-INSPEC - based on [[[RDF-SCHEMA]]]
+3. Rules for terminologies - SKOS-INSPEC - based on [[[SKOS-REFERENCE]]]]
+4. Rules for application profiles - SHACL-INSPEC - based on [[[SHACL]]]
+5. Rules for diagrams - SVG-INSPEC - based on  [[[SVG11]]]
 
 ## Rules for interoperable specifications - PROF-INSPEC
 
