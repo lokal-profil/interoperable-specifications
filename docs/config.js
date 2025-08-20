@@ -3,6 +3,7 @@ var respecConfig = {
   shortName: "inspec",
   latestVersion: "http://w3id.org/inspec/specification",
   specStatus: "base",
+  edDraftURI: null,  // to prevent automatic generation
   historyURI: null,
   lint: {
     "no-headingless-sections": false,
