@@ -14,7 +14,7 @@ The rules for interoperable specifications are divided into five parts:
 
 For a specification to be considered a interoperable specification the following must apply:
 
-><span id="inspec1"></span> **Rule INSPEC-1:** The "interoperable specification resource" and its parts MUST have URIs and be described with PROF, the interoperable specification resource must be typed as `prof:Profile` or `dcterms:Standard` and have a `dct:conformsTo` point to `inspec:PROF`
+><span id="inspec1"></span> **Rule INSPEC-1:** The "interoperable specification resource" and its parts MUST have URIs and be described with PROF, the interoperable specification resource must be typed as `prof:Profile` or `dcterms:Standard` and have a `dcterms:conformsTo` point to `inspec:PROF`
 
 ><span id="inspec2"></span> **Rule INSPEC-2:** An interoperable specification part MAY be a data vocabulary, a terminology, an application profile or a diagram. Other parts may exist but have no prescribed meaning by the interoperable specification profile.
 
@@ -22,9 +22,9 @@ For a specification to be considered a interoperable specification the following
 
 ><span id="inspec4"></span> **Rule INSPEC-4:** Each terminology MUST be detected by `dcterms:conformsTo` pointing to `inspec:SKOS` and MUST be possible to interpret as SKOS-INSPEC.
 
-><span id="inspec5"></span> **Rule INSPEC-5:** Each application profile MUST be detected by `dct:conformsTo` pointing to `inspec:SHACL` and MUST be possible to interpret as SHACL-INSPEC
+><span id="inspec5"></span> **Rule INSPEC-5:** Each application profile MUST be detected by `dcterms:conformsTo` pointing to `inspec:SHACL` and MUST be possible to interpret as SHACL-INSPEC
 
-><span id="inspec6"></span> **Rule INSPEC-6:** A diagram MUST be detected by `dct:conformsTo` property pointing to `inspec:SVG` and MUST follow SVG-INSPEC
+><span id="inspec6"></span> **Rule INSPEC-6:** A diagram MUST be detected by `dcterms:conformsTo` property pointing to `inspec:SVG` and MUST follow SVG-INSPEC
 
 ><span id="inspec7"></span> **Rule INSPEC-7:** A **foundational** interoperable specification MUST contain at least one data vocabulary or one terminology, MUST NOT contain an application profile and MUST be typed as `dcterms:Standard`
 
