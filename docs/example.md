@@ -75,12 +75,17 @@ ex:vi1 a prof:ResourceDescriptor ;
    dcterms:format "image/svg+xml" ;
    prof:hasArtifact ex:VI1File ;
    prof:hasRole prof:specification .
-
 ```
 
 The following triples can be provided as part of PROF-INSPEC, alternatively they can be auto generated as part of the harvesting process.
 
 ```turtle
+# optional, can also be calculated at harvest
+ex:spec1 inspec:introduces ex:DV1Ontology ;
+   inspec:reuses dcterms: ;
+   inspec:reuses foaf: .
+
+# reproduced from SHACL-INSPEC for added discoverability
 ex:spec1 dcterms:hasPart ex:ns-document ;
    dcterms:hasPart ex:ns-title ;
    dcterms:hasPart ex:ns-created ;
@@ -100,11 +105,6 @@ ex:spec1 dcterms:hasPart ex:ns-document ;
    inspec:reuses foaf:mbox ;
    inspec:introduces ex:personNumber ;
    inspec:reuses dtheme: .
-
-# --- optional ---
-ex:spec1 inspec:introduces ex:DV1Ontology ;
-   inspec:reuses dcterms: ;
-   inspec:reuses foaf: .
 ```
 
 ## RDFS-INSPEC expression
@@ -145,7 +145,6 @@ dtheme: a skos:ConceptScheme ;
 ## SHACL-INSPEC expression
 
 ```turtle
-# --------Document shape----------
 @prefix ex: <http://example.com/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
@@ -155,6 +154,7 @@ dtheme: a skos:ConceptScheme ;
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
+# --------Document shape----------
 ex:ns-document a sh:NodeShape ;
   sh:targetClass foaf:Document ;
   sh:name "Document"@en ;
@@ -221,5 +221,31 @@ ex:ps-pnr a sh:PropertyShape ;
   sh:nodeKind sh:Literal ;
   sh:name "Personal number"@en ;
   sh:minCount "0" .
+```
 
+The following triples can be provided as part of SHACL-INSPEC, alternatively they can be auto generated as part of the harvesting process.
+
+```turtle
+# public shapes - AP-3/AP-4
+ex:spec1 dcterms:hasPart ex:ns-document ;
+   dcterms:hasPart ex:ns-title ;
+   dcterms:hasPart ex:ns-created ;
+   dcterms:hasPart ex:ns-publisher ;
+   dcterms:hasPart ex:ns-subject ;
+   dcterms:hasPart ex:ns-person ;
+   dcterms:hasPart ex:ns-name ;
+   dcterms:hasPart ex:ns-mbox ;
+   dcterms:hasPart ex:ns-pnr .
+
+# referenced classes, properties and terminologies - AP-14
+ex:spec1 inspec:reuses foaf:Document ;
+   inspec:reuses dcterms:title ;
+   inspec:reuses dcterms:created ;
+   inspec:reuses dcterms:publisher ;
+   inspec:reuses dcterms:subject ;
+   inspec:reuses foaf:Person ;
+   inspec:reuses foaf:name ;
+   inspec:reuses foaf:mbox ;
+   inspec:introduces ex:personNumber ;
+   inspec:reuses dtheme: .
 ```
