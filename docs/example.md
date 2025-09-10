@@ -135,7 +135,8 @@ The following is just regular SKOS.
 
 dtheme:ECON a skos:Concept ;
    skos:prefLabel "Economy"@en ;
-   skos:topConceptOf dtheme: .
+   skos:topConceptOf dtheme: ;
+   skos:inScheme dtheme: .
 
 dtheme: a skos:ConceptScheme ;
    dcterms:title "Data theme terminology" .
