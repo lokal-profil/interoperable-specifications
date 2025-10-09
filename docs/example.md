@@ -77,9 +77,7 @@ ex:vi1 a prof:ResourceDescriptor ;
 The following triples can be provided as part of PROF-INSPEC, alternatively they can be auto generated as part of the harvesting process.
 
 ```turtle
-ex:spec1 dcterms:requires ex:DV1Ontology ;
-   dcterms:requires dtheme: ;
-   dcterms:hasPart ex:ns-document ;
+ex:spec1 dcterms:hasPart ex:ns-document ;
    dcterms:hasPart ex:ns-title ;
    dcterms:hasPart ex:ns-created ;
    dcterms:hasPart ex:ns-publisher ;
@@ -87,16 +85,22 @@ ex:spec1 dcterms:requires ex:DV1Ontology ;
    dcterms:hasPart ex:ns-person ;
    dcterms:hasPart ex:ns-name ;
    dcterms:hasPart ex:ns-mbox ;
-   dcterms:hasPart ex:ns-pnr ;
-   dcterms:requires foaf:Document ;
-   dcterms:requires dcterms:title ;
-   dcterms:requires dcterms:created ;
-   dcterms:requires dcterms:publisher ;
-   dcterms:requires dcterms:subject ;
-   dcterms:requires foaf:Person ;
-   dcterms:requires foaf:name ;
-   dcterms:requires foaf:mbox ;
-   dcterms:requires ex:personNumber .
+   dcterms:hasPart ex:ns-pnr;
+   inspec:reuses foaf:Document ;
+   inspec:reuses dcterms:title ;
+   inspec:reuses dcterms:created ;
+   inspec:reuses dcterms:publisher ;
+   inspec:reuses dcterms:subject ;
+   inspec:reuses foaf:Person ;
+   inspec:reuses foaf:name ;
+   inspec:reuses foaf:mbox ;
+   inspec:introduces ex:personNumber ;
+   inspec:reuses dtheme: .
+
+# --- optional ---
+ex:spec1 inspec:introduces ex:DV1Ontology ;
+   inspec:reuses dcterms: ;
+   inspec:reuses foaf: .
 ```
 
 ## RDFS-INSPEC expression
