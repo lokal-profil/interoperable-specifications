@@ -39,6 +39,7 @@ ex:dv1 a prof:ResourceDescriptor ;
    dcterms:title "Data vocabulary for DocPub1.0";
    dcterms:conformsTo inspec:RDFS ;
    dcterms:format "text/turtle" ;
+   dcterms:subject ex:DV1Ontology ;
    prof:hasArtifact ex:DV1File ;
    prof:hasRole prof:schema, prof:vocabulary .
 
@@ -46,6 +47,7 @@ ex:dv2 a prof:ResourceDescriptor ;
    dcterms:title "Data vocabulary for Dublin Core";
    dcterms:conformsTo inspec:RDFS ;
    prof:isInheritedFrom ex:spec_DCTERMS ;
+   dcterms:subject dcterms: ;
    dcterms:format "rdf/xml" ;
    prof:hasArtifact <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.rdf> ;
    prof:hasRole prof:schema, prof:vocabulary .
@@ -54,6 +56,7 @@ ex:dv3 a prof:ResourceDescriptor ;
    dcterms:title "Data vocabulary for Friend of a Friend (FOAF)";
    dcterms:conformsTo inspec:RDFS ;
    prof:isInheritedFrom ex:spec_FOAF ;
+   dcterms:subject foaf: ;
    dcterms:format "rdf/xml" ;
    prof:hasArtifact <http://xmlns.com/foaf/spec/index.rdf> ;
    prof:hasRole prof:schema, prof:vocabulary .
@@ -61,6 +64,7 @@ ex:dv3 a prof:ResourceDescriptor ;
 ex:te1 a prof:ResourceDescriptor ;
    dcterms:title "Data themes terminology from EU publication office";
    dcterms:conformsTo inspec:SKOS ;
+   dcterms:subject dtheme: ;
    dcterms:format "text/turtle" ;
    prof:hasArtifact ex:TE1File ;
    prof:hasRole prof:vocabulary .

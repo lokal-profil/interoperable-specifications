@@ -16,7 +16,7 @@ For a specification to be considered a interoperable specification the following
 
 ><span id="inspec1"></span> **Rule INSPEC-1:** The "interoperable specification resource" and its parts MUST have URIs and be described with PROF, the interoperable specification resource must be typed as `prof:Profile` or `dcterms:Standard` and have a `dcterms:conformsTo` point to `inspec:PROF`
 
-><span id="inspec2"></span> **Rule INSPEC-2:** An interoperable specification part MAY be a data vocabulary, a terminology, an application profile or a diagram. Other parts may exist but have no prescribed meaning by the interoperable specification profile.
+><span id="inspec2"></span> **Rule INSPEC-2:** All specification parts MUST be indicated via the `prof:hasResource` property from the interoperable specification and be typed as `prof:ResourceDescriptor`. An interoperable specification part MAY be a data vocabulary, a terminology, an application profile or a diagram. Other parts may exist but have no prescribed meaning by the interoperable specification profile.
 
 ><span id="inspec3"></span> **Rule INSPEC-3:** Each data vocabulary MUST be detected by `dcterms:conformsTo` pointing to `inspec:RDFS` and MUST be possible to interpret as RDFS-INSPEC.
 
@@ -48,7 +48,7 @@ RDFS-INSPEC builds on top of the RDF Schema specification by providing the follo
 
 ><span id="dv5"></span> **Rule DV-5:** Classes and properties from other vocabularies MAY BE included in the RDF Dataset, e.g. when being pointed to via `rdfs:subClassOf` and `rdfs:subProperty`, but MUST NOT point to the same "data vocabulary resource" via the `rdfs:isDefinedBy` property
 
-><span id="dv6"></span> **Rule DV-6:** The "data vocabulary resource" must be indicated via the `dcterms:requires` property from the "interoperable specification resource" (introduced in Rule INSPEC-1)
+><span id="dv6"></span> **Rule DV-6:** The "data vocabulary resource" MUST be indicated via the `dcterms:subject` property from the "interoperable specification part" (introduced in Rule INSPEC-2).
 
 ><span id="dv7"></span> **Rule DV-7:** The "data vocabulary resource" MAY be indicated via the `inspec:reuses` or `inspec:introduces` properties from the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
@@ -64,7 +64,7 @@ SKOS-INSPEC builds on top of the SKOS specification by providing the following a
 
 ><span id="te4"></span> **Rule TE-4:** All concepts, collections as well as the terminology resource MUST have URIs
 
-><span id="te5"></span> **Rule TE-5:** The "terminology resource" must be indicated via the `dcterms:requires` property from the "interoperable specification resource" (introduced in Rule INSPEC-1)
+><span id="te5"></span> **Rule TE-5:** The "terminology resource" MUST be indicated via the `dcterms:subject` property from the "interoperable specification part" (introduced in Rule INSPEC-2).
 
 ><span id="te6"></span> **Rule TE-6:** The "terminology resource" MAY be indicated via the `inspec:reuses` or `inspec:introduces` properties from the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
