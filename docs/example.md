@@ -18,63 +18,63 @@ The publisher should be typed as a person, have a name, an email that is recomme
 @prefix inspec: <https://w3id.org/inspec/datavoc/> .
 
 ex:spec1 a prof:Profile ;
-   dcterms:title "DocPub1.0 - document and publisher"@en ;
-   dcterms:description """DocPub 1.0 is an example of an interoperable specification.
+  dcterms:title "DocPub1.0 - document and publisher"@en ;
+  dcterms:description """DocPub 1.0 is an example of an interoperable specification.
 It reuses classes and properties from DCTerms and FOAF as well as introduces an own property.
 The purpose is to show how all of the different parts of an interoperable specification fits together.""" ;
-   dcterms:conformsTo inspec:PROF ;
-   prof:hasResource ex:ap1 ;
-   prof:hasResource ex:dv1 ;
-   prof:hasResource ex:te1 ;
-   prof:hasResource ex:vi1 .
+  dcterms:conformsTo inspec:PROF ;
+  prof:hasResource ex:ap1 ;
+  prof:hasResource ex:dv1 ;
+  prof:hasResource ex:te1 ;
+  prof:hasResource ex:vi1 .
 
 ex:ap1 a prof:ResourceDescriptor ;
-   dcterms:title "Application Profile for DocPub1.0";
-   dcterms:conformsTo inspec:SHACL ;
-   dcterms:format "text/turtle" ;
-   prof:hasArtifact ex:AP1File ;
-   prof:hasRole prof:schema, prof:constraints ;
+  dcterms:title "Application Profile for DocPub1.0";
+  dcterms:conformsTo inspec:SHACL ;
+  dcterms:format "text/turtle" ;
+  prof:hasArtifact ex:AP1File ;
+  prof:hasRole prof:schema, prof:constraints ;
 
 ex:dv1 a prof:ResourceDescriptor ;
-   dcterms:title "Data vocabulary for DocPub1.0";
-   dcterms:conformsTo inspec:RDFS ;
-   dcterms:format "text/turtle" ;
-   dcterms:subject ex:DV1Ontology ;
-   prof:hasArtifact ex:DV1File ;
-   prof:hasRole prof:schema, prof:vocabulary .
+  dcterms:title "Data vocabulary for DocPub1.0";
+  dcterms:conformsTo inspec:RDFS ;
+  dcterms:format "text/turtle" ;
+  dcterms:subject ex:DV1Ontology ;
+  prof:hasArtifact ex:DV1File ;
+  prof:hasRole prof:schema, prof:vocabulary .
 
 ex:dv2 a prof:ResourceDescriptor ;
-   dcterms:title "Data vocabulary for Dublin Core";
-   dcterms:conformsTo inspec:RDFS ;
-   prof:isInheritedFrom ex:spec_DCTERMS ;
-   dcterms:subject dcterms: ;
-   dcterms:format "rdf/xml" ;
-   prof:hasArtifact <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.rdf> ;
-   prof:hasRole prof:schema, prof:vocabulary .
+  dcterms:title "Data vocabulary for Dublin Core";
+  dcterms:conformsTo inspec:RDFS ;
+  prof:isInheritedFrom ex:spec_DCTERMS ;
+  dcterms:subject dcterms: ;
+  dcterms:format "rdf/xml" ;
+  prof:hasArtifact <https://www.dublincore.org/specifications/dublin-core/dcmi-terms/dublin_core_terms.rdf> ;
+  prof:hasRole prof:schema, prof:vocabulary .
 
 ex:dv3 a prof:ResourceDescriptor ;
-   dcterms:title "Data vocabulary for Friend of a Friend (FOAF)";
-   dcterms:conformsTo inspec:RDFS ;
-   prof:isInheritedFrom ex:spec_FOAF ;
-   dcterms:subject foaf: ;
-   dcterms:format "rdf/xml" ;
-   prof:hasArtifact <http://xmlns.com/foaf/spec/index.rdf> ;
-   prof:hasRole prof:schema, prof:vocabulary .
+  dcterms:title "Data vocabulary for Friend of a Friend (FOAF)";
+  dcterms:conformsTo inspec:RDFS ;
+  prof:isInheritedFrom ex:spec_FOAF ;
+  dcterms:subject foaf: ;
+  dcterms:format "rdf/xml" ;
+  prof:hasArtifact <http://xmlns.com/foaf/spec/index.rdf> ;
+  prof:hasRole prof:schema, prof:vocabulary .
 
 ex:te1 a prof:ResourceDescriptor ;
-   dcterms:title "Data themes terminology from EU publication office";
-   dcterms:conformsTo inspec:SKOS ;
-   dcterms:subject dtheme: ;
-   dcterms:format "text/turtle" ;
-   prof:hasArtifact ex:TE1File ;
-   prof:hasRole prof:vocabulary .
+  dcterms:title "Data themes terminology from EU publication office";
+  dcterms:conformsTo inspec:SKOS ;
+  dcterms:subject dtheme: ;
+  dcterms:format "text/turtle" ;
+  prof:hasArtifact ex:TE1File ;
+  prof:hasRole prof:vocabulary .
 
 ex:vi1 a prof:ResourceDescriptor ;
-   dcterms:title "Diagram of DocPub1.0";
-   dcterms:conformsTo inspec:SVG ;
-   dcterms:format "image/svg+xml" ;
-   prof:hasArtifact ex:VI1File ;
-   prof:hasRole prof:specification .
+  dcterms:title "Diagram of DocPub1.0";
+  dcterms:conformsTo inspec:SVG ;
+  dcterms:format "image/svg+xml" ;
+  prof:hasArtifact ex:VI1File ;
+  prof:hasRole prof:specification .
 ```
 
 The following triples can be provided as part of PROF-INSPEC, alternatively they can be auto generated as part of the harvesting process.
@@ -82,29 +82,29 @@ The following triples can be provided as part of PROF-INSPEC, alternatively they
 ```turtle
 # optional, can also be calculated at harvest
 ex:spec1 inspec:introduces ex:DV1Ontology ;
-   inspec:reuses dcterms: ;
-   inspec:reuses foaf: .
+  inspec:reuses dcterms: ;
+  inspec:reuses foaf: .
 
 # reproduced from SHACL-INSPEC for added discoverability
 ex:spec1 dcterms:hasPart ex:ns-document ;
-   dcterms:hasPart ex:ns-title ;
-   dcterms:hasPart ex:ns-created ;
-   dcterms:hasPart ex:ns-publisher ;
-   dcterms:hasPart ex:ns-subject ;
-   dcterms:hasPart ex:ns-person ;
-   dcterms:hasPart ex:ns-name ;
-   dcterms:hasPart ex:ns-mbox ;
-   dcterms:hasPart ex:ns-pnr;
-   inspec:reuses foaf:Document ;
-   inspec:reuses dcterms:title ;
-   inspec:reuses dcterms:created ;
-   inspec:reuses dcterms:publisher ;
-   inspec:reuses dcterms:subject ;
-   inspec:reuses foaf:Person ;
-   inspec:reuses foaf:name ;
-   inspec:reuses foaf:mbox ;
-   inspec:introduces ex:personNumber ;
-   inspec:reuses dtheme: .
+  dcterms:hasPart ex:ns-title ;
+  dcterms:hasPart ex:ns-created ;
+  dcterms:hasPart ex:ns-publisher ;
+  dcterms:hasPart ex:ns-subject ;
+  dcterms:hasPart ex:ns-person ;
+  dcterms:hasPart ex:ns-name ;
+  dcterms:hasPart ex:ns-mbox ;
+  dcterms:hasPart ex:ns-pnr;
+  inspec:reuses foaf:Document ;
+  inspec:reuses dcterms:title ;
+  inspec:reuses dcterms:created ;
+  inspec:reuses dcterms:publisher ;
+  inspec:reuses dcterms:subject ;
+  inspec:reuses foaf:Person ;
+  inspec:reuses foaf:name ;
+  inspec:reuses foaf:mbox ;
+  inspec:introduces ex:personNumber ;
+  inspec:reuses dtheme: .
 ```
 
 ## RDFS-INSPEC expression
@@ -115,13 +115,13 @@ ex:spec1 dcterms:hasPart ex:ns-document ;
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 
 ex:personNumber a rdf:Property ;
-   rdfs:label "Personal number"@en ;
-   rdfs:domain foaf:Person ;
-   rdfs:range  rdf:Literal ;
-   rdfs:isDefinedBy ex:DV1Ontology .
-   
+  rdfs:label "Personal number"@en ;
+  rdfs:domain foaf:Person ;
+  rdfs:range  rdf:Literal ;
+  rdfs:isDefinedBy ex:DV1Ontology .
+
 ex:DV1Ontology a owl:Ontology ;
-   dcterms:title "Data vocabulary for DocPub"@en .
+  dcterms:title "Data vocabulary for DocPub"@en .
 ```
 
 ## SKOS-INSPEC expression
@@ -134,12 +134,12 @@ The following is just regular SKOS.
 @prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/>
 
 dtheme:ECON a skos:Concept ;
-   skos:prefLabel "Economy"@en ;
-   skos:topConceptOf dtheme: ;
-   skos:inScheme dtheme: .
+  skos:prefLabel "Economy"@en ;
+  skos:topConceptOf dtheme: ;
+  skos:inScheme dtheme: .
 
 dtheme: a skos:ConceptScheme ;
-   dcterms:title "Data theme terminology" .
+  dcterms:title "Data theme terminology" .
 ...
 ```
 
@@ -187,16 +187,16 @@ ex:ps-subject a sh:PropertyShape ;
   sh:nodeKind sh:IRI ;
   sh:name "Category"@en ;
   sh:node [
-        a sh:NodeShape ;
-        sh:severity sh:Info ;
-        sh:property [
-          sh:path rdf:type ;
-          sh:hasValue skos:Concept
-        ], [
-          sh:path skos:inScheme ;
-          sh:hasValue dtheme:
-        ]
-    ] .
+    a sh:NodeShape ;
+    sh:severity sh:Info ;
+    sh:property [
+      sh:path rdf:type ;
+      sh:hasValue skos:Concept
+    ], [
+      sh:path skos:inScheme ;
+      sh:hasValue dtheme:
+    ]
+  ] .
 
 # --------Person shape----------
 ex:ns-person a sh:NodeShape ;
@@ -229,24 +229,24 @@ The following triples can be provided as part of SHACL-INSPEC, alternatively the
 ```turtle
 # public shapes - AP-3/AP-4
 ex:spec1 dcterms:hasPart ex:ns-document ;
-   dcterms:hasPart ex:ns-title ;
-   dcterms:hasPart ex:ns-created ;
-   dcterms:hasPart ex:ns-publisher ;
-   dcterms:hasPart ex:ns-subject ;
-   dcterms:hasPart ex:ns-person ;
-   dcterms:hasPart ex:ns-name ;
-   dcterms:hasPart ex:ns-mbox ;
-   dcterms:hasPart ex:ns-pnr .
+  dcterms:hasPart ex:ns-title ;
+  dcterms:hasPart ex:ns-created ;
+  dcterms:hasPart ex:ns-publisher ;
+  dcterms:hasPart ex:ns-subject ;
+  dcterms:hasPart ex:ns-person ;
+  dcterms:hasPart ex:ns-name ;
+  dcterms:hasPart ex:ns-mbox ;
+  dcterms:hasPart ex:ns-pnr .
 
 # referenced classes, properties and terminologies - AP-14
 ex:spec1 inspec:reuses foaf:Document ;
-   inspec:reuses dcterms:title ;
-   inspec:reuses dcterms:created ;
-   inspec:reuses dcterms:publisher ;
-   inspec:reuses dcterms:subject ;
-   inspec:reuses foaf:Person ;
-   inspec:reuses foaf:name ;
-   inspec:reuses foaf:mbox ;
-   inspec:introduces ex:personNumber ;
-   inspec:reuses dtheme: .
+  inspec:reuses dcterms:title ;
+  inspec:reuses dcterms:created ;
+  inspec:reuses dcterms:publisher ;
+  inspec:reuses dcterms:subject ;
+  inspec:reuses foaf:Person ;
+  inspec:reuses foaf:name ;
+  inspec:reuses foaf:mbox ;
+  inspec:introduces ex:personNumber ;
+  inspec:reuses dtheme: .
 ```
