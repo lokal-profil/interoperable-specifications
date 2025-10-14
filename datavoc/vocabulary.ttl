@@ -20,13 +20,13 @@ inspec:PROF a rdfs:Class ;
 inspec:RDFS a rdfs:Class ;
   rdfs:label "RDFS"@en ;
   rdfs:isDefinedBy inspec: ;
-  rdfs:comment "This is a specification corresponding to a profile of RDFS used to capture an expression of data vocabularies. Corresponds to the rules DV-1 — DV-6."@en ;
+  rdfs:comment "This is a specification corresponding to a profile of RDFS used to capture an expression of data vocabularies. Corresponds to the rules DV-1 — DV-7."@en ;
   rdfs:seeAlso <https://www.w3.org/TR/rdf12-schema/> .
 
 inspec:SKOS a rdfs:Class ;
   rdfs:label "SKOS"@en ;
   rdfs:isDefinedBy inspec: ;
-  rdfs:comment "This is a specification corresponding to a profile of SKOS used to capture an expression of terminologies. Corresponds to the rules TE-1 — TE-5."@en ;
+  rdfs:comment "This is a specification corresponding to a profile of SKOS used to capture an expression of terminologies. Corresponds to the rules TE-1 — TE-6."@en ;
   rdfs:seeAlso <https://www.w3.org/TR/skos-reference/> .
 
 inspec:SHACL a rdfs:Class ;
@@ -61,3 +61,19 @@ inspec:refines a rdf:Property ;
   rdfs:domain sh:Shape ;
   rdfs:range sh:Shape ;
   rdfs:seeAlso prof:isProfileOf .
+
+inspec:reuses a rdf:Property ;
+  rdfs:label "reuses"@en ;
+  rdfs:isDefinedBy inspec: ;
+  rdfs:comment "A specification reuses a resource if it is needed by the specification but was originally introduced by a different specification"@en ;
+  rdfs:subPropertyOf dcterms:relation ;
+  rdfs:domain dcterms:Standard ;
+  rdfs:range rdfs:Resource .
+
+inspec:introduces a rdf:Property ;
+  rdfs:label "introduces"@en ;
+  rdfs:isDefinedBy inspec: ;
+  rdfs:comment "A specification introduces a resource if it is first introduced by a the same specification"@en ;
+  rdfs:subPropertyOf dcterms:relation ;
+  rdfs:domain dcterms:Standard ;
+  rdfs:range rdfs:Resource .

@@ -70,4 +70,21 @@
     <rdfs:range rdf:resource="http://www.w3.org/ns/shacl#Shape"/>
     <rdfs:seeAlso rdf:resource="http://www.w3.org/ns/dx/prof/isProfileOf"/>
   </rdf:Property>
+
+  <rdf:Property rdf:about="https://w3id.org/inspec/datavoc/reuses">
+    <rdfs:label xml:lang="en">reuses</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/inspec/datavoc/"/>
+    <rdfs:comment xml:lang="en">A specification reuses a resource if it is needed by the specification but was originally introduced by a different specification</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/relation"/>
+    <rdfs:domain rdf:resource="http://purl.org/dc/terms/Standard"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Property>
+  <rdf:Property rdf:about="https://w3id.org/inspec/datavoc/introduces">
+    <rdfs:label xml:lang="en">introduces</rdfs:label>
+    <rdfs:isDefinedBy rdf:resource="https://w3id.org/inspec/datavoc/"/>
+    <rdfs:comment xml:lang="en">A specification introduces a resource if it is first introduced by a the same specification</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/relation"/>
+    <rdfs:domain rdf:resource="http://purl.org/dc/terms/Standard"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+  </rdf:Property>
 </rdf:RDF>

@@ -14,11 +14,11 @@ This is a specification corresponding to a profile of PROF used to capture an in
 
 ## inspec:RDFS
 
-This is a specification corresponding to a profile of RDFS used to capture an expression of data vocabularies. Corresponds to the rules DV-1 — DV-6.
+This is a specification corresponding to a profile of RDFS used to capture an expression of data vocabularies. Corresponds to the rules DV-1 — DV-7.
 
 ## inspec:SKOS
 
-This is a specification corresponding to a profile of SKOS used to capture an expression of terminologies. Corresponds to the rules TE-1 — TE-5.
+This is a specification corresponding to a profile of SKOS used to capture an expression of terminologies. Corresponds to the rules TE-1 — TE-6.
 
 ## inspec:SHACL
 

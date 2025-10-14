@@ -32,7 +32,7 @@ For a specification to be considered a interoperable specification the following
 
 ><span id="inspec9"></span> **Rule INSPEC-9:** A profile interoperable specification MUST list all data vocabularies and terminologies it **uses** in the application profile explicitly as interoperable specification parts
 
-><span id="inspec10"></span> **Rule INSPEC-10:** Data vocabularies and terminologies that are **reused** SHOULD indicate that by referring to the interoperable specification where they where introduced via the `prof:isInheritedFrom` property
+><span id="inspec10"></span> **Rule INSPEC-10:** Interoperable specification parts that are **reused** (as opposed to **introduced**) SHOULD indicate that by referring to the interoperable specification where they where introduced via the `prof:isInheritedFrom` property
 
 ## Rules for data vocabularies - RDFS-INSPEC
 
@@ -50,6 +50,8 @@ RDFS-INSPEC builds on top of the RDF Schema specification by providing the follo
 
 ><span id="dv6"></span> **Rule DV-6:** The "data vocabulary resource" must be indicated via the `dcterms:requires` property from the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
+><span id="dv7"></span> **Rule DV-7:** The "data vocabulary resource" MAY be indicated via the `inspec:reuses` or `inspec:introduces` properties from the "interoperable specification resource" (introduced in Rule INSPEC-1)
+
 ## Rules for terminologies - SKOS-INSPEC
 
 SKOS-INSPEC builds on top of the SKOS specification by providing the following additional restrictions:
@@ -63,6 +65,8 @@ SKOS-INSPEC builds on top of the SKOS specification by providing the following a
 ><span id="te4"></span> **Rule TE-4:** All concepts, collections as well as the terminology resource MUST have URIs
 
 ><span id="te5"></span> **Rule TE-5:** The "terminology resource" must be indicated via the `dcterms:requires` property from the "interoperable specification resource" (introduced in Rule INSPEC-1)
+
+><span id="te6"></span> **Rule TE-6:** The "terminology resource" MAY be indicated via the `inspec:reuses` or `inspec:introduces` properties from the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
 ## Rules for application profiles - SHACL-INSPEC
 
@@ -94,7 +98,7 @@ SHACL-INSPEC builds on top of the SHACL specification by providing additional re
 
 ><span id="ap13"></span> **Rule AP-13:** Shapes used for refinement or for variants MAY reside in other RDF Datasets as long as the dataset is pointed to via `owl:imports` AND there is either a `prof:isProfileOf` or a `inspec:variant` relation between the application profile resources.
 
-><span id="ap14"></span> **Rule AP-14:** All classes, properties and terminologies referred to via shapes should be explicitly indicated via the `dcterms:requires` property from the "interoperable specification resource" (introduced in Rule INSPEC-1)
+><span id="ap14"></span> **Rule AP-14:** All classes, properties and terminologies referred to via shapes should be explicitly indicated via the `inspec:reuses` or `inspec:introduces` properties from the "interoperable specification resource" (introduced in Rule INSPEC-1)
 
 ## Rules for diagrams - SVG-INSPEC
 
