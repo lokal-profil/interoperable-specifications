@@ -43,7 +43,7 @@ The following information MUST be provided for an application profile resource:
 The following information MAY be provided:
 
 * A description / definition expressed via the property `sh:description`
-* A usage note expressed via the property `vann:usageNote`
+* A usage note expressed via the property `skos:scopeNote`
 * A reference to another application profile that expresses that it is a
   * "subprofile" of another profile via `prof:isProfileOf`
   * "variant of" another profile via the `inspec:variant`
@@ -69,7 +69,7 @@ The following information MAY be provided:
 
 * A class it corresponds to via the target declaration `sh:targetClass`
 * A description / definition expressed via the property `sh:description`
-* A usage note expressed via the property `vann:usageNote`
+* A usage note expressed via the property `skos:scopeNote`
 * A reference to another node shape it
   * "refines" via `inspec:refines` AND `sh:and` with a SHACL list containing the refined node shape (see [section on refinement](#node_refinement)), OR
   * "is a variant of" via the `inspec:variant` property (see [section on variants](#node_variant))
@@ -93,7 +93,7 @@ The following information MAY be provided:
   * `sh:minCount "-1"^^xsd:integer` for optional (or, if left out it should be interpreted as -1)
   * `sh:maxCount "N"^^xsd:integer` for a maximum cardinality of `N`
 * A description / definition expressed via the property `sh:description`
-* A usage note expressed via the property `vann:usageNote`
+* A usage note expressed via the property `skos:scopeNote`
 * That a datatype is required on literals by using `sh:datatype` (if several datatypes are allowed, a construction with several property shapes with individual `sh:datatype` joined together via `sh:or` is necessary)
 * That a language is required on literals by setting `sh:datatype` to `rdf:langString`
 * Constraints on which literals that is allowed by:
@@ -270,7 +270,7 @@ ex:ns2 a sh:NodeShape ;
       sh:path dcterms:identifier ;
       sh:order "0.5"^^xsd:decimal ;
       sh:and ( ex:ps-identifier ) .
-  ], ex:ps-title.
+    ], ex:ps-title .
 ```
 
 Note that you have to repeat the `sh:path` due to SHACL rules. We have chosen to not give the new property shape a URI since it does not provide any additional value beyond the order, which is specific to the node shape. This is possible since it does not fall under the [Rule AP-3](rules.md#ap3) rule since `sh:and` is excluded, `sh:path` is not a constraint and an `sh:order` is a characteristic (i.e. a non-validating property). The property shape should therefore be considered **private** (as opposed to public).
@@ -287,18 +287,18 @@ To restrict to concepts in a terminology you should specify:
 
 ```turtle
 ex:ps1 a sh:PropertyShape ;
-    sh:path dcterms:subject ;
-    sh:pattern "^http://example.com/terminologyA/.*$" ;
-    sh:node [
-        a sh:NodeShape ;
-        sh:severity sh:Info ;
-        sh:property [
-          sh:path rdf:type ;
-          sh:hasValue skos:Concept
-        ], [
-          sh:path skos:inScheme ;
-          sh:hasValue ex:terminologyA
-        ]
+  sh:path dcterms:subject ;
+  sh:pattern "^http://example.com/terminologyA/.*$" ;
+  sh:node [
+      a sh:NodeShape ;
+      sh:severity sh:Info ;
+      sh:property [
+        sh:path rdf:type ;
+        sh:hasValue skos:Concept
+      ], [
+        sh:path skos:inScheme ;
+        sh:hasValue ex:terminologyA
+      ]
     ]
 ```
 
@@ -321,19 +321,19 @@ The section was purposefully kept very similar to the section on Restricting to 
 
 ```turtle
 ex:ps1 a sh:PropertyShape ;
-    sh:path dcterms:subject ;
-    sh:node [
-        a sh:NodeShape ;
-        sh:severity sh:Info ;
-        sh:property [
-          sh:path rdf:type ;
-          sh:hasValue skos:Concept
-        ], [
-          sh:path [
-            sh:inversePath skos:member
-          ] ;
-          sh:hasValue ex:collectionA
-        ]
+  sh:path dcterms:subject ;
+  sh:node [
+      a sh:NodeShape ;
+      sh:severity sh:Info ;
+      sh:property [
+        sh:path rdf:type ;
+        sh:hasValue skos:Concept
+      ], [
+        sh:path [
+          sh:inversePath skos:member
+        ] ;
+        sh:hasValue ex:collectionA
+      ]
     ]
 ```
 
@@ -347,46 +347,46 @@ SHACL allows a node shape to include multiple property shapes that together cons
 
 ```turtle
 ex:ns1 a sh:NodeShape ;
-    sh:label "Person" ;
-    sh:property ex:ps1, ex:ps2 .
+  sh:label "Person" ;
+  sh:property ex:ps1, ex:ps2 .
 ex:ps1 a sh:PropertyShape ;
-    sh:label "Name" ;
-    sh:path foaf:givenName ;
-    sh:nodeKind sh:Literal .
+  sh:label "Name" ;
+  sh:path foaf:givenName ;
+  sh:nodeKind sh:Literal .
 ex:ps2 a sh:PropertyShape ;
-    sh:path foaf:givenName ;
-    sh:minCount "1" .
+  sh:path foaf:givenName ;
+  sh:minCount "1" .
 ```
 
 Instead the expression should be done via a single property shape:
 
 ```turtle
 ex:ns1 a sh:NodeShape ;
-    sh:label "Person" ;
-    sh:property ex:ps1 .
+  sh:label "Person" ;
+  sh:property ex:ps1 .
 ex:ps1 a sh:PropertyShape ;
-    sh:label "Name" ;
-    sh:path foaf:givenName ;
-    sh:minCount "1" .
-    sh:nodeKind sh:Literal .
+  sh:label "Name" ;
+  sh:path foaf:givenName ;
+  sh:minCount "1" .
+  sh:nodeKind sh:Literal .
 ```
 
 However, there are situations where the same property is reused on the same node for different reasons. But then the constraints should be made in such a way that the triples matched for each property shape are disjoint. Mechanism to ensure that they match different sets of triples includes `sh:nodeKind` and `sh:pattern`. The following example shows how to point to two different sets of concepts using the same property (`foaf:topic_interests`):
 
 ```turtle
 ex:ns1 a sh:NodeShape ;
-    sh:label "Person" ;
-    sh:property ex:ps1, ex:ps2 .
+  sh:label "Person" ;
+  sh:property ex:ps1, ex:ps2 .
 ex:ps1 a sh:PropertyShape ;
-    sh:label "Hobbies" ;
-    sh:path foaf:topic_interests ;
-    sh:nodeKind sh:URI ;
-    sh:pattern "^http://example.com/hobbies/.*$";
+  sh:label "Hobbies" ;
+  sh:path foaf:topic_interests ;
+  sh:nodeKind sh:URI ;
+  sh:pattern "^http://example.com/hobbies/.*$";
 ex:ps2 a sh:PropertyShape ;
-    sh:label "Professional interests in computer science" ;
-    sh:path foaf:topic_interests ;
-    sh:nodeKind sh:URI ;
-    sh:pattern "^http://example.com/computer_science/.*$";
+  sh:label "Professional interests in computer science" ;
+  sh:path foaf:topic_interests ;
+  sh:nodeKind sh:URI ;
+  sh:pattern "^http://example.com/computer_science/.*$";
 ```
 
 Read the chapter "[Using the same property for different purposes](property-reuse.md)" for a longer background and recommendations on when it is suitable to reuse properties in this manner.
