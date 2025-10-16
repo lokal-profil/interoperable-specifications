@@ -159,7 +159,14 @@ dtheme: a skos:ConceptScheme ;
 ex:ns-document a sh:NodeShape ;
   sh:targetClass foaf:Document ;
   sh:name "Document"@en ;
-  sh:property ex:ps-title, ex:ps-created, ex:ps-subject .
+  sh:property [
+      sh:path rdf:type ;
+      sh:in ( foaf:Document ) ;
+    ],
+    ex:ps-title,
+    ex:ps-created,
+    ex:ps-publisher,
+    ex:ps-subject .
 
 ex:ps-title a sh:PropertyShape ;
   sh:path dcterms:title ;
@@ -202,7 +209,13 @@ ex:ps-subject a sh:PropertyShape ;
 ex:ns-person a sh:NodeShape ;
   sh:targetClass foaf:Person ;
   sh:name "Person"@en ;
-  sh:property ex:ps-name, ex:ps-mbox, ex:ps-pnr .
+  sh:property [
+      sh:path rdf:type ;
+      sh:in ( foaf:Person ) ;
+    ],
+    ex:ps-name,
+    ex:ps-mbox,
+    ex:ps-pnr .
 
 ex:ps-name a sh:PropertyShape ;
   sh:path foaf:name ;
