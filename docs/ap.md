@@ -37,7 +37,7 @@ The following information MUST be provided for an application profile resource:
 * A label expressed via the property `sh:name`
 * A list of public node shapes indicated via the property `dcterms:hasPart`
 * A list of public property shapes indicated via the property `dcterms:hasPart`
-* A list of all classes and properties used in the application profile must be indicated via the property `dcterms:requires` (the foundational classes from SKOS and RDFS should be excluded)
+* A list of all classes and properties used in the application profile must be indicated via the properties `inspec:reuses` or `inspec:introduces` (the foundational classes from SKOS and RDFS should be excluded)
 
 The following information MAY be provided:
 

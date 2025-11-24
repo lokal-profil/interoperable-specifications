@@ -2,7 +2,7 @@
 
 To make interoperable specifications work we need a clear way to identify the different parts. This is achieved by indicating the character of various resources by saying that they conform to a specification. Note that these bootstrapping specifications need not be interoperable specifications in themselves (but it does not hurt if they are).
 
-The bootstrapping specifications have not yet received a stable namespace, but a good candidate may be:
+The bootstrapping specifications use the following namespace:
 
 namespace | expansion
 --- | ---
@@ -14,11 +14,11 @@ This is a specification corresponding to a profile of PROF used to capture an in
 
 ## inspec:RDFS
 
-This is a specification corresponding to a profile of RDFS used to capture an expression of data vocabularies. Corresponds to the rules DV-1 — DV-7.
+This is a specification corresponding to a profile of RDFS used to capture an expression of data vocabularies. Corresponds to the rules DV-1 — DV-6.
 
 ## inspec:SKOS
 
-This is a specification corresponding to a profile of SKOS used to capture an expression of terminologies. Corresponds to the rules TE-1 — TE-6.
+This is a specification corresponding to a profile of SKOS used to capture an expression of terminologies. Corresponds to the rules TE-1 — TE-5.
 
 ## inspec:SHACL
 

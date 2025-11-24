@@ -80,10 +80,16 @@ ex:vi1 a prof:ResourceDescriptor ;
 The following triples can be provided as part of PROF-INSPEC, alternatively they can be auto generated as part of the harvesting process.
 
 ```turtle
-# optional, can also be calculated at harvest
-ex:spec1 inspec:introduces ex:DV1Ontology ;
-  inspec:reuses dcterms: ;
-  inspec:reuses foaf: .
+# referenced classes and properties - AP-14
+ex:spec1 inspec:reuses foaf:Document ;
+  inspec:reuses dcterms:title ;
+  inspec:reuses dcterms:created ;
+  inspec:reuses dcterms:publisher ;
+  inspec:reuses dcterms:subject ;
+  inspec:reuses foaf:Person ;
+  inspec:reuses foaf:name ;
+  inspec:reuses foaf:mbox ;
+  inspec:introduces ex:personNumber .
 
 # reproduced from SHACL-INSPEC for added discoverability
 ex:spec1 dcterms:hasPart ex:ns-document ;
@@ -94,17 +100,7 @@ ex:spec1 dcterms:hasPart ex:ns-document ;
   dcterms:hasPart ex:ns-person ;
   dcterms:hasPart ex:ns-name ;
   dcterms:hasPart ex:ns-mbox ;
-  dcterms:hasPart ex:ns-pnr;
-  inspec:reuses foaf:Document ;
-  inspec:reuses dcterms:title ;
-  inspec:reuses dcterms:created ;
-  inspec:reuses dcterms:publisher ;
-  inspec:reuses dcterms:subject ;
-  inspec:reuses foaf:Person ;
-  inspec:reuses foaf:name ;
-  inspec:reuses foaf:mbox ;
-  inspec:introduces ex:personNumber ;
-  inspec:reuses dtheme: .
+  dcterms:hasPart ex:ns-pnr .
 ```
 
 ## RDFS-INSPEC expression
@@ -131,7 +127,7 @@ The following is just regular SKOS.
 ```turtle
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/>
+@prefix dtheme: <http://publications.europa.eu/resource/authority/data-theme/> .
 
 dtheme:ECON a skos:Concept ;
   skos:prefLabel "Economy"@en ;
@@ -198,10 +194,10 @@ ex:ps-subject a sh:PropertyShape ;
     sh:severity sh:Info ;
     sh:property [
       sh:path rdf:type ;
-      sh:hasValue skos:Concept
+      sh:hasValue skos:Concept ;
     ], [
       sh:path skos:inScheme ;
-      sh:hasValue dtheme:
+      sh:hasValue dtheme: ;
     ]
   ] .
 
@@ -250,16 +246,4 @@ ex:spec1 dcterms:hasPart ex:ns-document ;
   dcterms:hasPart ex:ns-name ;
   dcterms:hasPart ex:ns-mbox ;
   dcterms:hasPart ex:ns-pnr .
-
-# referenced classes, properties and terminologies - AP-14
-ex:spec1 inspec:reuses foaf:Document ;
-  inspec:reuses dcterms:title ;
-  inspec:reuses dcterms:created ;
-  inspec:reuses dcterms:publisher ;
-  inspec:reuses dcterms:subject ;
-  inspec:reuses foaf:Person ;
-  inspec:reuses foaf:name ;
-  inspec:reuses foaf:mbox ;
-  inspec:introduces ex:personNumber ;
-  inspec:reuses dtheme: .
 ```
