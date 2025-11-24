@@ -28,7 +28,7 @@ For a specification to be considered a interoperable specification the following
 
 ><span id="inspec7"></span> **Rule INSPEC-7:** A **foundational** interoperable specification MUST contain at least one data vocabulary or one terminology, MUST NOT contain an application profile and MUST be typed as `dcterms:Standard`
 
-><span id="inspec8"></span> **Rule INSPEC-8:** A **profile** interoperable specification MUST contain at least one data vocabulary, at least one application profile and MUST be typed as `prof:Profile`
+><span id="inspec8"></span> **Rule INSPEC-8:** A **profile** interoperable specification MUST contain at least one application profile and MUST be typed as `prof:Profile`
 
 ><span id="inspec9"></span> **Rule INSPEC-9:** A profile interoperable specification MUST list all data vocabularies and terminologies it **uses** in the application profile explicitly as interoperable specification parts
 
