@@ -35,9 +35,8 @@ The following information MUST be provided for an application profile resource:
 * The application profile resource must have a stable identity in the form of a URI (subject position in triples)
 * The application profile resource must be typed as `prof:Profile`
 * A label expressed via the property `sh:name`
-* A list of main node shapes indicated via the property `dcterms:hasPart`
-* A list of supportive node shapes indicated via the property `dcterms:references`
-* A list of all property shapes referred to from main or supportive node shapes via the property `dcterms:references`
+* A list of public node shapes indicated via the property `dcterms:hasPart`
+* A list of public property shapes indicated via the property `dcterms:hasPart`
 * A list of all classes and properties used in the application profile must be indicated via the property `dcterms:requires` (the foundational classes from SKOS and RDFS should be excluded)
 
 The following information MAY be provided:
@@ -64,10 +63,10 @@ The following information MUST be provided for a node shape:
 * A stable identity in the form of a URI (subject position in triples)
 * A label expressed via the property `sh:name`
 * A list of property shapes via the property `sh:property` (see [section on defining order](#order))
+* (For main node shapes) The class it corresponds to via the target declaration `sh:targetClass`
 
 The following information MAY be provided:
 
-* A class it corresponds to via the target declaration `sh:targetClass`
 * A description / definition expressed via the property `sh:description`
 * A usage note expressed via the property `skos:scopeNote`
 * A reference to another node shape it
