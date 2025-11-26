@@ -37,10 +37,10 @@ The following information MUST be provided for an application profile resource:
 * A label expressed via the property `sh:name`
 * A list of public node shapes indicated via the property `dcterms:hasPart`
 * A list of public property shapes indicated via the property `dcterms:hasPart`
-* A list of all classes and properties used in the application profile must be indicated via the properties `inspec:reuses` or `inspec:introduces` (the foundational classes from SKOS and RDFS should be excluded)
 
-The following information MAY be provided:
+The following information SHOULD/MAY be provided:
 
+* A list of all classes and properties used in the application profile, indicated via the properties `inspec:reuses` or `inspec:introduces`
 * A description / definition expressed via the property `sh:description`
 * A usage note expressed via the property `skos:scopeNote`
 * A reference to another application profile that expresses that it is a
@@ -65,7 +65,7 @@ The following information MUST be provided for a node shape:
 * A list of property shapes via the property `sh:property` (see [section on defining order](#order))
 * (For main node shapes) The class it corresponds to via the target declaration `sh:targetClass`
 
-The following information MAY be provided:
+The following information SHOULD/MAY be provided:
 
 * A description / definition expressed via the property `sh:description`
 * A usage note expressed via the property `skos:scopeNote`
@@ -84,7 +84,7 @@ The following information MUST be provided for a property shape:
 * The property it describes how to use via `sh:path`
 * The value type to match against, `sh:nodeKind` pointing to `sh:IRI`, `sh:BlankNode`, `sh:Literal` etc.
 
-The following information MAY be provided:
+The following information SHOULD/MAY be provided:
 
 * Express cardinality by:
   * `sh:minCount "1"^^xsd:integer` for mandatory
