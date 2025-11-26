@@ -91,7 +91,7 @@ ex:spec1 inspec:reuses foaf:Document ;
   inspec:reuses foaf:mbox ;
   inspec:introduces ex:personNumber .
 
-# reproduced from SHACL-INSPEC for added discoverability
+# public shapes - AP-3/AP-4, reproduced from SHACL-INSPEC or auto generated as part of the harvesting process
 ex:spec1 dcterms:hasPart ex:ns-document ;
   dcterms:hasPart ex:ns-title ;
   dcterms:hasPart ex:ns-created ;
@@ -233,7 +233,7 @@ ex:ps-pnr a sh:PropertyShape ;
   sh:minCount "0" .
 ```
 
-The following triples can be provided as part of SHACL-INSPEC, alternatively they can be auto generated as part of the harvesting process.
+The following triples may be provided as part of SHACL-INSPEC, alternatively they can be auto generated as part of PROF-INSPEC above.
 
 ```turtle
 # public shapes - AP-3/AP-4

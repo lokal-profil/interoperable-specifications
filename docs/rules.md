@@ -94,7 +94,7 @@ SHACL-INSPEC builds on top of the SHACL specification by providing additional re
 
 ><span id="ap13"></span> **Rule AP-13:** Shapes used for refinement or for variants MAY reside in other RDF Datasets as long as the dataset is pointed to via `owl:imports` AND there is either a `prof:isProfileOf` or a `inspec:variant` relation between the application profile resources.
 
-><span id="ap14"></span> **Rule AP-14:** All classes and properties referred to via shapes SHOULD be explicitly indicated from the "interoperable specification resource" (introduced in Rule INSPEC-1). The indication should use `inspec:reuses` if the referred resource is part of a **reused** specification part (see Rule INSPEC-10), otherwise `inspec:introduces` should be used.
+><span id="ap14"></span> **Rule AP-14:** All classes and properties referred to via shapes SHOULD be explicitly indicated from the "application profile resource". The indication should use `inspec:reuses` if the referred resource is part of a **reused** specification part (see Rule INSPEC-10), otherwise `inspec:introduces` should be used.
 
 ## Rules for diagrams - SVG-INSPEC
 
