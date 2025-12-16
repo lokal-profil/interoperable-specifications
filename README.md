@@ -65,3 +65,5 @@ For more details, see the [separate page with planned meetings, slides, notes, r
 * Create pull-requests for concrete changes
 * Participate in the reference group meetings
 * Send mail to [info@digg.se](mailto:info@digg.se) for other questions or to reach out to get involved
+
+The `main` branch of this repository contains the latest released version of the specification whereas `develop` contains the latest working draft. Please consult the working draft before creating an issue and use the corresponding branch as the target for any pull-request.
